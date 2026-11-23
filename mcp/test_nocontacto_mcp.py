@@ -1,4 +1,5 @@
 """La lista de no contacto aplicada a las herramientas del MCP. Servidores falsos en memoria: nunca usa la red."""
+
 import datetime
 import json
 import os
@@ -44,9 +45,16 @@ class Base(unittest.TestCase):
         self.falso = tco.FalsoIMAP(dict([tco.mensaje(1)]))
         self.reloj = datetime.datetime(2027, 3, 1, 12, tzinfo=datetime.timezone.utc).timestamp()
         self.estado = os.path.join(self.t.name, "estado")
-        self.s = servidor.Servicio(self.raiz, self.estado, os.path.join(RAIZ, "agente", "catalogo.json"), crm_fabrica=lambda: self.crm,
-                                   reloj=lambda: self.reloj, correo_cfg=tco.CFG, correo_fabrica=tco.fab(self.falso),
-                                   no_contactar_persona=self.persona)
+        self.s = servidor.Servicio(
+            self.raiz,
+            self.estado,
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+            crm_fabrica=lambda: self.crm,
+            reloj=lambda: self.reloj,
+            correo_cfg=tco.CFG,
+            correo_fabrica=tco.fab(self.falso),
+            no_contactar_persona=self.persona,
+        )
         self.cartera(tcb.csv_de(tcb.fila("F-001", vence="2027-02-20")))
 
     def tearDown(self):
@@ -57,11 +65,24 @@ class Base(unittest.TestCase):
             f.write(texto)
 
     def cartera(self, texto):
-        with open(os.path.join(self.raiz, "workspace", "cartera", "cartera.csv"), "w", encoding="utf-8", newline="") as f:
+        with open(
+            os.path.join(self.raiz, "workspace", "cartera", "cartera.csv"),
+            "w",
+            encoding="utf-8",
+            newline="",
+        ) as f:
             f.write(texto)
 
     def llamar(self, nombre, args):
-        r = servidor.manejar(self.s, {"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": nombre, "arguments": args}})
+        r = servidor.manejar(
+            self.s,
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/call",
+                "params": {"name": nombre, "arguments": args},
+            },
+        )
         txt = r["result"]["content"][0]["text"]
         return r["result"]["isError"], (json.loads(txt) if not r["result"]["isError"] else txt)
 
@@ -69,7 +90,10 @@ class Base(unittest.TestCase):
         salida = ""
         for d, _, fs in os.walk(self.t.name):
             for f in fs:
-                if f not in ("no_contactar.txt", "no_contactar_auto.json"):  # las listas contienen direcciones por definición
+                if f not in (
+                    "no_contactar.txt",
+                    "no_contactar_auto.json",
+                ):  # las listas contienen direcciones por definición
                     with open(os.path.join(d, f), encoding="utf-8", errors="replace") as h:
                         salida += h.read()
         return salida
@@ -99,14 +123,22 @@ class Crm(Base):
 
     def test_crear_tarea_tambien_se_deniega(self):
         self.lista("ana@cliente.com\n")
-        err, _ = self.llamar("crm_crear_tarea", {"email": "ana@cliente.com", "tipo": "seguimiento", "borrador": "Hola"})
+        err, _ = self.llamar(
+            "crm_crear_tarea",
+            {"email": "ana@cliente.com", "tipo": "seguimiento", "borrador": "Hola"},
+        )
         self.assertTrue(err)
         self.assertEqual(self.crm.otras, [])
 
     def test_buscar_y_nota_siguen_permitidas_porque_no_contactan(self):
         self.lista("ana@cliente.com\n")
         self.assertFalse(self.llamar("crm_buscar_contacto", {"email": "ana@cliente.com"})[0])
-        self.assertFalse(self.llamar("crm_registrar_nota", {"email": "ana@cliente.com", "texto": "pidió no ser contactada"})[0])
+        self.assertFalse(
+            self.llamar(
+                "crm_registrar_nota",
+                {"email": "ana@cliente.com", "texto": "pidió no ser contactada"},
+            )[0]
+        )
         self.assertEqual([x[0] for x in self.crm.otras], ["buscar", "nota"])
 
     def test_sin_archivo_de_la_persona_se_deniega_todo_lo_que_contacta(self):
@@ -114,7 +146,12 @@ class Crm(Base):
         err, txt = self.llamar("crm_registrar_lead", LEAD)
         self.assertTrue(err)
         self.assertIn("lista de no contacto", txt)
-        self.assertTrue(self.llamar("crm_crear_tarea", {"email": "ana@cliente.com", "tipo": "seguimiento", "borrador": "Hola"})[0])
+        self.assertTrue(
+            self.llamar(
+                "crm_crear_tarea",
+                {"email": "ana@cliente.com", "tipo": "seguimiento", "borrador": "Hola"},
+            )[0]
+        )
         self.assertTrue(self.llamar("cobranza_evaluar", {"factura_id": "F-001"})[0])
         self.assertEqual((self.crm.llamadas, self.crm.otras), ([], []))
 
@@ -169,7 +206,12 @@ class Correo(Base):
 
 class Bajas(Base):
     def test_una_baja_por_correo_queda_en_la_lista_automatica_y_frena_despues(self):
-        self.falso.mensajes = dict([tco.mensaje(1, cuerpo="Por favor, quiero darme de baja"), tco.mensaje(2, de="Luis <luis@cliente.com>")])
+        self.falso.mensajes = dict(
+            [
+                tco.mensaje(1, cuerpo="Por favor, quiero darme de baja"),
+                tco.mensaje(2, de="Luis <luis@cliente.com>"),
+            ]
+        )
         err, r = self.llamar("correo_nuevos", {})
         self.assertFalse(err, r)
         self.assertEqual((r["bajas_registradas"], len(r["nuevos"])), (1, 1))
@@ -216,9 +258,14 @@ class BajaSinRegistrar(Base):
         self.assertFalse(err, r)
         self.assertEqual(r["bajas_no_registradas"], 1)
         self.assertTrue(os.path.exists(os.path.join(self.estado, "no_contactar_auto.json.bloqueo")))
-        for nombre, args in (("crm_registrar_lead", {**LEAD, "email": "otra@persona.com"}),
-                             ("crm_crear_tarea", {"email": "otra@persona.com", "tipo": "seguimiento", "borrador": "Hola"}),
-                             ("cobranza_evaluar", {"factura_id": "F-001"})):
+        for nombre, args in (
+            ("crm_registrar_lead", {**LEAD, "email": "otra@persona.com"}),
+            (
+                "crm_crear_tarea",
+                {"email": "otra@persona.com", "tipo": "seguimiento", "borrador": "Hola"},
+            ),
+            ("cobranza_evaluar", {"factura_id": "F-001"}),
+        ):
             err, txt = self.llamar(nombre, args)
             self.assertTrue(err, nombre)
             self.assertIn("bajas sin registrar", txt)
@@ -227,16 +274,25 @@ class BajaSinRegistrar(Base):
         self.assertTrue(err)
         self.assertEqual(self.crm.llamadas, [])
 
-    def test_borrar_el_marcador_no_basta_mientras_el_proceso_siga_vivo_y_si_tras_repararlo_y_reiniciar(self):
+    def test_borrar_el_marcador_no_basta_mientras_el_proceso_siga_vivo_y_si_tras_repararlo_y_reiniciar(
+        self,
+    ):
         self.romper_lista_automatica()
         self.falso.mensajes = dict([tco.mensaje(1, cuerpo="darme de baja")])
         self.llamar("correo_nuevos", {})
         os.remove(os.path.join(self.estado, "no_contactar_auto.json.bloqueo"))  # lo borran sin reparar nada
         self.assertTrue(self.llamar("crm_registrar_lead", LEAD)[0])  # el proceso lo recuerda: sigue bloqueado
         os.remove(os.path.join(self.estado, "no_contactar_auto.json"))  # la persona repara la lista...
-        self.s = servidor.Servicio(self.raiz, self.estado, os.path.join(RAIZ, "agente", "catalogo.json"), crm_fabrica=lambda: self.crm,
-                                   reloj=lambda: self.reloj, correo_cfg=tco.CFG, correo_fabrica=tco.fab(self.falso),
-                                   no_contactar_persona=self.persona)  # ...y reinicia el servidor
+        self.s = servidor.Servicio(
+            self.raiz,
+            self.estado,
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+            crm_fabrica=lambda: self.crm,
+            reloj=lambda: self.reloj,
+            correo_cfg=tco.CFG,
+            correo_fabrica=tco.fab(self.falso),
+            no_contactar_persona=self.persona,
+        )  # ...y reinicia el servidor
         self.assertFalse(self.llamar("crm_registrar_lead", LEAD)[0])
 
     def test_si_ni_siquiera_se_puede_escribir_el_marcador_el_proceso_igualmente_se_bloquea(self):
@@ -258,7 +314,10 @@ class Cobranza(Base):
         self.lista("ana@taller.com\n")
         err, r = self.llamar("cobranza_evaluar", {"factura_id": "F-001"})
         self.assertFalse(err, r)
-        self.assertEqual((r["etapa"], r["requiere_persona"], r["mensaje_posible"], r["motivo"]), ("escalar", True, False, "no_contactar"))
+        self.assertEqual(
+            (r["etapa"], r["requiere_persona"], r["mensaje_posible"], r["motivo"]),
+            ("escalar", True, False, "no_contactar"),
+        )
         self.assertNotIn("ana@taller.com", json.dumps(r))
 
     def test_preparar_un_deudor_en_la_lista_no_deja_borrador(self):

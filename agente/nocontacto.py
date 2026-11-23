@@ -15,6 +15,7 @@ Comparación: NFKC, minúsculas y sin `+etiqueta` en la parte local (`ana+x@gmai
 LÍMITES: no sabe si alguien pidió la baja por un canal que el agente no ve; no sincroniza con HubSpot; quien pueda escribir el archivo de
 la persona o el estado puede vaciar la lista (el agente no puede: solo escribe borradores y escalados por el MCP).
 """
+
 import json
 import os
 import re
@@ -142,8 +143,7 @@ def _leer_auto(ruta):
         d = json.loads(_leer_texto(ruta, MAX_BYTES_AUTO))
     except (ValueError, RecursionError):
         raise NoContactoInvalido("el archivo automático no es JSON válido")
-    if not isinstance(d, dict) or not set(d) <= {"version", "entradas"} or d.get("version", 1) != 1 \
-            or not isinstance(d.get("entradas"), dict) or len(d["entradas"]) > MAX_ENTRADAS:
+    if not isinstance(d, dict) or not set(d) <= {"version", "entradas"} or d.get("version", 1) != 1 or not isinstance(d.get("entradas"), dict) or len(d["entradas"]) > MAX_ENTRADAS:
         raise NoContactoInvalido("el archivo automático tiene una estructura inesperada")
     for k, v in d["entradas"].items():
         try:
@@ -173,11 +173,13 @@ def bloqueo_activo(ruta_auto):
 def marcar_bloqueo(ruta_auto, n, ahora):
     """Deja constancia de que `n` bajas no se pudieron registrar: mientras exista este archivo `cargar` falla cerrado y NADA que contacte o
     registre personas funciona. Una persona debe revisar la lista (¿llena? ¿corrupta? ¿sin permisos?) y borrar el archivo. Acumula la cuenta
-    y conserva la fecha de la primera vez. Puede lanzar OSError (el llamador conserva además el bloqueo en memoria)."""
+    y conserva la fecha de la primera vez. Puede lanzar OSError (el llamador conserva además el bloqueo en memoria).
+    """
     sandbox = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "sandbox")
     if sandbox not in sys.path:
         sys.path.insert(0, sandbox)
     from _lock import bloqueo
+
     ruta = _ruta_bloqueo(ruta_auto)
     os.makedirs(os.path.dirname(os.path.abspath(ruta)), exist_ok=True)
     with bloqueo(ruta):
@@ -186,7 +188,10 @@ def marcar_bloqueo(ruta_auto, n, ahora):
             with open(ruta, encoding="utf-8") as f:
                 d = json.load(f)
             if isinstance(d, dict) and type(d.get("bajas_sin_registrar")) is int and d["bajas_sin_registrar"] >= 0:
-                previo = {"bajas_sin_registrar": d["bajas_sin_registrar"], "desde": d.get("desde", ahora)}
+                previo = {
+                    "bajas_sin_registrar": d["bajas_sin_registrar"],
+                    "desde": d.get("desde", ahora),
+                }
         except (OSError, ValueError):
             pass  # ausente o corrupto: lo único que importa es que el archivo exista
         previo["bajas_sin_registrar"] += int(n)
@@ -208,8 +213,7 @@ def marcar_bloqueo(ruta_auto, n, ahora):
 def cargar(ruta_persona, ruta_auto):
     """Lista efectiva (persona + automática). Lanza NoContactoNoConfigurado o NoContactoInvalido (fallo cerrado)."""
     if bloqueo_activo(ruta_auto):
-        raise NoContactoInvalido("hay bajas sin registrar en la lista automática: una persona debe revisarla y borrar "
-                                 f"{os.path.basename(_ruta_bloqueo(ruta_auto))}")
+        raise NoContactoInvalido("hay bajas sin registrar en la lista automática: una persona debe revisarla y borrar " f"{os.path.basename(_ruta_bloqueo(ruta_auto))}")
     correos, dominios = _leer_persona(ruta_persona)
     correos |= set(_leer_auto(ruta_auto))
     return Lista(correos, dominios)
@@ -223,6 +227,7 @@ def agregar_auto(ruta_auto, email, motivo, ahora):
     if sandbox not in sys.path:
         sys.path.insert(0, sandbox)
     from _lock import bloqueo
+
     os.makedirs(os.path.dirname(os.path.abspath(ruta_auto)), exist_ok=True)
     with bloqueo(ruta_auto):
         entradas = _leer_auto(ruta_auto)
@@ -234,7 +239,12 @@ def agregar_auto(ruta_auto, email, motivo, ahora):
         tmp = f"{ruta_auto}.{uuid.uuid4().hex}.tmp"
         try:
             with open(tmp, "w", encoding="utf-8") as f:
-                json.dump({"version": 1, "entradas": entradas}, f, ensure_ascii=False, separators=(",", ":"))
+                json.dump(
+                    {"version": 1, "entradas": entradas},
+                    f,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                )
                 f.flush()
                 os.fsync(f.fileno())
             os.replace(tmp, ruta_auto)

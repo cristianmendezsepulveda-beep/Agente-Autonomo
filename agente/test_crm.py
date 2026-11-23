@@ -1,4 +1,5 @@
 """Pruebas del cliente HubSpot y de las herramientas crm_* del MCP. NUNCA llaman a HubSpot real: usan un servidor falso en 127.0.0.1."""
+
 import http.server
 import json
 import os
@@ -59,8 +60,14 @@ class BaseFalso(unittest.TestCase):
         self.crm = self.nuevo()
 
     def nuevo(self, token=TOKEN):
-        return crm.Crm(token, cotizador.limpiar_texto, os.path.join(self.t.name, "cuota.json"),
-                       f"http://127.0.0.1:{self.srv.server_address[1]}", permitir_http_local=True, ahora=lambda: self.reloj[0])
+        return crm.Crm(
+            token,
+            cotizador.limpiar_texto,
+            os.path.join(self.t.name, "cuota.json"),
+            f"http://127.0.0.1:{self.srv.server_address[1]}",
+            permitir_http_local=True,
+            ahora=lambda: self.reloj[0],
+        )
 
     def tearDown(self):
         self.srv.shutdown()
@@ -78,7 +85,16 @@ class BaseFalso(unittest.TestCase):
 class Validacion(unittest.TestCase):
     def test_email(self):
         self.assertEqual(crm.validar_email("  Ana@Empresa.COM "), "ana@empresa.com")
-        for malo in ("", "sin-arroba", "a@b", "a b@c.com", "a@c.com\nBcc: x@y.com", 5, None, "x" * 300 + "@a.com"):
+        for malo in (
+            "",
+            "sin-arroba",
+            "a@b",
+            "a b@c.com",
+            "a@c.com\nBcc: x@y.com",
+            5,
+            None,
+            "x" * 300 + "@a.com",
+        ):
             with self.assertRaises(ValueError, msg=repr(malo)):
                 crm.validar_email(malo)
 
@@ -95,11 +111,22 @@ class Validacion(unittest.TestCase):
     def test_url_base_solo_hubspot_https(self):
         f = cotizador.limpiar_texto
         crm.Crm(TOKEN, f, "x.json")  # la de producción
-        for mala in ("https://evil.example", "http://api.hubapi.com", "https://api.hubapi.com.evil.example",
-                     "https://api.hubapi.com:8443", "https://api.hubapi.com/otra", "http://127.0.0.1:1"):
+        for mala in (
+            "https://evil.example",
+            "http://api.hubapi.com",
+            "https://api.hubapi.com.evil.example",
+            "https://api.hubapi.com:8443",
+            "https://api.hubapi.com/otra",
+            "http://127.0.0.1:1",
+        ):
             with self.assertRaises(ValueError, msg=mala):
                 crm.Crm(TOKEN, f, "x.json", base_url=mala)
-        for mala in ("http://127.0.0.2:1", "http://127.0.0.1.evil.example:1", "http://localhost:1", "https://127.0.0.1:1"):
+        for mala in (
+            "http://127.0.0.2:1",
+            "http://127.0.0.1.evil.example:1",
+            "http://localhost:1",
+            "https://127.0.0.1:1",
+        ):
             with self.assertRaises(ValueError, msg=mala):  # incluso con permitir_http_local solo vale http://127.0.0.1
                 crm.Crm(TOKEN, f, "x.json", base_url=mala, permitir_http_local=True)
 
@@ -120,7 +147,14 @@ class Validacion(unittest.TestCase):
 
 class Operaciones(BaseFalso):
     def test_lead_nuevo_crea_contacto_y_trato_con_asociacion(self):
-        r = self.crm.registrar_lead("Ana Pérez", "Taller Sur", "ana@taller.com", "+56 9 1234 5678", "consulta", "Pide cotización")
+        r = self.crm.registrar_lead(
+            "Ana Pérez",
+            "Taller Sur",
+            "ana@taller.com",
+            "+56 9 1234 5678",
+            "consulta",
+            "Pide cotización",
+        )
         self.assertTrue(r["nuevo"])
         rutas = [p[0] for p in self.escrituras()]
         self.assertEqual(rutas, ["/crm/v3/objects/contacts", "/crm/v3/objects/deals", "/crm/v3/objects/notes"])
@@ -168,7 +202,14 @@ class Operaciones(BaseFalso):
             self.crm.crear_tarea("ana@taller.com", "enviar_correo", "x")
 
     def test_textos_libres_ocultan_numeros_largos_y_correos(self):
-        self.crm.registrar_lead("Ana Pérez", "", "ana@taller.com", "", "consulta", "mi tarjeta 4111111111111111 y otro@correo.com")
+        self.crm.registrar_lead(
+            "Ana Pérez",
+            "",
+            "ana@taller.com",
+            "",
+            "consulta",
+            "mi tarjeta 4111111111111111 y otro@correo.com",
+        )
         cuerpo = json.dumps(self.escrituras()[-1][1])
         self.assertNotIn("4111111111111111", cuerpo)
         self.assertNotIn("otro@correo.com", cuerpo)
@@ -207,6 +248,7 @@ class Operaciones(BaseFalso):
                 self_.rfile.read(int(self_.headers.get("Content-Length", 0)))
                 return self_._responder(500, {})
             return original(self_)
+
         Falso.do_POST = malo
         try:
             with self.assertRaises(crm.CrmFallo) as cm:
@@ -224,6 +266,7 @@ class Operaciones(BaseFalso):
             self_.send_header("Location", "http://127.0.0.1:9/robado")
             self_.send_header("Content-Length", "0")
             self_.end_headers()
+
         Falso.do_POST = redirige
         try:
             with self.assertRaises(crm.CrmFallo):
@@ -237,13 +280,17 @@ class Operaciones(BaseFalso):
         def enorme(self_):
             self_.rfile.read(int(self_.headers.get("Content-Length", 0)))
             self_._responder(200, {"relleno": "x" * (crm.MAX_RESPUESTA + 10)})
+
         Falso.do_POST = enorme
         try:
             with self.assertRaises(crm.CrmFallo):
                 self.crm.buscar_contacto("a@b.com")
         finally:
             Falso.do_POST = original
-        Falso.do_POST = lambda s: (s.rfile.read(int(s.headers.get("Content-Length", 0))), s._responder(200, {"results": [{"id": "abc"}]}))[1]
+        Falso.do_POST = lambda s: (
+            s.rfile.read(int(s.headers.get("Content-Length", 0))),
+            s._responder(200, {"results": [{"id": "abc"}]}),
+        )[1]
         try:
             with self.assertRaises(crm.CrmFallo):  # id no numérico
                 self.crm.buscar_contacto("a@b.com")
@@ -320,7 +367,11 @@ class Cuota(BaseFalso):
 
     def test_contadores_negativos_o_de_tipo_raro_fallan_cerrado(self):
         hora = "2027-01-15T08"
-        for estado in ({"e_hora": hora, "e_n_hora": -100}, {"e_hora": hora, "e_n_hora": "0"}, {"e_hora": hora, "e_n_hora": True}):
+        for estado in (
+            {"e_hora": hora, "e_n_hora": -100},
+            {"e_hora": hora, "e_n_hora": "0"},
+            {"e_hora": hora, "e_n_hora": True},
+        ):
             with open(os.path.join(self.t.name, "cuota.json"), "w") as f:
                 json.dump({**estado, "e_dia": "2027-01-15", "e_n_dia": 0}, f)
             self.reloj[0] = 1_800_000_000.0  # 2027-01-15T08:00Z
@@ -345,14 +396,30 @@ class ServidorMCP(BaseFalso):
         self.lista_nc = os.path.join(self.t.name, "no_contactar.txt")  # lista de no contacto vacía (es obligatoria: falla cerrado)
         with open(self.lista_nc, "w", encoding="utf-8") as f:
             f.write("# vacía\n")
-        self.s = servidor.Servicio(self.raiz, os.path.join(self.t.name, "estado"), os.path.join(RAIZ, "agente", "catalogo.json"),
-                                   crm_fabrica=lambda: self.crm, no_contactar_persona=self.lista_nc)
+        self.s = servidor.Servicio(
+            self.raiz,
+            os.path.join(self.t.name, "estado"),
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+            crm_fabrica=lambda: self.crm,
+            no_contactar_persona=self.lista_nc,
+        )
 
     def llamar(self, nombre, args):
-        return servidor.manejar(self.s, {"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": nombre, "arguments": args}})
+        return servidor.manejar(
+            self.s,
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/call",
+                "params": {"name": nombre, "arguments": args},
+            },
+        )
 
     def test_flujo_completo_y_log_sin_correo(self):
-        r = self.llamar("crm_registrar_lead", {"nombre": "Ana Pérez", "email": "ana@taller.com", "origen": "consulta"})
+        r = self.llamar(
+            "crm_registrar_lead",
+            {"nombre": "Ana Pérez", "email": "ana@taller.com", "origen": "consulta"},
+        )
         self.assertFalse(r["result"]["isError"], r)
         r = self.llamar("crm_registrar_nota", {"email": "ana@taller.com", "texto": "pidió precio"})
         self.assertFalse(r["result"]["isError"], r)
@@ -368,24 +435,48 @@ class ServidorMCP(BaseFalso):
         self.assertNotIn(TOKEN, log)
 
     def test_argumentos_extra_o_faltantes_se_rechazan_sin_llamar_a_hubspot(self):
-        casos = [("crm_registrar_lead", {"nombre": "Ana", "email": "a@b.com"}),
-                 ("crm_registrar_lead", {"nombre": "Ana", "email": "a@b.com", "origen": "consulta", "etapa": "ganado"}),
-                 ("crm_buscar_contacto", {}), ("crm_crear_tarea", {"email": "a@b.com", "tipo": "seguimiento"}),
-                 ("crm_buscar_contacto", {"email": {"x": 1}})]
+        casos = [
+            ("crm_registrar_lead", {"nombre": "Ana", "email": "a@b.com"}),
+            (
+                "crm_registrar_lead",
+                {"nombre": "Ana", "email": "a@b.com", "origen": "consulta", "etapa": "ganado"},
+            ),
+            ("crm_buscar_contacto", {}),
+            ("crm_crear_tarea", {"email": "a@b.com", "tipo": "seguimiento"}),
+            ("crm_buscar_contacto", {"email": {"x": 1}}),
+        ]
         for nombre, args in casos:
             r = self.llamar(nombre, args)
             self.assertTrue(r["result"]["isError"], (nombre, args))
         self.assertEqual(self.peticiones, [])
 
     def test_sin_token_solo_fallan_las_herramientas_crm(self):
-        s = servidor.Servicio(self.raiz, os.path.join(self.t.name, "estado2"), os.path.join(RAIZ, "agente", "catalogo.json"))
+        s = servidor.Servicio(
+            self.raiz,
+            os.path.join(self.t.name, "estado2"),
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+        )
         original = crm.RUTA_TOKEN
         crm.RUTA_TOKEN = os.path.join(self.t.name, "no-existe")
         try:
-            r = servidor.manejar(s, {"jsonrpc": "2.0", "id": 1, "method": "tools/call",
-                                     "params": {"name": "crm_buscar_contacto", "arguments": {"email": "a@b.com"}}})
-            ok = servidor.manejar(s, {"jsonrpc": "2.0", "id": 2, "method": "tools/call",
-                                      "params": {"name": "listar_catalogo", "arguments": {}}})
+            r = servidor.manejar(
+                s,
+                {
+                    "jsonrpc": "2.0",
+                    "id": 1,
+                    "method": "tools/call",
+                    "params": {"name": "crm_buscar_contacto", "arguments": {"email": "a@b.com"}},
+                },
+            )
+            ok = servidor.manejar(
+                s,
+                {
+                    "jsonrpc": "2.0",
+                    "id": 2,
+                    "method": "tools/call",
+                    "params": {"name": "listar_catalogo", "arguments": {}},
+                },
+            )
         finally:
             crm.RUTA_TOKEN = original
         self.assertTrue(r["result"]["isError"])

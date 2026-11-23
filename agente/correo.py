@@ -15,6 +15,7 @@ Qué es y qué NO es:
 NO verificado contra un servidor IMAP real: el formato de `Authentication-Results` de cada proveedor, límites del servidor, `UIDVALIDITY`.
 Si el proveedor no añade esa cabecera, NINGÚN mensaje se considera verificado y no se registra nada.
 """
+
 import datetime
 import email
 import email.policy
@@ -55,7 +56,8 @@ _RE_LINEA_CAB = re.compile(r"[!-9;-~]+:")  # nombre de cabecera ASCII seguido de
 
 def _estructura_ok(texto):
     """True si el bloque de cabeceras es limpio: sin separadores de línea raros y cada línea es una cabecera o un pliegue.
-    Una línea suelta sin ":" haría que el parser tratara el resto como cuerpo y dejara fuera cabeceras como List-Id."""
+    Una línea suelta sin ":" haría que el parser tratara el resto como cuerpo y dejara fuera cabeceras como List-Id.
+    """
     if re.search(r"[\x0b\x0c\x1c-\x1e\x85  ]|\r(?!\n)", texto):
         return False  # incluye un \r suelto: el parser de `email` lo trata como fin de línea y nosotros no
     for linea in re.split(r"\r?\n", texto):
@@ -103,14 +105,30 @@ def leer_config(ruta=None):
     puerto = c.get("puerto", 993)
     propios = c.get("dominios_propios", [])
     authserv = c.get("authserv_id")  # nombre con el que TU servidor firma Authentication-Results (p. ej. "mx.google.com"); sin él no se verifica nada
-    ok = (isinstance(host, str) and _RE_HOST.fullmatch(host) and isinstance(usuario, str) and 1 <= len(usuario) <= 254
-          and (authserv is None or (isinstance(authserv, str) and _RE_HOST.fullmatch(authserv)))
-          and isinstance(clave, str) and 1 <= len(clave) <= 200 and type(puerto) is int and 1 <= puerto <= 65535
-          and isinstance(propios, list) and len(propios) <= 50 and all(isinstance(d, str) and _RE_DOMINIO.fullmatch(d.lower()) for d in propios))
+    ok = (
+        isinstance(host, str)
+        and _RE_HOST.fullmatch(host)
+        and isinstance(usuario, str)
+        and 1 <= len(usuario) <= 254
+        and (authserv is None or (isinstance(authserv, str) and _RE_HOST.fullmatch(authserv)))
+        and isinstance(clave, str)
+        and 1 <= len(clave) <= 200
+        and type(puerto) is int
+        and 1 <= puerto <= 65535
+        and isinstance(propios, list)
+        and len(propios) <= 50
+        and all(isinstance(d, str) and _RE_DOMINIO.fullmatch(d.lower()) for d in propios)
+    )
     if not ok or any(ord(ch) < 32 or ord(ch) == 127 for ch in usuario + clave):
         raise CorreoNoConfigurado("credenciales con formato inválido")
-    return {"host": host, "puerto": puerto, "usuario": usuario, "clave": clave, "dominios_propios": [d.lower() for d in propios],
-            "authserv_id": authserv.lower() if authserv else None}
+    return {
+        "host": host,
+        "puerto": puerto,
+        "usuario": usuario,
+        "clave": clave,
+        "dominios_propios": [d.lower() for d in propios],
+        "authserv_id": authserv.lower() if authserv else None,
+    }
 
 
 # ------------------------------------------------------------------ texto no confiable
@@ -126,7 +144,8 @@ def _dominio(addr):
 
 def _alineado(dom_from, valores):
     """Alineación ESTRICTA: el dominio firmante/del sobre debe ser exactamente el del remitente (sin dominios padre: sin lista de sufijos
-    públicos un proveedor compartido daría por válido cualquier subdominio). Un remitente legítimo que firma con otro dominio no se registra."""
+    públicos un proveedor compartido daría por válido cualquier subdominio). Un remitente legítimo que firma con otro dominio no se registra.
+    """
     for v in valores:
         v = v.strip().strip("<>").lower().lstrip("@").rstrip(".")
         v = v.rsplit("@", 1)[-1]
@@ -140,7 +159,8 @@ MAX_ANIDAMIENTO = 3  # un resultado de autenticación real anida como mucho 2 ni
 
 def _sin_comentarios(s):
     """Quita los comentarios entre paréntesis (RFC 8601): un tercero puede colar texto como 'dkim=pass' dentro de uno. Lanza ValueError si
-    anidan más de MAX_ANIDAMIENTO niveles: sin ese tope, miles de paréntesis anidados harían miles de pasadas por cabecera (bloqueo de CPU)."""
+    anidan más de MAX_ANIDAMIENTO niveles: sin ese tope, miles de paréntesis anidados harían miles de pasadas por cabecera (bloqueo de CPU).
+    """
     nivel = 0
     for ch in s:  # una pasada lineal ANTES del bucle de eliminación
         if ch == "(":
@@ -169,7 +189,8 @@ def _parentesis_balanceados(s):
 
 def verificado(auth_resultados, dominio_from, authserv_id=None):
     """PURO. DKIM o SPF en `pass` y alineados con el dominio del remitente, según UNA cabecera Authentication-Results cuyo authserv-id
-    (primer token) sea el del servidor propio configurado. Sin `authserv_id` configurado no se verifica NADA."""
+    (primer token) sea el del servidor propio configurado. Sin `authserv_id` configurado no se verifica NADA.
+    """
     if not auth_resultados or not authserv_id:
         return False
     if '"' in auth_resultados or "\\" in auth_resultados:
@@ -218,7 +239,10 @@ def analizar(cabeceras, propios=(), authserv_id=None):
         # se decodifica como UTF-8 (con reemplazo) ANTES de analizar: con message_from_bytes, un encabezado con bytes 8-bit sin
         # codificar (SMTPUTF8) saldría como sustitutos inválidos (\udcXX) que romperían el nombre y el asunto
         if len(cabeceras) >= MAX_CABECERA:
-            return None, "ilegible"  # cabeceras truncadas: las que quedaron fuera (List-Id, Auto-Submitted, otro From…) no se ven
+            return (
+                None,
+                "ilegible",
+            )  # cabeceras truncadas: las que quedaron fuera (List-Id, Auto-Submitted, otro From…) no se ven
         texto = cabeceras.decode("utf-8", "replace")
         if not _estructura_ok(texto):
             return None, "ilegible"
@@ -255,7 +279,12 @@ def analizar(cabeceras, propios=(), authserv_id=None):
         propias = [a for a in ars if authserv_id and (_sin_comentarios(a).split(";", 1)[0].split() or [""])[0].lower() == authserv_id.lower()]
         # el servidor propio añade UNA cabecera; si hay otra con su mismo authserv-id es una imitación: no se verifica
         ver = len(propias) == 1 and ars[0] == propias[0] and verificado(propias[0], dom, authserv_id)
-        return {"email": direccion, "nombre": str(nombre), "asunto": str(msg.get("Subject", "")), "verificado": ver}, None
+        return {
+            "email": direccion,
+            "nombre": str(nombre),
+            "asunto": str(msg.get("Subject", "")),
+            "verificado": ver,
+        }, None
     except Exception:  # cabeceras malformadas de un tercero: se descartan, no se propagan
         return None, "ilegible"
 
@@ -279,16 +308,61 @@ MAX_TEXTO_BAJA = 2000  # caracteres del asunto + cuerpo que se examinan
 # bloquea el contacto con esa persona hasta que alguien edite la lista; un falso negativo no la bloquea (límite conocido: no cubre
 # letras separadas "b a j a", otros idiomas, ni bajas pedidas por imagen o adjunto).
 _FRASES_BAJA = (
-    "darme de baja", "darnos de baja", "dar de baja mi", "quiero la baja", "solicito la baja", "solicito mi baja", "solicitamos la baja",
-    "baja de su lista", "baja de la lista", "baja de sus listas", "no me contacten", "no me contacte", "no me escriban", "no me escriba",
-    "no me llamen", "no me llame", "no quiero recibir", "no deseo recibir", "no queremos recibir", "no quiero que me contacten",
-    "dejen de escribirme", "dejen de contactarme", "dejen de enviarme", "dejen de llamarme", "deje de escribirme", "deje de enviarme",
-    "deje de contactarme", "borrenme de", "eliminenme de", "eliminen mi correo", "eliminar mi correo", "cancelar suscripcion",
-    "cancelar mi suscripcion", "cancelen mi suscripcion", "no mas correos", "no volver a contactarme", "no vuelvan a contactarme",
+    "darme de baja",
+    "darnos de baja",
+    "dar de baja mi",
+    "quiero la baja",
+    "solicito la baja",
+    "solicito mi baja",
+    "solicitamos la baja",
+    "baja de su lista",
+    "baja de la lista",
+    "baja de sus listas",
+    "no me contacten",
+    "no me contacte",
+    "no me escriban",
+    "no me escriba",
+    "no me llamen",
+    "no me llame",
+    "no quiero recibir",
+    "no deseo recibir",
+    "no queremos recibir",
+    "no quiero que me contacten",
+    "dejen de escribirme",
+    "dejen de contactarme",
+    "dejen de enviarme",
+    "dejen de llamarme",
+    "deje de escribirme",
+    "deje de enviarme",
+    "deje de contactarme",
+    "borrenme de",
+    "eliminenme de",
+    "eliminen mi correo",
+    "eliminar mi correo",
+    "cancelar suscripcion",
+    "cancelar mi suscripcion",
+    "cancelen mi suscripcion",
+    "no mas correos",
+    "no volver a contactarme",
+    "no vuelvan a contactarme",
     "no me vuelvan a escribir",
-    "unsubscribe", "remove me", "stop emailing", "stop contacting", "stop sending", "do not contact", "don t contact", "do not email",
-    "don t email", "dont email", "opt out", "optout", "take me off", "remove my email", "remove my address",
-    "no longer wish to receive", "no longer want to receive",
+    "unsubscribe",
+    "remove me",
+    "stop emailing",
+    "stop contacting",
+    "stop sending",
+    "do not contact",
+    "don t contact",
+    "do not email",
+    "don t email",
+    "dont email",
+    "opt out",
+    "optout",
+    "take me off",
+    "remove my email",
+    "remove my address",
+    "no longer wish to receive",
+    "no longer want to receive",
 )
 
 
@@ -332,14 +406,29 @@ def cargar_estado(ruta):
         with open(ruta, encoding="utf-8") as f:
             e = json.load(f)
     except FileNotFoundError:
-        return {"uidvalidity": None, "procesados": [], "pendientes": {}, "hora": "", "lecturas": 0, "captaciones": 0}
+        return {
+            "uidvalidity": None,
+            "procesados": [],
+            "pendientes": {},
+            "hora": "",
+            "lecturas": 0,
+            "captaciones": 0,
+        }
     except (OSError, ValueError):
         raise CorreoEstadoInvalido("estado local ilegible")
-    ok = (isinstance(e, dict) and isinstance(e.get("procesados"), list) and isinstance(e.get("pendientes"), dict)
-          and all(type(u) is int and u >= 0 for u in e["procesados"])
-          and all(isinstance(k, str) and _RE_REF.fullmatch(k) and type(v) is int and v >= 0 for k, v in e["pendientes"].items())
-          and type(e.get("lecturas")) is int and e["lecturas"] >= 0 and type(e.get("captaciones")) is int and e["captaciones"] >= 0
-          and isinstance(e.get("hora"), str) and (e.get("uidvalidity") is None or type(e["uidvalidity"]) is int))
+    ok = (
+        isinstance(e, dict)
+        and isinstance(e.get("procesados"), list)
+        and isinstance(e.get("pendientes"), dict)
+        and all(type(u) is int and u >= 0 for u in e["procesados"])
+        and all(isinstance(k, str) and _RE_REF.fullmatch(k) and type(v) is int and v >= 0 for k, v in e["pendientes"].items())
+        and type(e.get("lecturas")) is int
+        and e["lecturas"] >= 0
+        and type(e.get("captaciones")) is int
+        and e["captaciones"] >= 0
+        and isinstance(e.get("hora"), str)
+        and (e.get("uidvalidity") is None or type(e["uidvalidity"]) is int)
+    )
     if not ok:
         raise CorreoEstadoInvalido("estado local inválido")
     return e
@@ -376,8 +465,16 @@ class Buzon:
 
     def __enter__(self):
         try:
-            self._c = self._fabrica(self.cfg["host"], self.cfg["puerto"]) if self._fabrica else imaplib.IMAP4_SSL(
-                self.cfg["host"], self.cfg["puerto"], ssl_context=ssl.create_default_context(), timeout=20)
+            self._c = (
+                self._fabrica(self.cfg["host"], self.cfg["puerto"])
+                if self._fabrica
+                else imaplib.IMAP4_SSL(
+                    self.cfg["host"],
+                    self.cfg["puerto"],
+                    ssl_context=ssl.create_default_context(),
+                    timeout=20,
+                )
+            )
             self._c.login(self.cfg["usuario"], self.cfg["clave"])
             typ, _ = self._c.select("INBOX", readonly=True)
             if typ != "OK":
@@ -453,11 +550,21 @@ def _ref(uidvalidity, uid):
 def nuevos(cfg, ruta_estado, ahora, fabrica=None, baja=None):
     """Hasta MAX_POR_LLAMADA mensajes nuevos y verificados, SIN remitente. Devuelve dict.
     `baja(email)` (lista de no contacto): si se pasa, un mensaje VERIFICADO que pide no ser contactado se registra con ella, NO se lista
-    y se da por procesado; si `baja` falla, el mensaje tampoco se lista pero se reintentará. Un mensaje sin verificar nunca da de baja a nadie."""
+    y se da por procesado; si `baja` falla, el mensaje tampoco se lista pero se reintentará. Un mensaje sin verificar nunca da de baja a nadie.
+    """
     e = cargar_estado(ruta_estado)
     _cobrar(e, "lecturas", ahora)
     guardar_estado(ruta_estado, e)  # el cobro queda aunque falle la conexión
-    salida, auto, sin_ver, no_leidos, motivos, bajas, bajas_fallidas, baja_rota = [], 0, 0, 0, {}, 0, 0, False
+    salida, auto, sin_ver, no_leidos, motivos, bajas, bajas_fallidas, baja_rota = (
+        [],
+        0,
+        0,
+        0,
+        {},
+        0,
+        0,
+        False,
+    )
     inicio = time.monotonic()
     with Buzon(cfg, fabrica) as b:
         uv = b.uidvalidity()
@@ -502,11 +609,19 @@ def nuevos(cfg, ruta_estado, ahora, fabrica=None, baja=None):
                 ref = _ref(uv, uid)
                 e["pendientes"][ref] = uid
                 # el asunto y el extracto los escribió un TERCERO: salen marcados como datos (mitigación, no garantía)
-                salida.append({"ref": ref, "asunto": revision.marcar_externo(_libre(datos["asunto"], 100)),
-                               "extracto": revision.marcar_externo(extracto(cab, cuerpo))})
+                salida.append(
+                    {
+                        "ref": ref,
+                        "asunto": revision.marcar_externo(_libre(datos["asunto"], 100)),
+                        "extracto": revision.marcar_externo(extracto(cab, cuerpo)),
+                    }
+                )
     # releer y FUSIONAR: otro proceso (o `captar`) pudo cambiar el estado mientras hablábamos con el servidor
     actual = cargar_estado(ruta_estado)
-    if actual["uidvalidity"] in (None, e["uidvalidity"]):  # None = aún sin inicializar en disco (primera ejecución)
+    if actual["uidvalidity"] in (
+        None,
+        e["uidvalidity"],
+    ):  # None = aún sin inicializar en disco (primera ejecución)
         vistos = set(actual["procesados"])
         actual["procesados"] += [u for u in e["procesados"] if u not in vistos]
         ya = set(actual["procesados"])
@@ -517,14 +632,28 @@ def nuevos(cfg, ruta_estado, ahora, fabrica=None, baja=None):
         for k in [k for k, u in actual["pendientes"].items() if u in ya]:
             del actual["pendientes"][k]
         actual["hora"], actual["lecturas"], actual["captaciones"] = (
-            (e["hora"], max(e["lecturas"], actual["lecturas"]), max(e["captaciones"], actual["captaciones"]))
-            if e["hora"] >= actual["hora"] else (actual["hora"], actual["lecturas"], actual["captaciones"]))
+            (
+                e["hora"],
+                max(e["lecturas"], actual["lecturas"]),
+                max(e["captaciones"], actual["captaciones"]),
+            )
+            if e["hora"] >= actual["hora"]
+            else (actual["hora"], actual["lecturas"], actual["captaciones"])
+        )
         e = actual
     guardar_estado(ruta_estado, e)
-    res = {"nuevos": salida, "descartados_automaticos": auto, "descartados_por_motivo": motivos, "sin_verificar": sin_ver,
-           "no_leidos_por_error": no_leidos}
+    res = {
+        "nuevos": salida,
+        "descartados_automaticos": auto,
+        "descartados_por_motivo": motivos,
+        "sin_verificar": sin_ver,
+        "no_leidos_por_error": no_leidos,
+    }
     if baja is not None:
-        res["bajas_registradas"], res["bajas_no_registradas"] = bajas, bajas_fallidas  # solo contadores: sin remitente ni texto
+        res["bajas_registradas"], res["bajas_no_registradas"] = (
+            bajas,
+            bajas_fallidas,
+        )  # solo contadores: sin remitente ni texto
         if bajas_fallidas:
             res["alerta"] = "la lista automática de no contacto no se puede escribir: avise a una persona (hay bajas sin registrar)"
     return res

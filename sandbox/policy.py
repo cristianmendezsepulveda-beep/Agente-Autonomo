@@ -6,6 +6,7 @@ kernel propio (pendiente: virtualización desactivada en este equipo).
 Límites conocidos: TOCTOU entre comprobar la ruta y abrirla (una junction puede cambiar en medio); no se
 verifican nombres 8.3 (se rechaza '~'); la política y el estado deben vivir fuera de los directorios escribibles.
 """
+
 import json
 import os
 import re
@@ -19,8 +20,16 @@ from audit_log import AuditLog
 from budget_guard import BudgetGuard, LimiteExcedido
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-RESERVADOS = {"con", "conin$", "conout$", "prn", "aux", "nul",
-              *(f"com{i}" for i in range(0, 10)), *(f"lpt{i}" for i in range(0, 10))}
+RESERVADOS = {
+    "con",
+    "conin$",
+    "conout$",
+    "prn",
+    "aux",
+    "nul",
+    *(f"com{i}" for i in range(0, 10)),
+    *(f"lpt{i}" for i in range(0, 10)),
+}
 CARACTERES_MALOS = re.compile(r'[<>:"|?*\x00-\x1f~]')
 
 
@@ -50,8 +59,7 @@ class Compuerta:
             raise ValueError("el directorio de estado no puede estar en una zona escribible")
         os.makedirs(self.estado, exist_ok=True)
         lim = self.p["limites"]
-        self.presupuesto = BudgetGuard(os.path.join(self.estado, "presupuesto.json"),
-                                       lim["tokens_max"], lim["acciones_max"])
+        self.presupuesto = BudgetGuard(os.path.join(self.estado, "presupuesto.json"), lim["tokens_max"], lim["acciones_max"])
         self.log = AuditLog(os.path.join(self.estado, "auditoria.jsonl"))
 
     # --- rutas ---
@@ -60,8 +68,7 @@ class Compuerta:
             raise Denegado("ruta inválida")  # incluye ':' (ADS, unidades), '?' (\\?\), '~' (8.3), nulos
         partes = [p for p in re.split(r"[\\/]+", ruta) if p]
         # NFKC convierte COM¹/LPT² en COM1/LPT2, que Windows también trata como dispositivos
-        if any(unicodedata.normalize("NFKC", p).split(".")[0].strip().lower() in RESERVADOS or (p not in (".", "..") and p != p.rstrip(". "))
-               for p in partes):
+        if any(unicodedata.normalize("NFKC", p).split(".")[0].strip().lower() in RESERVADOS or (p not in (".", "..") and p != p.rstrip(". ")) for p in partes):
             raise Denegado("nombre reservado o inválido")
         real = os.path.realpath(os.path.join(self.raiz, ruta))  # resuelve symlinks/junctions y ..
         if not _dentro(real, self.raiz):
@@ -92,7 +99,10 @@ class Compuerta:
         except ValueError:
             self.log.registrar("denegado", {"accion": accion, "motivo": "tokens inválidos"})
             raise Denegado("tokens inválidos")
-        except (RuntimeError, BloqueoNoObtenido):  # estado corrupto o bloqueo no disponible: falla cerrado
+        except (
+            RuntimeError,
+            BloqueoNoObtenido,
+        ):  # estado corrupto o bloqueo no disponible: falla cerrado
             raise Denegado("presupuesto no disponible")
 
     def _denegar(self, accion, e):
@@ -137,12 +147,23 @@ class Compuerta:
         env = {k: os.environ[k] for k in ("SystemRoot", "PATH") if k in os.environ}  # sin secretos del entorno
         lim = self.p["limites"]
         try:
-            r = subprocess.run([exe, "-I", *argv[1:]], cwd=self.raiz, env=env, capture_output=True, text=True,
-                               timeout=lim["timeout_s"], shell=False)
+            r = subprocess.run(
+                [exe, "-I", *argv[1:]],
+                cwd=self.raiz,
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=lim["timeout_s"],
+                shell=False,
+            )
         except subprocess.TimeoutExpired:
             self._denegar("ejecutar", Denegado("timeout"))
         self.log.registrar("ok", {"accion": "ejecutar", "rc": r.returncode})
-        return r.returncode, r.stdout[:lim["salida_max_chars"]], r.stderr[:lim["salida_max_chars"]]
+        return (
+            r.returncode,
+            r.stdout[: lim["salida_max_chars"]],
+            r.stderr[: lim["salida_max_chars"]],
+        )
 
     def red(self, host):
         # Egress denegado: siempre requiere aprobación humana, aunque el host esté en lista blanca.

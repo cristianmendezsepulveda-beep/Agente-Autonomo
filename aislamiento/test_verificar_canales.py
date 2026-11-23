@@ -2,16 +2,49 @@ import unittest
 
 import verificar_canales as v
 
-TOOLSETS = ["web", "browser", "terminal", "file", "code_execution", "vision", "video", "image_gen", "video_gen", "x_search", "tts",
-            "stt", "skills", "todo", "kanban", "memory", "context_engine", "session_search", "connections", "clarify", "delegation",
-            "cronjob", "computer_use"]
+TOOLSETS = [
+    "web",
+    "browser",
+    "terminal",
+    "file",
+    "code_execution",
+    "vision",
+    "video",
+    "image_gen",
+    "video_gen",
+    "x_search",
+    "tts",
+    "stt",
+    "skills",
+    "todo",
+    "kanban",
+    "memory",
+    "context_engine",
+    "session_search",
+    "connections",
+    "clarify",
+    "delegation",
+    "cronjob",
+    "computer_use",
+]
 
 
-def salida(plataforma, habilitados=("clarify",), plugin_habilitado=False, mcp=("agente-local  all tools enabled",)):
+def salida(
+    plataforma,
+    habilitados=("clarify",),
+    plugin_habilitado=False,
+    mcp=("agente-local  all tools enabled",),
+):
     lineas = [f"Built-in toolsets ({plataforma}):"]
     for t in TOOLSETS:
         lineas.append(f"  {'✓ enabled' if t in habilitados else '✗ disabled'}  {t}  icono Descripción")
-    lineas += ["", f"Plugin toolsets ({plataforma}):", f"  {'✓ enabled' if plugin_habilitado else '✗ disabled'}  a2a  🔌 A2A", "", "MCP servers:"]
+    lineas += [
+        "",
+        f"Plugin toolsets ({plataforma}):",
+        f"  {'✓ enabled' if plugin_habilitado else '✗ disabled'}  a2a  🔌 A2A",
+        "",
+        "MCP servers:",
+    ]
     lineas += ["  " + m for m in mcp]
     return "\n".join(lineas) + "\n"
 
@@ -29,6 +62,7 @@ def runner(overrides=None, cli=("clarify", "file", "terminal", "todo")):
         if plataforma in overrides:
             return overrides[plataforma]
         return 0, salida(plataforma, cli if plataforma == "cli" else ("clarify",))
+
     return correr
 
 
@@ -50,8 +84,14 @@ class Parseo(unittest.TestCase):
     def test_marcador_o_nombre_raro_en_un_toolset_no_se_ignora(self):
         # hallazgos 1 y 2 de Hermes: antes estas líneas se ignoraban y el resultado era CORRECTO
         base = salida("telegram")
-        for extra in ("  ✔ enabled  terminal", "  ~ partial  terminal", "  ✓ on  terminal", "  ✓ enabled  clarify.extra  x",
-                      "  ✓ enabled  mcp:foo  x", "basura suelta"):
+        for extra in (
+            "  ✔ enabled  terminal",
+            "  ~ partial  terminal",
+            "  ✓ on  terminal",
+            "  ✓ enabled  clarify.extra  x",
+            "  ✓ enabled  mcp:foo  x",
+            "basura suelta",
+        ):
             malo = base.replace("\nMCP servers:", "\n" + extra + "\nMCP servers:")
             self.assertFalse(v.parsear(malo)[2], extra)
             self.assertFalse(v.evaluar("telegram", malo)[0], extra)
@@ -77,7 +117,10 @@ class Parseo(unittest.TestCase):
         self.assertFalse(v.evaluar("telegram", doble)[0])
 
     def test_nombres_de_plataforma_con_guion_o_mayuscula(self):
-        self.assertEqual(v.descubrir_plataformas("Valid: cli, api-server, WhatsApp2"), ["cli", "api-server", "WhatsApp2"])
+        self.assertEqual(
+            v.descubrir_plataformas("Valid: cli, api-server, WhatsApp2"),
+            ["cli", "api-server", "WhatsApp2"],
+        )
         self.assertIsNone(v.descubrir_plataformas("Valid: cli, -x"))
 
     def test_perfil_que_empieza_por_guion_se_rechaza(self):
@@ -85,7 +128,10 @@ class Parseo(unittest.TestCase):
 
     def test_regresion_discord_y_discord_admin(self):
         # los dos toolsets propios de discord que el verificador real encontró habilitados
-        s = salida("discord").replace("\nPlugin toolsets", "\n  ✓ enabled  discord  💬 Discord\n  ✓ enabled  discord_admin  🛡️ Admin\n\nPlugin toolsets")
+        s = salida("discord").replace(
+            "\nPlugin toolsets",
+            "\n  ✓ enabled  discord  💬 Discord\n  ✓ enabled  discord_admin  🛡️ Admin\n\nPlugin toolsets",
+        )
         ok, d = v.evaluar("discord", s)
         self.assertFalse(ok)
         self.assertIn("discord_admin", d)
@@ -114,7 +160,12 @@ class Evaluacion(unittest.TestCase):
         self.assertFalse(v.evaluar("telegram", salida("telegram", plugin_habilitado=True))[0])
 
     def test_mcp_ajeno_o_ausente_falla(self):
-        self.assertFalse(v.evaluar("telegram", salida("telegram", mcp=("agente-local  all tools enabled", "otro  all tools enabled")))[0])
+        self.assertFalse(
+            v.evaluar(
+                "telegram",
+                salida("telegram", mcp=("agente-local  all tools enabled", "otro  all tools enabled")),
+            )[0]
+        )
         self.assertFalse(v.evaluar("telegram", salida("telegram", mcp=("otro  all tools enabled",)))[0])
         self.assertFalse(v.evaluar("telegram", salida("telegram", mcp=()))[0])
 
@@ -127,7 +178,14 @@ class Descubrimiento(unittest.TestCase):
         self.assertEqual(v.descubrir_plataformas(ERROR_ZZZ), ["cli", "telegram", "whatsapp"])
 
     def test_no_legible(self):
-        for malo in ("", None, "sin lista", "Valid: telegram, whatsapp", "Valid: cli, TELE GRAM", "Valid: cli, ../x"):
+        for malo in (
+            "",
+            None,
+            "sin lista",
+            "Valid: telegram, whatsapp",
+            "Valid: cli, TELE GRAM",
+            "Valid: cli, ../x",
+        ):
             self.assertIsNone(v.descubrir_plataformas(malo), repr(malo))
 
 
@@ -154,7 +212,11 @@ class Verificacion(unittest.TestCase):
         def correr(perfil, p):
             if p == "zzz":
                 return 0, "✗ Unknown platform 'zzz'. Valid: cli, nueva_red\n"
-            return 0, salida(p, ("clarify", "terminal") if p == "nueva_red" else ("clarify", "file", "terminal", "todo"))
+            return 0, salida(
+                p,
+                (("clarify", "terminal") if p == "nueva_red" else ("clarify", "file", "terminal", "todo")),
+            )
+
         veredicto, res = v.verificar("agente", correr)
         self.assertEqual(veredicto, "FALLÓ")
         self.assertEqual([r[0] for r in res if not r[1]], ["nueva_red"])

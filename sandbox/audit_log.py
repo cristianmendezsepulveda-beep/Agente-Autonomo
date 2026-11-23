@@ -5,6 +5,7 @@ archivo (puede recalcular toda la cadena) ni detecta que lo borren o trunquen al
 HMAC con clave fuera del alcance del agente y un ancla externa del último hash.
 No registrar secretos: los textos se truncan y no se guarda contenido de archivos.
 """
+
 import hashlib
 import json
 import os
@@ -52,7 +53,12 @@ class AuditLog:
         datos = {str(k)[:60]: str(v)[:300] for k, v in list((datos or {}).items())[:20]}
         with bloqueo(self.ruta):  # relee la cola dentro del bloqueo: varias instancias no bifurcan la cadena
             n, prev = _ultimo(self.ruta)
-            cuerpo = {"n": n + 1, "ts": round(time.time(), 3), "evento": str(evento)[:60], "datos": datos}
+            cuerpo = {
+                "n": n + 1,
+                "ts": round(time.time(), 3),
+                "evento": str(evento)[:60],
+                "datos": datos,
+            }
             linea = json.dumps({**cuerpo, "prev": prev, "hash": _h(prev, cuerpo)}, ensure_ascii=True)
             with open(self.ruta, "a", encoding="ascii") as f:
                 f.write(linea + "\n")

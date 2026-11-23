@@ -2,6 +2,7 @@
 
 Solo cuenta lo que el llamador declara: quien invoque un modelo debe cobrar una estimación ANTES de llamar.
 """
+
 import json
 import os
 import uuid

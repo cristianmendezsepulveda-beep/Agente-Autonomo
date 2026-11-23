@@ -8,6 +8,7 @@ para no contar dos veces supuestos que el simulador heurístico ya usa.
 Señal sintética: sirve para ORDENAR hipótesis, no para estimar demanda real. Diferencias dentro del
 intervalo de confianza no son ordenables.
 """
+
 import argparse
 import json
 import random
@@ -45,13 +46,22 @@ def ranking(clientes, vars_, resp, seed=0, unicos=True):
         bin_p = [int(r["precio_max_usd"] >= vmap[vid]["precio_mensual_usd"]) for r in rs]
         interes, pago = sum(bin_i) / n, sum(bin_p) / n
         lo, hi = _wilson(0.6 * interes + 0.4 * pago, n)
-        filas.append({"sector": sec, "variante": vid, "n": n,
-                      "intencion": round(interes, 3),
-                      "disposicion_pago": round(pago, 3),
-                      "viabilidad": round(0.6 * interes + 0.4 * pago, 3), "ic95_viabilidad": (lo, hi),
-                      "prior_sector": round(0.5 * c0["facilidad_automatizar_sector"]
-                                            - 0.5 * c0["riesgo_regulatorio_sector"] * vmap[vid]["autonomia"], 3),
-                      "confianza": "alta" if n >= MIN_N_ALTA else "media" if n >= MIN_N_MEDIA else "baja"})
+        filas.append(
+            {
+                "sector": sec,
+                "variante": vid,
+                "n": n,
+                "intencion": round(interes, 3),
+                "disposicion_pago": round(pago, 3),
+                "viabilidad": round(0.6 * interes + 0.4 * pago, 3),
+                "ic95_viabilidad": (lo, hi),
+                "prior_sector": round(
+                    0.5 * c0["facilidad_automatizar_sector"] - 0.5 * c0["riesgo_regulatorio_sector"] * vmap[vid]["autonomia"],
+                    3,
+                ),
+                "confianza": "alta" if n >= MIN_N_ALTA else "media" if n >= MIN_N_MEDIA else "baja",
+            }
+        )
     # orden CONSERVADOR: por el límite inferior del IC95 (las celdas con pocos clientes bajan solas)
     return sorted(filas, key=lambda f: (-f["ic95_viabilidad"][0], -f["viabilidad"]))
 
@@ -130,10 +140,24 @@ if __name__ == "__main__":
     with open("ranking.json", "w", encoding="utf-8") as f:
         json.dump(rks[0], f, ensure_ascii=False, indent=1)
     for fila in rks[0][:10]:
-        print(fila["sector"], fila["variante"], fila["viabilidad"], "IC95 viabilidad", fila["ic95_viabilidad"],
-              f"n={fila['n']}", fila["confianza"])
+        print(
+            fila["sector"],
+            fila["variante"],
+            fila["viabilidad"],
+            "IC95 viabilidad",
+            fila["ic95_viabilidad"],
+            f"n={fila['n']}",
+            fila["confianza"],
+        )
     est = estabilidad_bootstrap(cl, vs, resps[0])
-    print("Estabilidad por remuestreo (cota optimista): Spearman", round(est["spearman"], 3),
-          "| solape del top-5", round(est["top_k_solape"], 3))
+    print(
+        "Estabilidad por remuestreo (cota optimista): Spearman",
+        round(est["spearman"], 3),
+        "| solape del top-5",
+        round(est["top_k_solape"], 3),
+    )
     if len(rks) > 1:
-        print("Spearman entre corridas (solo ruido del simulador):", round(estabilidad(rks[0], rks[1]), 3))
+        print(
+            "Spearman entre corridas (solo ruido del simulador):",
+            round(estabilidad(rks[0], rks[1]), 3),
+        )

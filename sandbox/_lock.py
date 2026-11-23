@@ -3,6 +3,7 @@
 Las secciones críticas duran milisegundos: un .lock con más de EDAD_HUERFANO segundos se considera de un
 proceso muerto y se retira. Falla cerrado (BloqueoNoObtenido) si no se logra obtener a tiempo.
 """
+
 import contextlib
 import os
 import time

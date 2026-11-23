@@ -2,6 +2,7 @@
 
 Nunca envía nada: devuelve un borrador y marca si requiere aprobación humana.
 """
+
 import math
 import re
 import unicodedata
@@ -30,7 +31,8 @@ _CIEN = Decimal(100)
 
 def _decimal_rango(v, maximo):
     """Decimal finito en [0, maximo] a partir de un número o un texto numérico (como lo convierte `cotizar` con
-    Decimal(str(...))). Lanza ValueError si no se puede o se sale del rango; nunca InvalidOperation ni Overflow."""
+    Decimal(str(...))). Lanza ValueError si no se puede o se sale del rango; nunca InvalidOperation ni Overflow.
+    """
     if isinstance(v, bool) or not isinstance(v, (int, float, str)):
         raise ValueError
     if isinstance(v, float) and not math.isfinite(v):
@@ -53,8 +55,11 @@ def _validar_faq(cat):
     (listas de texto NO vacías: una lista vacía apagaría la detección de manipulación/temas sensibles sin avisar) y
     la lista de FAQ (cada entrada con 'palabras' y 'respuesta'). Cada término debe conservar algo tras
     consultas.normalizar (solo [a-z0-9]): un término como '!!!' o '€' normaliza a vacío y su regex casaría con casi
-    cualquier texto (escalaría todo, o una entrada de FAQ respondería a cualquier consulta), un fallo silencioso."""
-    from consultas import normalizar  # import local: el módulo está en el pin; evita cualquier orden de carga raro
+    cualquier texto (escalaría todo, o una entrada de FAQ respondería a cualquier consulta), un fallo silencioso.
+    """
+    from consultas import (
+        normalizar,
+    )  # import local: el módulo está en el pin; evita cualquier orden de carga raro
 
     def enrutables(v):
         # >= 3 caracteres tras normalizar: un término de 1 letra ("\ba\b") casa con casi cualquier consulta
@@ -67,8 +72,7 @@ def _validar_faq(cat):
     if not isinstance(faq, list) or not faq:
         raise ValueError("catálogo: 'faq' debe ser una lista con al menos una entrada")
     for i, f in enumerate(faq, 1):
-        if not (isinstance(f, dict) and enrutables(f.get("palabras"))
-                and isinstance(f.get("respuesta"), str) and f["respuesta"].strip()):
+        if not (isinstance(f, dict) and enrutables(f.get("palabras")) and isinstance(f.get("respuesta"), str) and f["respuesta"].strip()):
             raise ValueError(f"catálogo: faq #{i} debe tener 'palabras' (lista de textos de >= 3 letras/dígitos) y 'respuesta' (texto)")
 
 
@@ -133,7 +137,7 @@ def limpiar_texto(s, maximo=60):
     (ancho cero, inversión bidireccional) y con números largos ocultos."""
     if not isinstance(s, str):
         raise ValueError("el texto debe ser una cadena")
-    s = s[:maximo * 4]  # ANTES de las regex: CORREO es cuadrática y 40.000 letras tardaban 7 s
+    s = s[: maximo * 4]  # ANTES de las regex: CORREO es cuadrática y 40.000 letras tardaban 7 s
     s = "".join(c for c in s if unicodedata.category(c) != "Cf")
     s = NUMEROS.sub("[numero oculto]", CORREO.sub("[correo oculto]", CTRL.sub(" ", s)))
     return s[:maximo].strip()
@@ -157,8 +161,15 @@ def cotizar(cat, lineas, descuento_pct=0, cliente_ref=""):
         total_linea = _q(Decimal(str(it["precio_unitario"])) * cant)
         subtotal += total_linea
         desc_max = min(desc_max, Decimal(str(it["descuento_max_pct"])))
-        detalle.append({"sku": sku, "nombre": it["nombre"], "cantidad": cant,
-                        "precio_unitario": str(_q(Decimal(str(it["precio_unitario"])))), "total": str(total_linea)})
+        detalle.append(
+            {
+                "sku": sku,
+                "nombre": it["nombre"],
+                "cantidad": cant,
+                "precio_unitario": str(_q(Decimal(str(it["precio_unitario"])))),
+                "total": str(total_linea),
+            }
+        )
     descuento = _q(subtotal * d / 100)
     base = subtotal - descuento
     impuesto = _q(base * Decimal(str(cat["iva_pct"])) / 100)
@@ -175,8 +186,17 @@ def cotizar(cat, lineas, descuento_pct=0, cliente_ref=""):
     if len(lineas) > cat["max_lineas_auto"]:
         motivos.append("demasiadas líneas para cotización automática")
         detalle_operador.append(f"{len(lineas)} líneas; el máximo automático es {cat['max_lineas_auto']}")
-    return {"moneda": cat["moneda"], "cliente_ref": limpiar_texto(cliente_ref), "lineas": detalle,
-            "subtotal": str(_q(subtotal)), "descuento_pct": format(d, "f"), "descuento": str(descuento),
-            "impuesto": str(impuesto), "total": str(_q(total)),
-            "requiere_aprobacion_humana": bool(motivos), "motivos": motivos, "detalle_operador": detalle_operador,
-            "estado": "borrador_pendiente_aprobacion"}
+    return {
+        "moneda": cat["moneda"],
+        "cliente_ref": limpiar_texto(cliente_ref),
+        "lineas": detalle,
+        "subtotal": str(_q(subtotal)),
+        "descuento_pct": format(d, "f"),
+        "descuento": str(descuento),
+        "impuesto": str(impuesto),
+        "total": str(_q(total)),
+        "requiere_aprobacion_humana": bool(motivos),
+        "motivos": motivos,
+        "detalle_operador": detalle_operador,
+        "estado": "borrador_pendiente_aprobacion",
+    }

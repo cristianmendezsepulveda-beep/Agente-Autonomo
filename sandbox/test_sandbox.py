@@ -52,7 +52,12 @@ class T(unittest.TestCase):
 
     def test_estado_corrupto_falla_cerrado(self):
         ruta = os.path.join(self.t.name, "b.json")
-        for malo in ('{"tokens": NaN, "acciones": 0}', '{"tokens": -5, "acciones": 0}', '', '{"tokens": 1.5, "acciones": 0}'):
+        for malo in (
+            '{"tokens": NaN, "acciones": 0}',
+            '{"tokens": -5, "acciones": 0}',
+            "",
+            '{"tokens": 1.5, "acciones": 0}',
+        ):
             escribir(ruta, malo)
             with self.assertRaises(RuntimeError, msg=malo):
                 BudgetGuard(ruta, 100, 10)
@@ -118,10 +123,35 @@ class T(unittest.TestCase):
     def test_lectura_confinada_y_secretos(self):
         self.c.escribir_archivo("workspace/ok.txt", "hola")
         self.assertEqual(self.c.leer_archivo("workspace/ok.txt"), "hola")
-        malas = ["../fuera.txt", os.path.join(self.t.name, "otro.txt"), ".env", "sub/id_rsa", "x.PEM", "id_ed25519",
-                 ".npmrc", ".netrc", "a.p12", "sub/.aws/config", ".ssh/config", ".git/config", "secrets.json",
-                 "token.txt", "a.txt:.env", "x:stream", "CON", "nul.txt", "dir/COM1", r"\\?\C:\x", "A~1.TXT",
-                 "evil. ", "evil.", "", None, 5, "a\x00b"]
+        malas = [
+            "../fuera.txt",
+            os.path.join(self.t.name, "otro.txt"),
+            ".env",
+            "sub/id_rsa",
+            "x.PEM",
+            "id_ed25519",
+            ".npmrc",
+            ".netrc",
+            "a.p12",
+            "sub/.aws/config",
+            ".ssh/config",
+            ".git/config",
+            "secrets.json",
+            "token.txt",
+            "a.txt:.env",
+            "x:stream",
+            "CON",
+            "nul.txt",
+            "dir/COM1",
+            r"\\?\C:\x",
+            "A~1.TXT",
+            "evil. ",
+            "evil.",
+            "",
+            None,
+            5,
+            "a\x00b",
+        ]
         for mala in malas:
             with self.assertRaises(Denegado, msg=repr(mala)):
                 self.c.leer_archivo(mala)
@@ -135,6 +165,7 @@ class T(unittest.TestCase):
             os.symlink(fuera, enlace, target_is_directory=True)
         except OSError:
             import subprocess
+
             r = subprocess.run(["cmd", "/c", "mklink", "/J", enlace, fuera], capture_output=True)
             if r.returncode != 0:
                 self.skipTest("no se pudo crear symlink/junction")
@@ -145,8 +176,16 @@ class T(unittest.TestCase):
 
     # --- escritura ---
     def test_escritura_solo_en_workspace_y_no_toca_la_compuerta(self):
-        for mala in ("policy.json", "sandbox/policy.py", "../x.txt", "workspace", "workspace/a.py",
-                     "workspace/run.BAT", "workspace/x.ps1", "otro/a.txt"):
+        for mala in (
+            "policy.json",
+            "sandbox/policy.py",
+            "../x.txt",
+            "workspace",
+            "workspace/a.py",
+            "workspace/run.BAT",
+            "workspace/x.ps1",
+            "otro/a.txt",
+        ):
             with self.assertRaises(Denegado, msg=mala):
                 self.c.escribir_archivo(mala, "x")
         with self.assertRaises(Denegado):
@@ -217,8 +256,16 @@ class T2(unittest.TestCase):
         self.t.cleanup()
 
     def test_escritura_lista_blanca_de_extensiones(self):
-        for mala in ("workspace/.exe", "workspace/a.hta", "workspace/x.url", "workspace/y.scr", "workspace/z.pyz",
-                     "workspace/w.jar", "workspace/sin_extension", "workspace/q.reg"):
+        for mala in (
+            "workspace/.exe",
+            "workspace/a.hta",
+            "workspace/x.url",
+            "workspace/y.scr",
+            "workspace/z.pyz",
+            "workspace/w.jar",
+            "workspace/sin_extension",
+            "workspace/q.reg",
+        ):
             with self.assertRaises(Denegado, msg=mala):
                 self.c.escribir_archivo(mala, "x")
         for buena in ("workspace/a.txt", "workspace/b.json", "workspace/c.MD", "workspace/d.csv"):
@@ -231,6 +278,7 @@ class T2(unittest.TestCase):
 
     def test_bloqueo_huerfano_se_recupera(self):
         import time
+
         ruta = os.path.join(self.t.name, "b.json")
         lock = ruta + ".lock"
         escribir(lock, "")
@@ -241,6 +289,7 @@ class T2(unittest.TestCase):
 
     def test_bloqueo_reciente_no_se_roba_y_falla_cerrado(self):
         from _lock import bloqueo, BloqueoNoObtenido
+
         ruta = os.path.join(self.t.name, "b.json")
         with bloqueo(ruta):
             with self.assertRaises(BloqueoNoObtenido):
@@ -250,13 +299,16 @@ class T2(unittest.TestCase):
     def test_concurrencia_entre_procesos_reales(self):
         import subprocess
         import sys
+
         ruta = os.path.join(self.t.name, "p.json")
-        codigo = ("import sys;sys.path.insert(0,%r);from budget_guard import BudgetGuard,LimiteExcedido;"
-                  "g=BudgetGuard(%r,10**6,20);ok=0\n"
-                  "for _ in range(10):\n"
-                  "    try: g.cobrar_accion(1);ok+=1\n"
-                  "    except LimiteExcedido: pass\n"
-                  "print(ok)") % (AQUI, ruta)
+        codigo = (
+            "import sys;sys.path.insert(0,%r);from budget_guard import BudgetGuard,LimiteExcedido;"
+            "g=BudgetGuard(%r,10**6,20);ok=0\n"
+            "for _ in range(10):\n"
+            "    try: g.cobrar_accion(1);ok+=1\n"
+            "    except LimiteExcedido: pass\n"
+            "print(ok)"
+        ) % (AQUI, ruta)
         ps = [subprocess.Popen([sys.executable, "-c", codigo], stdout=subprocess.PIPE, text=True) for _ in range(4)]
         total = sum(int(p.communicate()[0].strip()) for p in ps)
         self.assertEqual(total, 20)  # 4 procesos x 10 intentos, tope 20: ni uno más

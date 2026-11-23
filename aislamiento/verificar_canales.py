@@ -8,6 +8,7 @@ inesperado, plataformas que no se pueden descubrir, o un comando que falla, dan 
 Qué NO comprueba: el comportamiento de un mensaje real (no hay canal emparejado); que el gateway en ejecución haya recargado la
 configuración (hay que reiniciarlo); herramientas individuales del MCP; que una versión futura de Hermes no reabra herramientas.
 """
+
 import argparse
 import json
 import re
@@ -22,7 +23,13 @@ _RE_VALIDAS = re.compile(r"Valid:\s*(.+)$", re.M)
 _RE_TOOLSET = re.compile(r"^\s{2}(✓ enabled|✗ disabled)\s+([A-Za-z0-9_\-]+)(\s.*)?$")
 _RE_MCP = re.compile(r"^\s{2}([A-Za-z0-9_\-]+)\s{2,}(.+)$")
 MCP_ESTADO_OK = "all tools enabled"
-TOOLSETS_OBLIGATORIOS = {"clarify", "terminal", "file", "web", "browser"}  # deben aparecer (habilitados o no): si faltan, el formato no es el esperado
+TOOLSETS_OBLIGATORIOS = {
+    "clarify",
+    "terminal",
+    "file",
+    "web",
+    "browser",
+}  # deben aparecer (habilitados o no): si faltan, el formato no es el esperado
 _RE_PLATAFORMA = re.compile(r"[A-Za-z0-9][A-Za-z0-9_\-]{0,39}")
 
 
@@ -37,7 +44,11 @@ def parsear(salida):
             continue
         m = _RE_TOOLSET.match(linea)
         if not m:
-            return set(), set(), False  # una línea con otro marcador o nombre raro NO se ignora: falla cerrado
+            return (
+                set(),
+                set(),
+                False,
+            )  # una línea con otro marcador o nombre raro NO se ignora: falla cerrado
         todos.add(m.group(2))
         if m.group(1).startswith("✓"):
             habilitados.add(m.group(2))
@@ -88,8 +99,14 @@ def correr(perfil, plataforma, timeout=60):
     if not exe:
         return 127, "hermes no está en el PATH"
     try:
-        p = subprocess.run([exe, "-p", perfil, "tools", "list", "--platform", plataforma], capture_output=True, text=True,
-                           encoding="utf-8", errors="replace", timeout=timeout)
+        p = subprocess.run(
+            [exe, "-p", perfil, "tools", "list", "--platform", plataforma],
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+            timeout=timeout,
+        )
     except (OSError, subprocess.TimeoutExpired) as e:
         return 124, type(e).__name__
     return p.returncode, p.stdout
@@ -101,7 +118,13 @@ def verificar(perfil, correr_fn=None):
     rc, sal = correr_fn(perfil, "zzz")
     plataformas = descubrir_plataformas(sal) if rc == 0 else None
     if not plataformas:
-        return "FALLÓ", [("(descubrimiento de plataformas)", False, "no se pudo obtener la lista de plataformas de Hermes")]
+        return "FALLÓ", [
+            (
+                "(descubrimiento de plataformas)",
+                False,
+                "no se pudo obtener la lista de plataformas de Hermes",
+            )
+        ]
     resultados = []
     for p in plataformas:
         rc, sal = correr_fn(perfil, p)
@@ -127,7 +150,16 @@ def main(argv=None):
     print("Veredicto canales:", veredicto)
     if a.salida:
         with open(a.salida, "w", encoding="utf-8") as f:
-            json.dump({"perfil": a.perfil, "veredicto": veredicto, "resultados": [list(r) for r in resultados]}, f, ensure_ascii=False, indent=1)
+            json.dump(
+                {
+                    "perfil": a.perfil,
+                    "veredicto": veredicto,
+                    "resultados": [list(r) for r in resultados],
+                },
+                f,
+                ensure_ascii=False,
+                indent=1,
+            )
     return 0 if veredicto == "CORRECTO" else 1
 
 

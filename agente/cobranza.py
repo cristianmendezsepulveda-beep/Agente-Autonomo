@@ -12,6 +12,7 @@ Qué es y qué NO es:
 - Las plantillas son texto de ejemplo en español neutro: una persona debe revisarlas (tono y requisitos legales de su país).
   Nada verifica el consentimiento del cliente para ser contactado.
 """
+
 import csv
 import datetime
 import io
@@ -23,8 +24,17 @@ from decimal import Decimal, InvalidOperation
 import crm  # solo para validar correos con las mismas reglas del CRM
 
 MAX_BYTES, MAX_FILAS = 1_000_000, 2000
-COLUMNAS = ("factura_id", "cliente_ref", "email", "monto", "moneda", "fecha_vencimiento", "estado",
-            "recordatorios_enviados", "ultimo_recordatorio")
+COLUMNAS = (
+    "factura_id",
+    "cliente_ref",
+    "email",
+    "monto",
+    "moneda",
+    "fecha_vencimiento",
+    "estado",
+    "recordatorios_enviados",
+    "ultimo_recordatorio",
+)
 ESTADOS = ("pendiente", "pagada", "disputa", "anulada")
 UMBRAL_MONTO = Decimal("2000")  # sobre este monto siempre decide una persona (propuesto; ajustar al negocio)
 MAX_RECORDATORIOS = 3
@@ -73,9 +83,17 @@ def _fila(f):
     if not re.fullmatch(r"\d{1,2}", n, re.ASCII):
         raise ValueError("recordatorios_enviados inválido")
     ult = f["ultimo_recordatorio"].strip()
-    return {"factura_id": fid, "cliente_ref": ref, "email": email, "monto": monto.quantize(Decimal("0.01")), "moneda": moneda,
-            "vence": _fecha(f["fecha_vencimiento"].strip()), "estado": estado, "recordatorios": int(n),
-            "ultimo": _fecha(ult) if ult else None}
+    return {
+        "factura_id": fid,
+        "cliente_ref": ref,
+        "email": email,
+        "monto": monto.quantize(Decimal("0.01")),
+        "moneda": moneda,
+        "vence": _fecha(f["fecha_vencimiento"].strip()),
+        "estado": estado,
+        "recordatorios": int(n),
+        "ultimo": _fecha(ult) if ult else None,
+    }
 
 
 def leer_cartera(ruta):
@@ -141,15 +159,19 @@ def evaluar(f, hoy):
     return ("amable" if dias <= DIAS_AMABLE else "firme"), dias
 
 
-_CIERRE = ("Si ya realizó el pago, o si hay algún problema con esta factura, por favor respóndanos y lo revisamos. "
-           "Si prefiere no recibir más recordatorios, indíquelo en su respuesta y lo atenderemos.")
+_CIERRE = (
+    "Si ya realizó el pago, o si hay algún problema con esta factura, por favor respóndanos y lo revisamos. " "Si prefiere no recibir más recordatorios, indíquelo en su respuesta y lo atenderemos."
+)
 PLANTILLAS = {
-    "amable": ("Recordatorio de la factura {factura_id}",
-               "Hola. Le escribimos para recordarle que la factura {factura_id} por {moneda} {monto}, con vencimiento el {vence}, "
-               "figura pendiente desde hace {dias} día(s). " + _CIERRE),
-    "firme": ("Factura {factura_id} pendiente de pago",
-              "Hola. La factura {factura_id} por {moneda} {monto} venció el {vence} y sigue pendiente desde hace {dias} días. "
-              "Le pedimos regularizarla o contactarnos para que podamos revisarla juntos. " + _CIERRE),
+    "amable": (
+        "Recordatorio de la factura {factura_id}",
+        "Hola. Le escribimos para recordarle que la factura {factura_id} por {moneda} {monto}, con vencimiento el {vence}, " "figura pendiente desde hace {dias} día(s). " + _CIERRE,
+    ),
+    "firme": (
+        "Factura {factura_id} pendiente de pago",
+        "Hola. La factura {factura_id} por {moneda} {monto} venció el {vence} y sigue pendiente desde hace {dias} días. "
+        "Le pedimos regularizarla o contactarnos para que podamos revisarla juntos. " + _CIERRE,
+    ),
 }
 
 
@@ -158,16 +180,30 @@ def preparar(f, etapa, dias, creado):
     if etapa not in PLANTILLAS:
         raise ValueError("esta etapa no genera mensaje")
     asunto, cuerpo = PLANTILLAS[etapa]
-    datos = {"factura_id": f["factura_id"], "moneda": f["moneda"], "monto": f"{f['monto']:.2f}", "vence": f["vence"].isoformat(),
-             "dias": dias}
-    return {"id": f"c-{f['factura_id']}-{etapa}".lower(), "factura_id": f["factura_id"], "etapa": etapa, "destinatario": f["email"],
-            "asunto": asunto.format(**datos), "mensaje": cuerpo.format(**datos), "creado": creado,
-            "estado": "borrador_pendiente_aprobacion", "nota": "NO enviado: una persona debe revisarlo y enviarlo"}
+    datos = {
+        "factura_id": f["factura_id"],
+        "moneda": f["moneda"],
+        "monto": f"{f['monto']:.2f}",
+        "vence": f["vence"].isoformat(),
+        "dias": dias,
+    }
+    return {
+        "id": f"c-{f['factura_id']}-{etapa}".lower(),
+        "factura_id": f["factura_id"],
+        "etapa": etapa,
+        "destinatario": f["email"],
+        "asunto": asunto.format(**datos),
+        "mensaje": cuerpo.format(**datos),
+        "creado": creado,
+        "estado": "borrador_pendiente_aprobacion",
+        "nota": "NO enviado: una persona debe revisarlo y enviarlo",
+    }
 
 
 def seguimientos(carpeta_borradores, ahora, dias=SEGUIMIENTO_DIAS):
     """Cotizaciones en borrador con más de `dias` días sin tocar (por fecha de modificación del archivo), las más antiguas primero.
-    Devuelve [{borrador, referencia, total, moneda, dias}] (máx. MAX_SEGUIMIENTOS). `referencia` es un alias corto apto para escalar."""
+    Devuelve [{borrador, referencia, total, moneda, dias}] (máx. MAX_SEGUIMIENTOS). `referencia` es un alias corto apto para escalar.
+    """
     salida = []
     try:
         entradas = list(os.scandir(carpeta_borradores))
@@ -185,9 +221,20 @@ def seguimientos(carpeta_borradores, ahora, dias=SEGUIMIENTO_DIAS):
                 q = json.loads(fh.read(200_001).decode("utf-8"))
             if q.get("estado") != "borrador_pendiente_aprobacion" or not isinstance(q.get("total"), str):
                 continue
-            total, moneda = str(Decimal(q["total"]).quantize(Decimal("0.01"))), str(q.get("moneda", ""))[:3]
+            total, moneda = (
+                str(Decimal(q["total"]).quantize(Decimal("0.01"))),
+                str(q.get("moneda", ""))[:3],
+            )
         except (OSError, ValueError, InvalidOperation, AttributeError, UnicodeError):
             continue
-        salida.append({"borrador": nombre, "referencia": "seg-" + nombre[2:10], "total": total, "moneda": moneda, "dias": int(antig)})
+        salida.append(
+            {
+                "borrador": nombre,
+                "referencia": "seg-" + nombre[2:10],
+                "total": total,
+                "moneda": moneda,
+                "dias": int(antig),
+            }
+        )
     salida.sort(key=lambda x: -x["dias"])
     return salida[:MAX_SEGUIMIENTOS]

@@ -14,6 +14,7 @@ Qué es y qué NO es:
 NO verificado contra la API real: los identificadores de asociación (3 trato→contacto, 202 nota→contacto, 204 tarea→contacto)
 y los nombres de etapa del pipeline por defecto; la prueba real en una cuenta de desarrollador debe confirmarlos.
 """
+
 import datetime
 import html
 import http.client
@@ -108,7 +109,15 @@ def validar_telefono(valor):
 
 
 class Crm:
-    def __init__(self, token, limpiar, ruta_cuota, base_url=URL_BASE, permitir_http_local=False, ahora=time.time):
+    def __init__(
+        self,
+        token,
+        limpiar,
+        ruta_cuota,
+        base_url=URL_BASE,
+        permitir_http_local=False,
+        ahora=time.time,
+    ):
         if not callable(limpiar):
             raise ValueError("falta la función de limpieza de texto")
         self._token = token
@@ -123,8 +132,11 @@ class Crm:
         else:
             raise ValueError("URL base no permitida")
         # ProxyHandler({}) explícito: sin proxies del entorno (HTTPS_PROXY) en medio del tráfico con el token
-        self._opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), _SinRedireccion,
-                                                   urllib.request.HTTPSHandler(context=ssl.create_default_context()))
+        self._opener = urllib.request.build_opener(
+            urllib.request.ProxyHandler({}),
+            _SinRedireccion,
+            urllib.request.HTTPSHandler(context=ssl.create_default_context()),
+        )
 
     # ---------- topes (persistidos) ----------
     def _cuota(self, consumir, lecturas=False):
@@ -145,7 +157,14 @@ class Crm:
         n_hora = e.get(pref + "_n_hora", 0) if e.get(pref + "_hora") == hora else 0
         if (not all(type(n) is int and n >= 0 for n in (n_dia, n_hora))) or n_dia + consumir > max_d or n_hora + consumir > max_h:
             raise CrmCuotaAgotada("tope de operaciones en HubSpot alcanzado (hora o día) o estado de cuota inválido")
-        e.update({pref + "_dia": dia, pref + "_n_dia": n_dia + consumir, pref + "_hora": hora, pref + "_n_hora": n_hora + consumir})
+        e.update(
+            {
+                pref + "_dia": dia,
+                pref + "_n_dia": n_dia + consumir,
+                pref + "_hora": hora,
+                pref + "_n_hora": n_hora + consumir,
+            }
+        )
         os.makedirs(os.path.dirname(self._ruta_cuota), exist_ok=True)
         tmp = f"{self._ruta_cuota}.{os.getpid()}.tmp"
         with open(tmp, "w", encoding="utf-8") as f:
@@ -158,9 +177,17 @@ class Crm:
         if escritura and cobrar:
             self._cuota(1)
         datos = json.dumps(cuerpo).encode("utf-8") if cuerpo is not None else None
-        req = urllib.request.Request(self._base + ruta, data=datos, method=metodo, headers={
-            "Authorization": "Bearer " + self._token, "Content-Type": "application/json", "Accept": "application/json",
-            "User-Agent": "agente-local"})
+        req = urllib.request.Request(
+            self._base + ruta,
+            data=datos,
+            method=metodo,
+            headers={
+                "Authorization": "Bearer " + self._token,
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "User-Agent": "agente-local",
+            },
+        )
         try:
             with self._opener.open(req, timeout=TIMEOUT_S) as r:
                 crudo = r.read(MAX_RESPUESTA + 1)
@@ -168,7 +195,13 @@ class Crm:
             codigo = e.code
             e.close()
             raise CrmFallo(f"HubSpot respondió HTTP {codigo}")
-        except (urllib.error.URLError, OSError, ssl.SSLError, ValueError, http.client.HTTPException):
+        except (
+            urllib.error.URLError,
+            OSError,
+            ssl.SSLError,
+            ValueError,
+            http.client.HTTPException,
+        ):
             raise CrmFallo("no se pudo contactar a HubSpot")
         if len(crudo) > MAX_RESPUESTA:
             raise CrmFallo("respuesta demasiado grande")
@@ -187,9 +220,15 @@ class Crm:
 
     def _buscar(self, email):
         self._cuota(1, lecturas=True)  # tope de búsquedas: frena la enumeración del CRM
-        r = self._pedir("POST", "/crm/v3/objects/contacts/search", {
-            "filterGroups": [{"filters": [{"propertyName": "email", "operator": "EQ", "value": email}]}],
-            "properties": ["firstname", "lastname", "company", "email"], "limit": 1})
+        r = self._pedir(
+            "POST",
+            "/crm/v3/objects/contacts/search",
+            {
+                "filterGroups": [{"filters": [{"propertyName": "email", "operator": "EQ", "value": email}]}],
+                "properties": ["firstname", "lastname", "company", "email"],
+                "limit": 1,
+            },
+        )
         res = r.get("results")
         if not isinstance(res, list):
             raise CrmFallo("respuesta inválida")
@@ -202,7 +241,12 @@ class Crm:
 
     @staticmethod
     def _asoc(id_, tipo):
-        return [{"to": {"id": id_}, "types": [{"associationCategory": "HUBSPOT_DEFINED", "associationTypeId": tipo}]}]
+        return [
+            {
+                "to": {"id": id_},
+                "types": [{"associationCategory": "HUBSPOT_DEFINED", "associationTypeId": tipo}],
+            }
+        ]
 
     @staticmethod
     def _id(r):
@@ -228,7 +272,11 @@ class Crm:
             raise ValueError("origen debe ser uno de: " + ", ".join(ORIGENES))
         resumen = self._libre(_texto(resumen, "resumen", 500, False), 500)
         partes = nombre.split(None, 1)
-        props = {"email": email, "firstname": partes[0], "lastname": partes[1] if len(partes) > 1 else ""}
+        props = {
+            "email": email,
+            "firstname": partes[0],
+            "lastname": partes[1] if len(partes) > 1 else "",
+        }
         if empresa:
             props["company"] = empresa
         if telefono:
@@ -246,9 +294,22 @@ class Crm:
         self._cuota(3 if resumen else 2)
         cid = self._id(self._pedir("POST", "/crm/v3/objects/contacts", {"properties": props}, True, cobrar=False))
         try:
-            trato = self._id(self._pedir("POST", "/crm/v3/objects/deals", {
-                "properties": {"dealname": f"Lead {origen}: {partes[0]}", "pipeline": PIPELINE, "dealstage": ETAPA_NUEVO},
-                "associations": self._asoc(cid, ASOC_TRATO_CONTACTO)}, True, cobrar=False))
+            trato = self._id(
+                self._pedir(
+                    "POST",
+                    "/crm/v3/objects/deals",
+                    {
+                        "properties": {
+                            "dealname": f"Lead {origen}: {partes[0]}",
+                            "pipeline": PIPELINE,
+                            "dealstage": ETAPA_NUEVO,
+                        },
+                        "associations": self._asoc(cid, ASOC_TRATO_CONTACTO),
+                    },
+                    True,
+                    cobrar=False,
+                )
+            )
             if resumen:
                 self._nota(cid, f"[Agente] origen={origen}. {resumen}", cobrar=False)
         except CrmFallo:
@@ -257,9 +318,18 @@ class Crm:
         return {"contacto": cid, "nuevo": True, "trato": trato}
 
     def _nota(self, cid, texto, cobrar=True):
-        return self._id(self._pedir("POST", "/crm/v3/objects/notes", {
-            "properties": {"hs_timestamp": self._ahora_iso(), "hs_note_body": texto},
-            "associations": self._asoc(cid, ASOC_NOTA_CONTACTO)}, True, cobrar=cobrar))
+        return self._id(
+            self._pedir(
+                "POST",
+                "/crm/v3/objects/notes",
+                {
+                    "properties": {"hs_timestamp": self._ahora_iso(), "hs_note_body": texto},
+                    "associations": self._asoc(cid, ASOC_NOTA_CONTACTO),
+                },
+                True,
+                cobrar=cobrar,
+            )
+        )
 
     def registrar_nota(self, email, texto):
         email = validar_email(email)
@@ -281,9 +351,21 @@ class Crm:
         c = self._buscar(email)
         if c is None:
             raise ValueError("no existe un contacto con ese email: registre primero el lead")
-        tid = self._id(self._pedir("POST", "/crm/v3/objects/tasks", {
-            "properties": {"hs_timestamp": self._ahora_iso(), "hs_task_subject": f"[Agente] {tipo}: revisar y decidir",
-                           "hs_task_body": "BORRADOR (no enviado, requiere decisión humana): " + borrador,
-                           "hs_task_status": "NOT_STARTED", "hs_task_type": "TODO"},
-            "associations": self._asoc(c["id"], ASOC_TAREA_CONTACTO)}, True))
+        tid = self._id(
+            self._pedir(
+                "POST",
+                "/crm/v3/objects/tasks",
+                {
+                    "properties": {
+                        "hs_timestamp": self._ahora_iso(),
+                        "hs_task_subject": f"[Agente] {tipo}: revisar y decidir",
+                        "hs_task_body": "BORRADOR (no enviado, requiere decisión humana): " + borrador,
+                        "hs_task_status": "NOT_STARTED",
+                        "hs_task_type": "TODO",
+                    },
+                    "associations": self._asoc(c["id"], ASOC_TAREA_CONTACTO),
+                },
+                True,
+            )
+        )
         return {"tarea": tid, "contacto": c["id"]}

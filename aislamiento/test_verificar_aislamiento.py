@@ -1,4 +1,5 @@
 """Pruebas de los evaluadores puros (sin Docker): con salidas de ejemplo buenas y malas, y un caso por cada hallazgo de auditoría."""
+
 import copy
 import io
 import json
@@ -30,8 +31,13 @@ class Evaluadores(unittest.TestCase):
 
     def test_montajes_del_host(self):
         self.assertTrue(v.sin_montajes_del_host(MONTAJES_BUENOS)[0])
-        for malo in ("C:\\ /host_mnt/c 9p rw 0 0", "drvfs /mnt/c drvfs rw 0 0", "x /workspace virtiofs rw 0 0",
-                     "grpcfuse /data fuse.grpcfuse rw 0 0", "/run/desktop/mnt/host/c /x ext4 rw 0 0"):
+        for malo in (
+            "C:\\ /host_mnt/c 9p rw 0 0",
+            "drvfs /mnt/c drvfs rw 0 0",
+            "x /workspace virtiofs rw 0 0",
+            "grpcfuse /data fuse.grpcfuse rw 0 0",
+            "/run/desktop/mnt/host/c /x ext4 rw 0 0",
+        ):
             ok, det = v.sin_montajes_del_host(MONTAJES_BUENOS + malo + "\n")
             self.assertFalse(ok, malo)
             self.assertIn("montajes del host", det)
@@ -56,13 +62,28 @@ class Evaluadores(unittest.TestCase):
 
     def test_credenciales_por_nombre(self):
         self.assertTrue(v.sin_credenciales("PATH=/usr/bin\nHOME=/root\nHOSTNAME=abc\n")[0])
-        for malo in ("ANTHROPIC_API_KEY=x", "GITHUB_TOKEN=x", "DB_PASSWORD=x", "OPENAI_BASE=x", "MY_SECRET=x",
-                     "AWS_ACCESS_KEY_ID=x", "DEPLOY_PAT=x", "DATABASE_URL=x", "SSH_AUTH_SOCK=x"):
+        for malo in (
+            "ANTHROPIC_API_KEY=x",
+            "GITHUB_TOKEN=x",
+            "DB_PASSWORD=x",
+            "OPENAI_BASE=x",
+            "MY_SECRET=x",
+            "AWS_ACCESS_KEY_ID=x",
+            "DEPLOY_PAT=x",
+            "DATABASE_URL=x",
+            "SSH_AUTH_SOCK=x",
+        ):
             self.assertFalse(v.sin_credenciales("PATH=/usr/bin\n" + malo + "\n")[0], malo)
 
     def test_credenciales_por_valor_aunque_el_nombre_sea_inocente(self):
-        for valor in ("sk-ant-api03-abcdefghijklmnop", "sk-abcdefghijklmnopqrstuvwxyz", "ghp_abcdefghijklmnopqrstuvwx",
-                      "xoxb-1234567890-abcdef", "AKIAABCDEFGHIJKLMNOP", "-----BEGIN RSA PRIVATE KEY-----"):
+        for valor in (
+            "sk-ant-api03-abcdefghijklmnop",
+            "sk-abcdefghijklmnopqrstuvwxyz",
+            "ghp_abcdefghijklmnopqrstuvwx",
+            "xoxb-1234567890-abcdef",
+            "AKIAABCDEFGHIJKLMNOP",
+            "-----BEGIN RSA PRIVATE KEY-----",
+        ):
             ok, det = v.sin_credenciales("PATH=/usr/bin\nFOO=" + valor + "\n")
             self.assertFalse(ok, valor)
             self.assertNotIn(valor, det)  # nunca se imprime el valor
@@ -75,7 +96,10 @@ class Evaluadores(unittest.TestCase):
         self.assertIn("no-new-privileges", b)
         self.assertEqual(b[b.index("--memory") + 1], "1536m")
         self.assertEqual(b[b.index("--pids-limit") + 1], "2048")
-        self.assertEqual([b[i + 1] for i, x in enumerate(b) if x == "--cap-add"], ["DAC_OVERRIDE", "CHOWN", "FOWNER"])
+        self.assertEqual(
+            [b[i + 1] for i, x in enumerate(b) if x == "--cap-add"],
+            ["DAC_OVERRIDE", "CHOWN", "FOWNER"],
+        )
         for ausente in ("-v", "--env", "-e", "--mount", "--privileged", "--network=host"):
             self.assertNotIn(ausente, b)  # ningún montaje del host ni variables en los contenedores de prueba
 
@@ -97,9 +121,17 @@ class Evaluadores(unittest.TestCase):
 
 def runner_simulado(debilitar=None, rc_principal=0, salida_roja=None):
     """Simula `docker run`: devuelve lo que se vería con las banderas seguras y algo DISTINTO en cada control negativo.
-    `debilitar=<clave>` hace que ese control devuelva lo mismo que el contenedor seguro (un control que no distingue)."""
-    seguro = {"red": "lo\n", "montajes": MONTAJES_BUENOS, "socket": "", "memoria": "1610612736\n", "pids": "2048\n",
-              "privilegios": "CapEff:\t000000000000000b\nNoNewPrivs:\t1\n", "entorno": "PATH=/usr/bin\nHOME=/root\n"}
+    `debilitar=<clave>` hace que ese control devuelva lo mismo que el contenedor seguro (un control que no distingue).
+    """
+    seguro = {
+        "red": "lo\n",
+        "montajes": MONTAJES_BUENOS,
+        "socket": "",
+        "memoria": "1610612736\n",
+        "pids": "2048\n",
+        "privilegios": "CapEff:\t000000000000000b\nNoNewPrivs:\t1\n",
+        "entorno": "PATH=/usr/bin\nHOME=/root\n",
+    }
     comandos_a_clave = {v.COMANDOS[k]: k for k in seguro}
 
     def correr(imagen, comando, banderas):
@@ -110,11 +142,21 @@ def runner_simulado(debilitar=None, rc_principal=0, salida_roja=None):
                 return rc_principal, salida_roja[1]
             return rc_principal, seguro[clave]
         if clave == debilitar:
-            return 0, seguro[clave]  # el "control" devuelve lo mismo que el contenedor seguro: no distingue
-        distinto = {"red": "eth0\nlo\n", "montajes": MONTAJES_BUENOS + "C:\\ /sondeo 9p ro 0 0\n",
-                    "socket": "/var/run/docker.sock\n", "memoria": "max\n", "pids": "max\n",
-                    "privilegios": "CapEff:\t00000000a80425fb\nNoNewPrivs:\t0\n", "entorno": "PATH=/usr/bin\nX_TOKEN=abc\n"}
+            return (
+                0,
+                seguro[clave],
+            )  # el "control" devuelve lo mismo que el contenedor seguro: no distingue
+        distinto = {
+            "red": "eth0\nlo\n",
+            "montajes": MONTAJES_BUENOS + "C:\\ /sondeo 9p ro 0 0\n",
+            "socket": "/var/run/docker.sock\n",
+            "memoria": "max\n",
+            "pids": "max\n",
+            "privilegios": "CapEff:\t00000000a80425fb\nNoNewPrivs:\t0\n",
+            "entorno": "PATH=/usr/bin\nX_TOKEN=abc\n",
+        }
         return 0, distinto[clave]
+
     return correr
 
 
@@ -157,6 +199,7 @@ class LogicaFase1(unittest.TestCase):
             if banderas != v.BANDERAS_SEGURAS or comando.startswith("mkdir"):
                 return 125, ""
             return seguro(imagen, comando, banderas)
+
         comprobaciones, controles = v.ejecutar("img", correr_fn=correr)
         self.assertTrue(all(not c[1] for c in controles), controles)
         self.assertTrue(v.veredicto_fase1(comprobaciones, controles).startswith("INVÁLIDO"))
@@ -165,22 +208,64 @@ class LogicaFase1(unittest.TestCase):
 def contenedor_real(perfil=PERFIL):
     """Réplica de los campos de seguridad del contenedor REAL que creó Hermes (docker inspect, 2026-11-22)."""
     binds = [ntpath.join(perfil, rel) + ":/root/.hermes/" + rel.replace("\\", "/") + ":ro" for rel in v.MONTAJES_PERMITIDOS]
-    mounts = [{"Type": "bind", "Source": ntpath.join(perfil, rel), "Destination": "/root/.hermes/" + rel.replace("\\", "/"),
-               "Mode": "ro", "RW": False, "Propagation": "rprivate"} for rel in v.MONTAJES_PERMITIDOS]
+    mounts = [
+        {
+            "Type": "bind",
+            "Source": ntpath.join(perfil, rel),
+            "Destination": "/root/.hermes/" + rel.replace("\\", "/"),
+            "Mode": "ro",
+            "RW": False,
+            "Propagation": "rprivate",
+        }
+        for rel in v.MONTAJES_PERMITIDOS
+    ]
     return {
         "Name": "/hermes-c797eb82",
-        "Config": {"Image": IMG, "User": "",
-                   "Labels": {"hermes-agent": "1", "hermes-egress": "off", "hermes-profile": ntpath.basename(perfil)},
-                   "Env": ["PATH=/usr/local/bin", "LANG=C.UTF-8", "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
-                           "PYTHON_VERSION=3.12.16", "PYTHON_SHA256=abc"]},
-        "HostConfig": {"Privileged": False, "NetworkMode": "none",
-                       "CapAdd": ["CAP_CHOWN", "CAP_DAC_OVERRIDE", "CAP_FOWNER", "CAP_SETGID", "CAP_SETUID"],
-                       "CapDrop": ["ALL"], "SecurityOpt": ["no-new-privileges"], "Memory": 1610612736, "MemorySwap": 3221225472,
-                       "NanoCpus": 1000000000, "PidsLimit": 2048, "Devices": None, "PidMode": "", "IpcMode": "private",
-                       "UsernsMode": "", "UTSMode": "", "CgroupnsMode": "private", "Runtime": "runc", "CgroupParent": "",
-                       "PublishAllPorts": False, "PortBindings": {}, "VolumesFrom": None, "Sysctls": None,
-                       "DeviceRequests": None, "DeviceCgroupRules": None, "ExtraHosts": None, "GroupAdd": None, "Links": None,
-                       "Binds": binds},
+        "Config": {
+            "Image": IMG,
+            "User": "",
+            "Labels": {
+                "hermes-agent": "1",
+                "hermes-egress": "off",
+                "hermes-profile": ntpath.basename(perfil),
+            },
+            "Env": [
+                "PATH=/usr/local/bin",
+                "LANG=C.UTF-8",
+                "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+                "PYTHON_VERSION=3.12.16",
+                "PYTHON_SHA256=abc",
+            ],
+        },
+        "HostConfig": {
+            "Privileged": False,
+            "NetworkMode": "none",
+            "CapAdd": ["CAP_CHOWN", "CAP_DAC_OVERRIDE", "CAP_FOWNER", "CAP_SETGID", "CAP_SETUID"],
+            "CapDrop": ["ALL"],
+            "SecurityOpt": ["no-new-privileges"],
+            "Memory": 1610612736,
+            "MemorySwap": 3221225472,
+            "NanoCpus": 1000000000,
+            "PidsLimit": 2048,
+            "Devices": None,
+            "PidMode": "",
+            "IpcMode": "private",
+            "UsernsMode": "",
+            "UTSMode": "",
+            "CgroupnsMode": "private",
+            "Runtime": "runc",
+            "CgroupParent": "",
+            "PublishAllPorts": False,
+            "PortBindings": {},
+            "VolumesFrom": None,
+            "Sysctls": None,
+            "DeviceRequests": None,
+            "DeviceCgroupRules": None,
+            "ExtraHosts": None,
+            "GroupAdd": None,
+            "Links": None,
+            "Binds": binds,
+        },
         "Mounts": mounts,
         "NetworkSettings": {"Networks": {"none": {}}},
     }
@@ -217,9 +302,19 @@ class Fase2(unittest.TestCase):
             self.assertTrue(any(nombre in f for f in self.fallos(c)), nombre)
 
     def test_security_opt_debilitado_no_pasa_hallazgo_3(self):
-        for opciones in (["no-new-privileges:false"], ["no-new-privileges", "seccomp=unconfined"], ["apparmor=unconfined"],
-                         ["label=disable"], ["no-new-privileges", "label=disable"], [], ["seccomp=unconfined"]):
-            self.assertTrue(any("SecurityOpt" in f for f in self.fallos(self.con(SecurityOpt=opciones))), opciones)
+        for opciones in (
+            ["no-new-privileges:false"],
+            ["no-new-privileges", "seccomp=unconfined"],
+            ["apparmor=unconfined"],
+            ["label=disable"],
+            ["no-new-privileges", "label=disable"],
+            [],
+            ["seccomp=unconfined"],
+        ):
+            self.assertTrue(
+                any("SecurityOpt" in f for f in self.fallos(self.con(SecurityOpt=opciones))),
+                opciones,
+            )
         for ok in (["no-new-privileges"], ["no-new-privileges:true"], ["no-new-privileges=true"]):
             self.assertEqual(self.fallos(self.con(SecurityOpt=ok)), [], ok)
 
@@ -239,7 +334,10 @@ class Fase2(unittest.TestCase):
             "campos de HostConfig que deben estar vacíos    ": dict(PortBindings={"80/tcp": [{"HostPort": "80"}]}),
         }
         for etiqueta, cambio in casos.items():
-            self.assertTrue(any(etiqueta.strip() in f for f in self.fallos(self.con(**cambio))), (etiqueta, cambio))
+            self.assertTrue(
+                any(etiqueta.strip() in f for f in self.fallos(self.con(**cambio))),
+                (etiqueta, cambio),
+            )
 
     def test_tipos_estrictos_un_booleano_no_cuenta_como_numero(self):
         self.assertTrue(any("memoria" in f for f in self.fallos(self.con(Memory=True))))
@@ -259,8 +357,16 @@ class Fase2(unittest.TestCase):
         self.assertTrue(any("EXACTAMENTE una de las 14" in x for x in f), f)
 
     def test_raiz_del_perfil_y_carpetas_no_conocidas_hallazgo_2(self):
-        for fuente in (PERFIL, PERFIL + "\\", PERFIL + "\\sessions", PERFIL + "\\logs", PERFIL + "\\home", PERFIL + "\\skills\\otra",
-                       r"C:\Users\PC\AppData\Local\hermes\profiles\agente-otro\skills", r"C:\Users\PC\AppData\Local\hermes\skills"):
+        for fuente in (
+            PERFIL,
+            PERFIL + "\\",
+            PERFIL + "\\sessions",
+            PERFIL + "\\logs",
+            PERFIL + "\\home",
+            PERFIL + "\\skills\\otra",
+            r"C:\Users\PC\AppData\Local\hermes\profiles\agente-otro\skills",
+            r"C:\Users\PC\AppData\Local\hermes\skills",
+        ):
             c = contenedor_real()
             c["HostConfig"]["Binds"].append(fuente + ":/x:ro")
             self.assertTrue(any("EXACTAMENTE una de las 14" in x for x in self.fallos(c)), fuente)
@@ -283,14 +389,37 @@ class Fase2(unittest.TestCase):
         c["Mounts"][0]["RW"] = True  # aunque Binds diga ro
         self.assertTrue(any("solo lectura" in n for n in self.fallos(c)))
         c = contenedor_real()
-        c["Mounts"].append({"Type": "volume", "Name": "x", "Source": "/var/lib/docker/volumes/x", "Destination": "/v", "RW": False})
+        c["Mounts"].append(
+            {
+                "Type": "volume",
+                "Name": "x",
+                "Source": "/var/lib/docker/volumes/x",
+                "Destination": "/v",
+                "RW": False,
+            }
+        )
         self.assertTrue(any("solo tipo bind" in n for n in self.fallos(c)))
         c = contenedor_real()
-        c["Mounts"].append({"Type": "npipe", "Source": r"\\.\pipe\docker_engine", "Destination": r"\\.\pipe\docker_engine", "RW": False})
+        c["Mounts"].append(
+            {
+                "Type": "npipe",
+                "Source": r"\\.\pipe\docker_engine",
+                "Destination": r"\\.\pipe\docker_engine",
+                "RW": False,
+            }
+        )
         self.assertTrue(any("solo tipo bind" in n or "socket" in n for n in self.fallos(c)))
         for sospechoso in ("\\.env", "\\auth.json", "\\config.yaml", "\\.ssh", "\\x.pem"):
             c = contenedor_real()
-            c["Mounts"].append({"Type": "bind", "Source": PERFIL + sospechoso, "Destination": "/x", "Mode": "ro", "RW": False})
+            c["Mounts"].append(
+                {
+                    "Type": "bind",
+                    "Source": PERFIL + sospechoso,
+                    "Destination": "/x",
+                    "Mode": "ro",
+                    "RW": False,
+                }
+            )
             self.assertTrue(any("configuración o credenciales" in n for n in self.fallos(c)), sospechoso)
         c = contenedor_real()
         c["HostConfig"]["Binds"].append(PERFIL + r"\cache:/var/run/docker.sock:ro")
@@ -337,8 +466,13 @@ class Fase2(unittest.TestCase):
         self.assertEqual(self.fallos(c), [])
 
     def test_mas_formatos_de_credenciales(self):
-        for variable in ("PRIVATE_KEY=x", "MY_ACCESS_KEY=x", "FOO=github_pat_abcdefghijklmnopqrstuvwxyz",
-                         "FOO=sk_live_abcdefghijkl", "FOO=eyJhbGciOiJIUzI1NiIs.eyJzdWIiOiIxMjM0NTY3ODkw"):
+        for variable in (
+            "PRIVATE_KEY=x",
+            "MY_ACCESS_KEY=x",
+            "FOO=github_pat_abcdefghijklmnopqrstuvwxyz",
+            "FOO=sk_live_abcdefghijkl",
+            "FOO=eyJhbGciOiJIUzI1NiIs.eyJzdWIiOiIxMjM0NTY3ODkw",
+        ):
             c = contenedor_real()
             c["Config"]["Env"].append(variable)
             self.assertTrue(any("credenciales" in f for f in self.fallos(c)), variable.split("=")[0])
@@ -485,6 +619,7 @@ class EnlacesYFase2Completa(unittest.TestCase):
 
 def shutil_rmtree(ruta):
     import shutil
+
     shutil.rmtree(ruta)
 
 

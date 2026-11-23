@@ -35,6 +35,7 @@ Qué es y qué NO es:
 - Subir de nivel de autonomía NO es automático y en el nivel 1 TAMPOCO hay descenso automático: `resumen` solo informa y una
   persona baja de nivel. Fuera del nivel 1: editar y aprobar en un paso, nivel vigente por categoría y descenso automático.
 """
+
 import argparse
 import contextlib
 import datetime
@@ -50,21 +51,28 @@ import uuid
 import nocontacto
 import revision
 
-RAIZ =os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+RAIZ = os.path.realpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 ID_VALIDO = re.compile(r"^e-[0-9a-f]{12}$")
 _RE_COT = re.compile(r"b-[0-9a-f]{12}")
 _RE_COB = re.compile(r"c-[a-z0-9][a-z0-9-]{0,29}-(?:amable|firme)")
 _RE_ESC = re.compile(r"e-[0-9a-f]{12}")
-COLAS = (("cotizacion", "borradores", _RE_COT), ("cobranza", "borradores_cobranza", _RE_COB),
-         ("escalado", "escalados", _RE_ESC))
+COLAS = (
+    ("cotizacion", "borradores", _RE_COT),
+    ("cobranza", "borradores_cobranza", _RE_COB),
+    ("escalado", "escalados", _RE_ESC),
+)
 CATEGORIAS = {"cotizacion", "cobranza_amable", "cobranza_firme"}
 MAX_BYTES = 200_000
-MAX_ARCHIVOS = 2000        # por cola de pendientes
-MAX_REGISTROS = 20_000     # por carpeta de registros
+MAX_ARCHIVOS = 2000  # por cola de pendientes
+MAX_REGISTROS = 20_000  # por carpeta de registros
 VENCE_DIAS = 7
 TOLERANCIA_FUTURO_S = 300
 TIMEOUT_BLOQUEO = 5.0
-CRITERIO = {"casos": 50, "tasa_sin_edicion_pct": 95, "incidentes": 0}  # propuesta de docs/superpowers/specs/...jefatura...
+CRITERIO = {
+    "casos": 50,
+    "tasa_sin_edicion_pct": 95,
+    "incidentes": 0,
+}  # propuesta de docs/superpowers/specs/...jefatura...
 
 
 def tasa_cumple(sin_edicion, medibles):
@@ -132,12 +140,14 @@ def _limpiar(texto, tope):
 
 
 def _pantalla(texto):
-    return "".join(c if c == "\n" or not (unicodedata.category(c).startswith("C") or unicodedata.category(c) in ("Zl", "Zp"))
-                   else "?" for c in texto)
+    return "".join((c if c == "\n" or not (unicodedata.category(c).startswith("C") or unicodedata.category(c) in ("Zl", "Zp")) else "?") for c in texto)
 
 
 def _quien(nombre=None):
-    n = _limpiar(nombre if nombre is not None else os.environ.get("USERNAME") or os.environ.get("USER") or "", 40)
+    n = _limpiar(
+        (nombre if nombre is not None else os.environ.get("USERNAME") or os.environ.get("USER") or ""),
+        40,
+    )
     n = re.sub(r"[^\w.\- ]", "", n)
     return n or "desconocido"
 
@@ -219,6 +229,7 @@ def _auditoria(raiz):
     if sandbox not in sys.path:
         sys.path.insert(0, sandbox)
     from audit_log import AuditLog
+
     return AuditLog(os.path.join(_dir_estado(raiz), "decisiones.jsonl"))
 
 
@@ -228,6 +239,7 @@ def _bloqueo(raiz):
     if sandbox not in sys.path:
         sys.path.insert(0, sandbox)
     from _lock import bloqueo, BloqueoNoObtenido
+
     ruta = os.path.join(_dir_estado(raiz), "bandeja")
     try:
         with bloqueo(ruta, timeout=TIMEOUT_BLOQUEO):
@@ -254,7 +266,8 @@ def _escribir_atomico(destino, objeto):
 
 def _eventos(raiz):
     """(cadena_ok, {(evento, id, hash, decidido)}) leído del registro encadenado, con el mismo bloqueo que usa `registrar` para no
-    ver una línea a medias. Sin archivo: (True, vacío). `decidido` es None en eventos que no lo llevan (incidente, cerrado)."""
+    ver una línea a medias. Sin archivo: (True, vacío). `decidido` es None en eventos que no lo llevan (incidente, cerrado).
+    """
     ruta = _confinar(os.path.join(raiz, "estado", "bandeja", "decisiones.jsonl"), raiz)
     if not os.path.exists(ruta):
         return True, set()
@@ -263,6 +276,7 @@ def _eventos(raiz):
         sys.path.insert(0, sandbox)
     from audit_log import verificar
     from _lock import bloqueo, BloqueoNoObtenido
+
     try:
         with bloqueo(ruta, timeout=TIMEOUT_BLOQUEO):
             ok, _ = verificar(ruta)
@@ -291,7 +305,11 @@ def listar(raiz=RAIZ):
             try:
                 caso = _objeto(_leer_bytes(os.path.join(carpeta, nombre)))
             except (OSError, ValueError):
-                caso = {"id": nombre[:-5], "motivo": "(archivo ilegible: revisar a mano)", "creado": ""}
+                caso = {
+                    "id": nombre[:-5],
+                    "motivo": "(archivo ilegible: revisar a mano)",
+                    "creado": "",
+                }
             casos.append(caso)
     return sorted(casos, key=lambda c: (str(c.get("creado", "")), str(c.get("id", ""))))
 
@@ -318,7 +336,10 @@ def cerrar(caso_id, raiz=RAIZ):
     try:  # rastro del cierre; el cierre ya está hecho, así que un fallo del registro solo avisa
         _auditoria(raiz).registrar("cerrado", {"id": caso_id, "hash": _sha(caso)})
     except Exception as e:
-        print(f"aviso: no se pudo registrar el cierre en la cadena ({type(e).__name__})", file=sys.stderr)
+        print(
+            f"aviso: no se pudo registrar el cierre en la cadena ({type(e).__name__})",
+            file=sys.stderr,
+        )
     return destino
 
 
@@ -328,20 +349,36 @@ def _resumen_item(tipo, o):
         lineas = o.get("lineas")
         n = len(lineas) if isinstance(lineas, list) else "?"
         extra = " · REQUIERE APROBACIÓN (descuento o monto)" if o.get("requiere_aprobacion_humana") is True else ""
-        return _limpiar(f"total {o.get('total', '?')} {o.get('moneda', '')} · {n} línea(s) · ref {o.get('cliente_ref', '')}{extra}", 120)
+        return _limpiar(
+            f"total {o.get('total', '?')} {o.get('moneda', '')} · {n} línea(s) · ref {o.get('cliente_ref', '')}{extra}",
+            120,
+        )
     if tipo == "cobranza":
-        return _limpiar(f"factura {o.get('factura_id', '?')} · {o.get('etapa', '?')} · para {o.get('destinatario', '?')}", 120)
+        return _limpiar(
+            f"factura {o.get('factura_id', '?')} · {o.get('etapa', '?')} · para {o.get('destinatario', '?')}",
+            120,
+        )
     return _limpiar(f"{o.get('motivo', '')} (ref {o.get('referencia', '')})", 120)
 
 
 def _item_ilegible(base, motivo):
-    return {**base, "ilegible": True, "resumen": motivo, "edad_dias": 0.0, "sello": "n/a", "vencido": False, "creado_ts": 0.0,
-            "bloqueos": 1, "avisos": 0}
+    return {
+        **base,
+        "ilegible": True,
+        "resumen": motivo,
+        "edad_dias": 0.0,
+        "sello": "n/a",
+        "vencido": False,
+        "creado_ts": 0.0,
+        "bloqueos": 1,
+        "avisos": 0,
+    }
 
 
 def pendientes(raiz=RAIZ, ahora=None, ruta_lista_persona=None):
     """Todo lo que espera a una persona, lo más antiguo primero, con el número de bloqueos y avisos de la revisión previa. Lo que no se
-    puede interpretar sale marcado `ilegible`, y si una cola supera MAX_ARCHIVOS se añade un aviso: nunca se omite en silencio."""
+    puede interpretar sale marcado `ilegible`, y si una cola supera MAX_ARCHIVOS se añade un aviso: nunca se omite en silencio.
+    """
     ahora = time.time() if ahora is None else ahora
     lista = _lista_no_contacto(raiz, ruta_lista_persona)
     items = []
@@ -355,12 +392,22 @@ def pendientes(raiz=RAIZ, ahora=None, ruta_lista_persona=None):
             items.append(_item_ilegible(base0, f"({e})"))
             continue
         if len(entradas) > MAX_ARCHIVOS:
-            items.append(_item_ilegible(base0, f"(AVISO: más de {MAX_ARCHIVOS} archivos; se muestran solo los primeros: vaciar la cola)"))
+            items.append(
+                _item_ilegible(
+                    base0,
+                    f"(AVISO: más de {MAX_ARCHIVOS} archivos; se muestran solo los primeros: vaciar la cola)",
+                )
+            )
         for e in entradas[:MAX_ARCHIVOS]:
             if e.name.endswith(".tmp"):
                 continue  # escritura en curso
             nombre = e.name[:-5] if e.name.endswith(".json") else ""
-            base = {"id": _limpiar(nombre or e.name, 70), "tipo": tipo, "categoria": tipo, "ilegible": False}
+            base = {
+                "id": _limpiar(nombre or e.name, 70),
+                "tipo": tipo,
+                "categoria": tipo,
+                "ilegible": False,
+            }
             if not rx.fullmatch(nombre):
                 items.append(_item_ilegible(base, "(nombre inesperado: revisar a mano)"))
                 continue
@@ -369,10 +416,17 @@ def pendientes(raiz=RAIZ, ahora=None, ruta_lista_persona=None):
                 ts = _creado_ts(o, e.path)
                 edad = max(0.0, (ahora - ts) / 86400)
                 rev = _revisar(tipo, o, lista)
-                item = {**base, "categoria": _categoria(tipo, nombre), "resumen": _resumen_item(tipo, o),
-                        "edad_dias": round(edad, 1), "sello": estado_sello(o) if tipo != "escalado" else "n/a",
-                        "vencido": tipo != "escalado" and edad > VENCE_DIAS, "creado_ts": ts,
-                        "bloqueos": len(rev["bloqueos"]), "avisos": len(rev["avisos"])}
+                item = {
+                    **base,
+                    "categoria": _categoria(tipo, nombre),
+                    "resumen": _resumen_item(tipo, o),
+                    "edad_dias": round(edad, 1),
+                    "sello": estado_sello(o) if tipo != "escalado" else "n/a",
+                    "vencido": tipo != "escalado" and edad > VENCE_DIAS,
+                    "creado_ts": ts,
+                    "bloqueos": len(rev["bloqueos"]),
+                    "avisos": len(rev["avisos"]),
+                }
             except (OSError, ValueError, RecursionError, OverflowError):
                 items.append(_item_ilegible(base, "(archivo ilegible: revisar a mano)"))
                 continue
@@ -397,8 +451,18 @@ def revision_de(item_id, raiz=RAIZ, ruta_lista_persona=None):
     return _revisar(tipo, _objeto(_leer_bytes(ruta)), _lista_no_contacto(raiz, ruta_lista_persona))
 
 
-def decidir(item_id, decision, raiz=RAIZ, quien=None, motivo="", forzar=False, ahora=None, hash_esperado=None,
-            confirmacion="programatica", ruta_lista_persona=None):
+def decidir(
+    item_id,
+    decision,
+    raiz=RAIZ,
+    quien=None,
+    motivo="",
+    forzar=False,
+    ahora=None,
+    hash_esperado=None,
+    confirmacion="programatica",
+    ruta_lista_persona=None,
+):
     """Aprueba o rechaza un borrador pendiente. Deja un registro en workspace/archivo/aprobados|rechazados/ y líneas en la
     cadena de decisiones; devuelve la ruta del registro. No envía nada.
     - Aprobar EXIGE `hash_esperado` (hash del contenido que la persona vio): si el archivo cambió, aborta.
@@ -428,18 +492,28 @@ def decidir(item_id, decision, raiz=RAIZ, quien=None, motivo="", forzar=False, a
             raise ValueError("el contenido no corresponde al id: revisarlo a mano")
         edad = (ahora - _creado_ts(o, ruta)) / 86400
         if decision == "aprobado" and edad > VENCE_DIAS and not forzar:
-            raise ValueError(f"tiene {int(edad)} días (más de {VENCE_DIAS}): las cifras pueden haber cambiado; "
-                             "vuelva a evaluarlo o use --forzar")
+            raise ValueError(f"tiene {int(edad)} días (más de {VENCE_DIAS}): las cifras pueden haber cambiado; " "vuelva a evaluarlo o use --forzar")
         avisos = []
         if decision == "aprobado":
             rev = _revisar(tipo, o, _lista_no_contacto(raiz, ruta_lista_persona))
             if rev["bloqueos"]:
                 raise ValueError("no se puede aprobar: " + "; ".join(_limpiar(b, 120) for b in rev["bloqueos"][:5]))
             avisos = [_limpiar(a, 120) for a in rev["avisos"][:10]]
-        registro = {"id": item_id, "tipo": tipo, "categoria": _categoria(tipo, item_id), "estado": decision,
-                    "decidido": datetime.datetime.fromtimestamp(ahora, datetime.timezone.utc).isoformat(timespec="seconds"),
-                    "decidido_por": quien, "motivo": motivo, "sello": estado_sello(o), "forzado": bool(forzar),
-                    "confirmacion": confirmacion, "avisos": avisos, "hash_contenido": h, "contenido": o}
+        registro = {
+            "id": item_id,
+            "tipo": tipo,
+            "categoria": _categoria(tipo, item_id),
+            "estado": decision,
+            "decidido": datetime.datetime.fromtimestamp(ahora, datetime.timezone.utc).isoformat(timespec="seconds"),
+            "decidido_por": quien,
+            "motivo": motivo,
+            "sello": estado_sello(o),
+            "forzado": bool(forzar),
+            "confirmacion": confirmacion,
+            "avisos": avisos,
+            "hash_contenido": h,
+            "contenido": o,
+        }
         registro["sello_registro"] = _sello_registro(registro)
         registro["incidente"] = None
         dest_dir = _carpeta(raiz, "archivo", "aprobados" if decision == "aprobado" else "rechazados")
@@ -449,9 +523,16 @@ def decidir(item_id, decision, raiz=RAIZ, quien=None, motivo="", forzar=False, a
         if os.path.exists(destino):
             raise FileExistsError("ya existe un registro con ese id y esa marca de tiempo")
         log = _auditoria(raiz)  # si la cadena no está disponible o está rota, NO se decide (falla cerrado)
-        datos_log = {"id": item_id, "categoria": registro["categoria"], "sello": registro["sello"], "hash": h,
-                     "por": quien, "forzado": str(bool(forzar)), "confirmacion": confirmacion,
-                     "decidido": registro["decidido"]}
+        datos_log = {
+            "id": item_id,
+            "categoria": registro["categoria"],
+            "sello": registro["sello"],
+            "hash": h,
+            "por": quien,
+            "forzado": str(bool(forzar)),
+            "confirmacion": confirmacion,
+            "decidido": registro["decidido"],
+        }
         log.registrar(decision + "_intento", datos_log)
         tomado = f"{ruta}.{uuid.uuid4().hex}.tomado"
         creado_destino = False
@@ -482,7 +563,10 @@ def decidir(item_id, decision, raiz=RAIZ, quien=None, motivo="", forzar=False, a
         try:
             log.registrar(decision, datos_log)
         except Exception as e:  # ya está decidido y archivado; el _intento quedó en la cadena y `resumen` lo acepta
-            print(f"aviso: no se pudo registrar el cierre en la cadena ({type(e).__name__})", file=sys.stderr)
+            print(
+                f"aviso: no se pudo registrar el cierre en la cadena ({type(e).__name__})",
+                file=sys.stderr,
+            )
     return destino
 
 
@@ -495,14 +579,22 @@ def _registro_integro(reg, carpeta_estado=None):
         if not (isinstance(c, dict) and tipo in ("cotizacion", "cobranza") and isinstance(rid, str)):
             return False
         rx = _RE_COT if tipo == "cotizacion" else _RE_COB
-        return (rx.fullmatch(rid) is not None and c.get("id") == rid
-                and reg.get("hash_contenido") == _sha(c) and reg.get("sello_registro") == _sello_registro(reg)
-                and reg.get("categoria") == _categoria(tipo, rid) and reg.get("categoria") in CATEGORIAS
-                and reg.get("sello") == estado_sello(c) and reg.get("sello") in ("intacto", "editado", "sin_sello")
-                and reg.get("estado") in ("aprobado", "rechazado")
-                and isinstance(reg.get("avisos"), list) and len(reg["avisos"]) <= 10 and all(isinstance(a, str) for a in reg["avisos"])
-                and (carpeta_estado is None or carpeta_estado == reg["estado"])
-                and isinstance(reg.get("decidido"), str))
+        return (
+            rx.fullmatch(rid) is not None
+            and c.get("id") == rid
+            and reg.get("hash_contenido") == _sha(c)
+            and reg.get("sello_registro") == _sello_registro(reg)
+            and reg.get("categoria") == _categoria(tipo, rid)
+            and reg.get("categoria") in CATEGORIAS
+            and reg.get("sello") == estado_sello(c)
+            and reg.get("sello") in ("intacto", "editado", "sin_sello")
+            and reg.get("estado") in ("aprobado", "rechazado")
+            and isinstance(reg.get("avisos"), list)
+            and len(reg["avisos"]) <= 10
+            and all(isinstance(a, str) for a in reg["avisos"])
+            and (carpeta_estado is None or carpeta_estado == reg["estado"])
+            and isinstance(reg.get("decidido"), str)
+        )
     except (TypeError, ValueError, AttributeError, KeyError, RecursionError, OverflowError):
         return False
 
@@ -517,7 +609,8 @@ def _nombre_esperado(reg):
 
 def incidente(item_id, motivo, raiz=RAIZ, quien=None, ahora=None):
     """Marca el último registro APROBADO de `item_id` como incidente (queja, error, algo que salió mal). El evento queda en la
-    cadena ANTES de tocar el archivo, y `resumen` cuenta el incidente si está en cualquiera de los dos."""
+    cadena ANTES de tocar el archivo, y `resumen` cuenta el incidente si está en cualquiera de los dos.
+    """
     _resolver(item_id, raiz)
     motivo = _limpiar(motivo or "", 200)
     if not motivo:
@@ -527,8 +620,7 @@ def incidente(item_id, motivo, raiz=RAIZ, quien=None, ahora=None):
     with _bloqueo(raiz):
         carpeta = _carpeta(raiz, "archivo", "aprobados")
         try:
-            candidatos = sorted(n for n in os.listdir(carpeta)
-                                if re.fullmatch(re.escape(item_id) + r"\.\d{8}T\d{6}Z\.json", n))
+            candidatos = sorted(n for n in os.listdir(carpeta) if re.fullmatch(re.escape(item_id) + r"\.\d{8}T\d{6}Z\.json", n))
         except FileNotFoundError:
             candidatos = []
         if not candidatos:
@@ -543,8 +635,11 @@ def incidente(item_id, motivo, raiz=RAIZ, quien=None, ahora=None):
         if reg.get("incidente") or ("incidente", item_id, reg["hash_contenido"], None) in ev:  # el campo se puede borrar; la cadena no
             raise ValueError("ese registro ya tiene un incidente")
         _auditoria(raiz).registrar("incidente", {"id": item_id, "por": quien, "hash": reg["hash_contenido"]})
-        reg["incidente"] = {"fecha": datetime.datetime.fromtimestamp(ahora, datetime.timezone.utc).isoformat(timespec="seconds"),
-                            "motivo": motivo, "por": quien}
+        reg["incidente"] = {
+            "fecha": datetime.datetime.fromtimestamp(ahora, datetime.timezone.utc).isoformat(timespec="seconds"),
+            "motivo": motivo,
+            "por": quien,
+        }
         _escribir_atomico(ruta, reg)
     return ruta
 
@@ -597,8 +692,18 @@ def resumen(raiz=RAIZ, dias=30, ahora=None):
                 continue
             if ts < desde:
                 continue
-            c = cats.setdefault(reg["categoria"], {"decididos": 0, "aprobados": 0, "sin_edicion": 0, "editados": 0,
-                                                    "sin_sello": 0, "rechazados": 0, "incidentes": 0})
+            c = cats.setdefault(
+                reg["categoria"],
+                {
+                    "decididos": 0,
+                    "aprobados": 0,
+                    "sin_edicion": 0,
+                    "editados": 0,
+                    "sin_sello": 0,
+                    "rechazados": 0,
+                    "incidentes": 0,
+                },
+            )
             c["decididos"] += 1
             c["sin_sello"] += reg["sello"] == "sin_sello"
             if reg["estado"] == "rechazado":
@@ -613,17 +718,29 @@ def resumen(raiz=RAIZ, dias=30, ahora=None):
     for c in cats.values():
         medibles = c["decididos"] - c["sin_sello"]  # sin sello no se sabe si se editó: no entra en la tasa
         c["tasa_sin_edicion"] = round(c["sin_edicion"] / medibles, 3) if medibles > 0 else None
-        c["cumple_criterio_numerico"] = (integro and c["decididos"] >= CRITERIO["casos"]
-                                         and tasa_cumple(c["sin_edicion"], medibles)
-                                         and c["incidentes"] <= CRITERIO["incidentes"] and c["sin_sello"] == 0)
-    return {"dias": dias, "categorias": cats, "registros_ilegibles": ilegibles, "registros_alterados": alterados,
-            "registros_sin_evento_en_cadena": sin_cadena, "eventos_sin_archivo": sin_archivo, "cadena_ok": cadena_ok,
-            "truncado": truncado, "integro": integro}
+        c["cumple_criterio_numerico"] = (
+            integro and c["decididos"] >= CRITERIO["casos"] and tasa_cumple(c["sin_edicion"], medibles) and c["incidentes"] <= CRITERIO["incidentes"] and c["sin_sello"] == 0
+        )
+    return {
+        "dias": dias,
+        "categorias": cats,
+        "registros_ilegibles": ilegibles,
+        "registros_alterados": alterados,
+        "registros_sin_evento_en_cadena": sin_cadena,
+        "eventos_sin_archivo": sin_archivo,
+        "cadena_ok": cadena_ok,
+        "truncado": truncado,
+        "integro": integro,
+    }
 
 
 # ---------- línea de comandos ----------
 def _confirmar(item_id, entrada):
-    print(f"Para aprobar escriba el id exacto ({item_id}) y pulse Intro (cualquier otra cosa cancela): ", end="", flush=True)
+    print(
+        f"Para aprobar escriba el id exacto ({item_id}) y pulse Intro (cualquier otra cosa cancela): ",
+        end="",
+        flush=True,
+    )
     return entrada.readline().strip() == item_id
 
 
@@ -636,16 +753,20 @@ def _dias(valor):
 
 def _aviso_bloqueo_bajas(raiz):
     if nocontacto.bloqueo_activo(_ruta_auto(raiz)):
-        print("ATENCIÓN: hay bajas pedidas por correo que NO se pudieron registrar (lista llena, corrupta o sin permisos): nada que contacte o registre "
-              "personas funciona hasta que usted revise la lista automática, la repare y borre estado/agente/no_contactar_auto.json.bloqueo "
-              "(y reinicie el servidor MCP).")
+        print(
+            "ATENCIÓN: hay bajas pedidas por correo que NO se pudieron registrar (lista llena, corrupta o sin permisos): nada que contacte o registre "
+            "personas funciona hasta que usted revise la lista automática, la repare y borre estado/agente/no_contactar_auto.json.bloqueo "
+            "(y reinicie el servidor MCP)."
+        )
 
 
 def _aviso_lista_llena(n):
     """Al llenarse la lista automática no se pueden registrar más bajas (y un remitente con dominio propio puede llenarla a propósito)."""
     if n >= 0.8 * nocontacto.MAX_ENTRADAS:
-        print(f"ATENCIÓN: la lista automática de no contacto está casi llena ({n} de {nocontacto.MAX_ENTRADAS}): al llenarse no se registrarán "
-              "más bajas. Revísela (puede estar siendo llenada a propósito) y vacíe lo que sea falso.")
+        print(
+            f"ATENCIÓN: la lista automática de no contacto está casi llena ({n} de {nocontacto.MAX_ENTRADAS}): al llenarse no se registrarán "
+            "más bajas. Revísela (puede estar siendo llenada a propósito) y vacíe lo que sea falso."
+        )
 
 
 def _imprimir_revision(rev):
@@ -679,11 +800,18 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
         if a.cmd == "listar":
             items = pendientes(raiz, ruta_lista_persona=ruta_lista_persona)
             for i in items:
-                marca = " ".join(m for m in (("VENCIDO" if i["vencido"] else ""), ("ILEGIBLE" if i["ilegible"] else ""),
-                                             ("EDITADO" if i["sello"] == "editado" else ""),
-                                             ("SIN_SELLO" if i["sello"] == "sin_sello" else ""),
-                                             ("BLOQUEADO" if i["bloqueos"] and not i["ilegible"] else ""),
-                                             ("AVISOS" if i["avisos"] else "")) if m)
+                marca = " ".join(
+                    m
+                    for m in (
+                        ("VENCIDO" if i["vencido"] else ""),
+                        ("ILEGIBLE" if i["ilegible"] else ""),
+                        ("EDITADO" if i["sello"] == "editado" else ""),
+                        ("SIN_SELLO" if i["sello"] == "sin_sello" else ""),
+                        ("BLOQUEADO" if i["bloqueos"] and not i["ilegible"] else ""),
+                        ("AVISOS" if i["avisos"] else ""),
+                    )
+                    if m
+                )
                 print(f"{i['id']:<34} {i['tipo']:<10} {i['edad_dias']:>5}d  {i['resumen']}  {marca}".rstrip())
             print(f"{len(items)} pendiente(s)")
             try:  # las bajas las registra el CÓDIGO sin que nadie vea el mensaje: aquí se hacen visibles para detectar falsos positivos
@@ -699,12 +827,13 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
             entradas = nocontacto.entradas_auto(_ruta_auto(raiz))
             for correo, d in sorted(entradas.items(), key=lambda kv: str(kv[1].get("fecha", ""))):
                 fecha = d.get("fecha")
-                cuando = (datetime.datetime.fromtimestamp(fecha, datetime.timezone.utc).strftime("%Y-%m-%d %H:%M")
-                          if isinstance(fecha, (int, float)) and 0 < fecha < 4e9 else "?")
+                cuando = datetime.datetime.fromtimestamp(fecha, datetime.timezone.utc).strftime("%Y-%m-%d %H:%M") if isinstance(fecha, (int, float)) and 0 < fecha < 4e9 else "?"
                 print(f"{_limpiar(correo, 80):<40} {cuando}  {_limpiar(d.get('motivo', ''), 60)}")
             _aviso_lista_llena(len(entradas))
-            print(f"{len(entradas)} entrada(s). Para quitar un falso positivo, edite estado/agente/no_contactar_auto.json (o, mejor, no lo toque y "
-                  "avise: cada baja pedida por correo debe respetarse).")
+            print(
+                f"{len(entradas)} entrada(s). Para quitar un falso positivo, edite estado/agente/no_contactar_auto.json (o, mejor, no lo toque y "
+                "avise: cada baja pedida por correo debe respetarse)."
+            )
             return 0
         if a.cmd == "ver":
             o, sello = ver(a.id, raiz)
@@ -714,7 +843,10 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
             return 0
         if a.cmd == "aprobar":
             if interactiva and not sys.stdin.isatty():
-                print("error: aprobar exige una terminal interactiva (no se acepta entrada redirigida)", file=sys.stderr)
+                print(
+                    "error: aprobar exige una terminal interactiva (no se acepta entrada redirigida)",
+                    file=sys.stderr,
+                )
                 return 1
             o, sello = ver(a.id, raiz)
             h = hash_contenido(o)
@@ -723,14 +855,26 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
             rev = _revisar(_resolver(a.id, raiz)[0], o, _lista_no_contacto(raiz, ruta_lista_persona))
             _imprimir_revision(rev)
             if rev["bloqueos"]:
-                print("no se puede aprobar mientras haya BLOQUEOS (--forzar no los salta): corrija el borrador o recházelo", file=sys.stderr)
+                print(
+                    "no se puede aprobar mientras haya BLOQUEOS (--forzar no los salta): corrija el borrador o recházelo",
+                    file=sys.stderr,
+                )
                 return 1
             if not _confirmar(a.id, entrada):
                 print("cancelado: no se aprobó nada", file=sys.stderr)
                 return 1
-            print("registrado en", decidir(a.id, "aprobado", raiz, forzar=a.forzar, hash_esperado=h,
-                                           confirmacion="interactiva" if interactiva else "inyectada",
-                                           ruta_lista_persona=ruta_lista_persona))
+            print(
+                "registrado en",
+                decidir(
+                    a.id,
+                    "aprobado",
+                    raiz,
+                    forzar=a.forzar,
+                    hash_esperado=h,
+                    confirmacion="interactiva" if interactiva else "inyectada",
+                    ruta_lista_persona=ruta_lista_persona,
+                ),
+            )
             print("Recuerde: esto NO envía nada. Envíelo usted y, si es cobranza, anote el envío en workspace/cartera/cartera.csv.")
             return 0
         if a.cmd == "rechazar":
@@ -744,13 +888,17 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
             return 0
         if a.cmd == "resumen":
             r = resumen(raiz, dias=a.dias)
-            print(f"Últimos {r['dias']} días (criterio propuesto: >={CRITERIO['casos']} casos, "
-                  f">={CRITERIO['tasa_sin_edicion_pct']}% sin edición, {CRITERIO['incidentes']} incidentes, sin borradores sin sello)")
+            print(
+                f"Últimos {r['dias']} días (criterio propuesto: >={CRITERIO['casos']} casos, "
+                f">={CRITERIO['tasa_sin_edicion_pct']}% sin edición, {CRITERIO['incidentes']} incidentes, sin borradores sin sello)"
+            )
             for nombre, c in sorted(r["categorias"].items()):
                 tasa = "n/d" if c["tasa_sin_edicion"] is None else f"{c['tasa_sin_edicion'] * 100:.0f}%"
-                print(f"  {nombre:<18} decididos={c['decididos']} aprobados={c['aprobados']} sin_edicion={c['sin_edicion']} "
-                      f"editados={c['editados']} sin_sello={c['sin_sello']} rechazados={c['rechazados']} "
-                      f"incidentes={c['incidentes']} tasa={tasa}  criterio numérico: {'CUMPLE' if c['cumple_criterio_numerico'] else 'no'}")
+                print(
+                    f"  {nombre:<18} decididos={c['decididos']} aprobados={c['aprobados']} sin_edicion={c['sin_edicion']} "
+                    f"editados={c['editados']} sin_sello={c['sin_sello']} rechazados={c['rechazados']} "
+                    f"incidentes={c['incidentes']} tasa={tasa}  criterio numérico: {'CUMPLE' if c['cumple_criterio_numerico'] else 'no'}"
+                )
             if not r["categorias"]:
                 print("  (sin decisiones en el periodo)")
             if not r["cadena_ok"]:
@@ -758,9 +906,11 @@ def main(argv, entrada=None, raiz=RAIZ, ruta_lista_persona=None):
             if r["truncado"]:
                 print("  ATENCIÓN: hay demasiados registros y se truncó la lectura: nada puede dar CUMPLE")
             if not r["integro"]:
-                print(f"  ATENCIÓN: {r['registros_ilegibles']} registro(s) ilegible(s), {r['registros_alterados']} alterado(s), "
-                      f"{r['registros_sin_evento_en_cadena']} sin evento en la cadena y {r['eventos_sin_archivo']} decisión(es) "
-                      "de la cadena SIN archivo (¿borrado?): nada puede dar CUMPLE hasta revisarlo a mano")
+                print(
+                    f"  ATENCIÓN: {r['registros_ilegibles']} registro(s) ilegible(s), {r['registros_alterados']} alterado(s), "
+                    f"{r['registros_sin_evento_en_cadena']} sin evento en la cadena y {r['eventos_sin_archivo']} decisión(es) "
+                    "de la cadena SIN archivo (¿borrado?): nada puede dar CUMPLE hasta revisarlo a mano"
+                )
             print("Informativo: subir de nivel lo decide una persona; nada cambia solo.")
             return 0
     except (ValueError, OSError, RuntimeError, nocontacto.NoContactoInvalido) as e:

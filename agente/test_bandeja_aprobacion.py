@@ -1,4 +1,5 @@
 """Pruebas de la bandeja de aprobación (agente/bandeja.py). Todo en directorios temporales: nada toca workspace/ real."""
+
 import io
 import json
 import os
@@ -27,6 +28,7 @@ def D(item_id, decision, raiz, **kw):
 
 def iso(delta_dias=0):
     import datetime
+
     return datetime.datetime.fromtimestamp(AHORA - delta_dias * 86400, datetime.timezone.utc).isoformat(timespec="seconds")
 
 
@@ -56,19 +58,65 @@ class Base(unittest.TestCase):
         return d
 
     def cot(self, id_="b-0123456789ab", dias=1, sellar=True, **extra):
-        return self.poner("borradores", id_, {"id": id_, "moneda": "USD", "cliente_ref": "chat-A1", "lineas": [{"sku": "SRV-BASICO", "nombre": "Servicio basico", "cantidad": 1, "precio_unitario": "910.00", "total": "910.00"}],
-                                              "subtotal": "910.00", "descuento_pct": "0", "descuento": "0.00", "impuesto": "0.00",
-                                              "total": "910.00", "requiere_aprobacion_humana": False, "creado": iso(dias),
-                                              "estado": "borrador_pendiente_aprobacion", **extra}, sellar)
+        return self.poner(
+            "borradores",
+            id_,
+            {
+                "id": id_,
+                "moneda": "USD",
+                "cliente_ref": "chat-A1",
+                "lineas": [
+                    {
+                        "sku": "SRV-BASICO",
+                        "nombre": "Servicio basico",
+                        "cantidad": 1,
+                        "precio_unitario": "910.00",
+                        "total": "910.00",
+                    }
+                ],
+                "subtotal": "910.00",
+                "descuento_pct": "0",
+                "descuento": "0.00",
+                "impuesto": "0.00",
+                "total": "910.00",
+                "requiere_aprobacion_humana": False,
+                "creado": iso(dias),
+                "estado": "borrador_pendiente_aprobacion",
+                **extra,
+            },
+            sellar,
+        )
 
     def cob(self, id_="c-f001-amable", dias=1, sellar=True):
-        return self.poner("borradores_cobranza", id_, {"id": id_, "factura_id": "F001", "etapa": id_.rsplit("-", 1)[1],
-                                                       "destinatario": "a@b.com", "asunto": "x", "mensaje": "y",
-                                                       "creado": iso(dias), "estado": "borrador_pendiente_aprobacion"}, sellar)
+        return self.poner(
+            "borradores_cobranza",
+            id_,
+            {
+                "id": id_,
+                "factura_id": "F001",
+                "etapa": id_.rsplit("-", 1)[1],
+                "destinatario": "a@b.com",
+                "asunto": "x",
+                "mensaje": "y",
+                "creado": iso(dias),
+                "estado": "borrador_pendiente_aprobacion",
+            },
+            sellar,
+        )
 
     def esc(self, id_="e-0123456789ab", dias=1):
-        return self.poner("escalados", id_, {"id": id_, "creado": iso(dias), "motivo": "cliente molesto", "referencia": "chat-A1",
-                                             "estado": "pendiente"}, sellar=False)
+        return self.poner(
+            "escalados",
+            id_,
+            {
+                "id": id_,
+                "creado": iso(dias),
+                "motivo": "cliente molesto",
+                "referencia": "chat-A1",
+                "estado": "pendiente",
+            },
+            sellar=False,
+        )
 
 
 class Sello(unittest.TestCase):
@@ -127,8 +175,17 @@ class Pendientes(Base):
         self.assertEqual(B.pendientes(self.raiz, AHORA), [])
 
     def test_el_texto_con_controles_no_llega_a_la_terminal(self):
-        self.poner("escalados", "e-0123456789ab", {"id": "e-0123456789ab", "creado": iso(1), "motivo": "hola\x1b[31m rojo\x07",
-                                                  "referencia": "r"}, sellar=False)
+        self.poner(
+            "escalados",
+            "e-0123456789ab",
+            {
+                "id": "e-0123456789ab",
+                "creado": iso(1),
+                "motivo": "hola\x1b[31m rojo\x07",
+                "referencia": "r",
+            },
+            sellar=False,
+        )
         r = B.pendientes(self.raiz, AHORA)[0]["resumen"]
         self.assertNotIn("\x1b", r)
         self.assertNotIn("\x07", r)
@@ -153,7 +210,10 @@ class Decidir(Base):
         self.assertFalse(os.path.exists(self.ruta("borradores", "b-0123456789ab")))
         with open(destino, encoding="utf-8") as f:
             reg = json.load(f)
-        self.assertEqual((reg["estado"], reg["sello"], reg["decidido_por"], reg["categoria"]), ("aprobado", "intacto", "ana", "cotizacion"))
+        self.assertEqual(
+            (reg["estado"], reg["sello"], reg["decidido_por"], reg["categoria"]),
+            ("aprobado", "intacto", "ana", "cotizacion"),
+        )
         self.assertEqual(reg["contenido"], d)
         self.assertEqual(reg["hash_contenido"], B._sha(d))
         self.assertIn(os.path.join("archivo", "aprobados"), destino)
@@ -200,8 +260,20 @@ class Decidir(Base):
         D("b-0123456789ab", "rechazado", self.raiz, motivo="viejo", ahora=AHORA + 5)
 
     def test_ids_peligrosos_o_de_otro_formato(self):
-        for malo in ("../x", "b-123", "b-0123456789ab.json", "", None, 5, "B-0123456789AB", "c-f001-otra", "c--x-amable",
-                     "b-0123456789ab\n", "b-0123456789ab/../../x", "c-" + "a" * 40 + "-amable"):
+        for malo in (
+            "../x",
+            "b-123",
+            "b-0123456789ab.json",
+            "",
+            None,
+            5,
+            "B-0123456789AB",
+            "c-f001-otra",
+            "c--x-amable",
+            "b-0123456789ab\n",
+            "b-0123456789ab/../../x",
+            "c-" + "a" * 40 + "-amable",
+        ):
             with self.assertRaises(ValueError, msg=repr(malo)):
                 D(malo, "aprobado", self.raiz, ahora=AHORA)
         with self.assertRaises(FileNotFoundError):
@@ -221,6 +293,7 @@ class Decidir(Base):
                 if evento.endswith("_intento"):
                     with open(ruta, "a") as f:
                         f.write(" ")
+
         with mock.patch.object(B, "_auditoria", lambda raiz: LogQueEdita()):
             with self.assertRaises(RuntimeError):
                 D("b-0123456789ab", "aprobado", self.raiz, ahora=AHORA)
@@ -247,6 +320,7 @@ class Decidir(Base):
 
     def test_dos_decisiones_a_la_vez_sobre_el_mismo_id_no_pierden_el_registro(self):
         import threading
+
         self.cot()
         resultados = []
 
@@ -255,6 +329,7 @@ class Decidir(Base):
                 resultados.append(("ok", D("b-0123456789ab", "aprobado", self.raiz, ahora=AHORA)))
             except Exception as e:  # el perdedor puede fallar de varias formas, pero NUNCA debe borrar el registro del ganador
                 resultados.append(("error", type(e).__name__))
+
         hilos = [threading.Thread(target=intentar) for _ in range(4)]
         for h in hilos:
             h.start()
@@ -274,6 +349,7 @@ class Decidir(Base):
             if str(p).endswith(".tomado"):
                 raise PermissionError("antivirus")
             return real(p, *a, **k)
+
         with mock.patch.object(B.os, "remove", remove):
             with self.assertRaises(PermissionError):
                 D("b-0123456789ab", "aprobado", self.raiz, ahora=AHORA)
@@ -290,6 +366,7 @@ class Decidir(Base):
             if str(p).endswith(".tomado") or os.sep + "aprobados" + os.sep in str(p):
                 raise PermissionError("antivirus")
             return real(p, *a, **k)
+
         with mock.patch.object(B.os, "remove", remove):
             with self.assertRaises(PermissionError):
                 D("b-0123456789ab", "aprobado", self.raiz, ahora=AHORA)
@@ -310,8 +387,17 @@ class Decidir(Base):
 
     def test_forzar_y_la_confirmacion_quedan_en_el_registro(self):
         self.cot(dias=9)
-        with open(D("b-0123456789ab", "aprobado", self.raiz, forzar=True, ahora=AHORA, confirmacion="interactiva"),
-                  encoding="utf-8") as f:
+        with open(
+            D(
+                "b-0123456789ab",
+                "aprobado",
+                self.raiz,
+                forzar=True,
+                ahora=AHORA,
+                confirmacion="interactiva",
+            ),
+            encoding="utf-8",
+        ) as f:
             reg = json.load(f)
         self.assertEqual((reg["forzado"], reg["confirmacion"]), (True, "interactiva"))
 
@@ -324,6 +410,7 @@ class Decidir(Base):
 
     def test_las_decisiones_quedan_en_el_registro_encadenado(self):
         from audit_log import verificar
+
         self.cot()
         self.cob()
         D("b-0123456789ab", "aprobado", self.raiz, quien="ana", ahora=AHORA)
@@ -480,8 +567,17 @@ class Falsificaciones(Base):
 
     def test_cambiar_sello_categoria_estado_decidido_o_id_se_detecta(self):
         ruta, reg = self.registro()
-        cambios = {"sello": "sin_sello", "categoria": "cobranza_firme", "decidido": iso(0.5), "id": "b-ffffffffffff",
-                   "tipo": "cobranza", "decidido_por": "otra", "motivo": "x", "forzado": True, "confirmacion": "interactiva"}
+        cambios = {
+            "sello": "sin_sello",
+            "categoria": "cobranza_firme",
+            "decidido": iso(0.5),
+            "id": "b-ffffffffffff",
+            "tipo": "cobranza",
+            "decidido_por": "otra",
+            "motivo": "x",
+            "forzado": True,
+            "confirmacion": "interactiva",
+        }
         for campo, valor in cambios.items():
             falso = {**reg, campo: valor}
             self.guardar(ruta, falso)
@@ -652,6 +748,7 @@ class JunctionWindows(Base):
             self.skipTest("las junctions son de Windows")
         import shutil
         import subprocess
+
         fuera = tempfile.mkdtemp()
         self.addCleanup(lambda: shutil.rmtree(fuera, ignore_errors=True))
         with open(os.path.join(fuera, "b-0123456789ab.json"), "w") as f:
@@ -673,6 +770,7 @@ class JunctionWindows(Base):
             self.skipTest("las junctions son de Windows")
         import shutil
         import subprocess
+
         fuera = tempfile.mkdtemp()
         self.addCleanup(lambda: shutil.rmtree(fuera, ignore_errors=True))
         enlace = os.path.join(self.raiz, "workspace", "archivo")
@@ -741,7 +839,11 @@ class RevisionEnBandeja(Base):
 
     def test_los_avisos_no_bloquean_y_quedan_en_el_registro(self):
         self.cob()
-        self.editar("borradores_cobranza", "c-f001-amable", mensaje="Pague por transferencia al IBAN indicado. Gracias")
+        self.editar(
+            "borradores_cobranza",
+            "c-f001-amable",
+            mensaje="Pague por transferencia al IBAN indicado. Gracias",
+        )
         with open(D("c-f001-amable", "aprobado", self.raiz, ahora=AHORA), encoding="utf-8") as f:
             reg = json.load(f)
         self.assertTrue(any("transferencia" in a for a in reg["avisos"]))
@@ -795,7 +897,12 @@ class CerrarRegistra(Base):
 class LineaDeComandos(Base):
     def correr(self, *args, entrada=""):
         with mock.patch("sys.stdout", io.StringIO()) as out, mock.patch("sys.stderr", io.StringIO()) as err:
-            rc = B.main(["bandeja.py", *args], io.StringIO(entrada), self.raiz, ruta_lista_persona=self.lista_nc)
+            rc = B.main(
+                ["bandeja.py", *args],
+                io.StringIO(entrada),
+                self.raiz,
+                ruta_lista_persona=self.lista_nc,
+            )
         return rc, out.getvalue(), err.getvalue()
 
     def test_aprobar_pide_escribir_el_id_y_sin_confirmar_no_hace_nada(self):
@@ -816,6 +923,7 @@ class LineaDeComandos(Base):
 
     def test_listar_avisa_de_las_bajas_automaticas_y_nocontacto_las_muestra(self):
         import nocontacto
+
         auto = os.path.join(self.raiz, "estado", "agente", "no_contactar_auto.json")
         self.assertNotIn("automática", self.correr("listar")[1])  # sin bajas, ni una línea de más
         nocontacto.agregar_auto(auto, "ana@x.com", "baja por correo", 1_800_000_000)
@@ -829,6 +937,7 @@ class LineaDeComandos(Base):
 
     def test_listar_avisa_si_hay_bajas_sin_registrar_y_la_cobranza_queda_bloqueada(self):
         import nocontacto
+
         self.cob()
         auto = os.path.join(self.raiz, "estado", "agente", "no_contactar_auto.json")
         nocontacto.marcar_bloqueo(auto, 2, 1_800_000_000)
@@ -840,6 +949,7 @@ class LineaDeComandos(Base):
 
     def test_avisa_cuando_la_lista_automatica_esta_casi_llena(self):
         import nocontacto
+
         auto = os.path.join(self.raiz, "estado", "agente", "no_contactar_auto.json")
         with mock.patch.object(nocontacto, "MAX_ENTRADAS", 10):
             for i in range(7):
@@ -885,8 +995,7 @@ class LineaDeComandos(Base):
 
     def test_aprobar_con_entrada_redirigida_se_rechaza(self):
         self.cot(dias=0)
-        with mock.patch("sys.stdin", io.StringIO("b-0123456789ab\n")), mock.patch("sys.stdout", io.StringIO()), \
-                mock.patch("sys.stderr", io.StringIO()) as err:
+        with mock.patch("sys.stdin", io.StringIO("b-0123456789ab\n")), mock.patch("sys.stdout", io.StringIO()), mock.patch("sys.stderr", io.StringIO()) as err:
             rc = B.main(["bandeja.py", "aprobar", "b-0123456789ab"], None, self.raiz)
         self.assertEqual(rc, 1)
         self.assertIn("interactiva", err.getvalue())

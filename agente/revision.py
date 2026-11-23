@@ -2,6 +2,7 @@
 
 Todo lo de este módulo solo puede FRENAR o ADVERTIR; nada amplía lo que otro código permite. Ante un error interno se retiene.
 """
+
 import re
 import unicodedata
 from decimal import Decimal, ROUND_HALF_UP
@@ -22,7 +23,7 @@ def marcar_externo(texto):
         raise ValueError("el texto debe ser una cadena")
     t = unicodedata.normalize("NFKC", texto)
     t = _RE_ANGULOS.sub(" ", t)
-    t = "".join(" " if unicodedata.category(c).startswith("C") or unicodedata.category(c) in ("Zl", "Zp") else c for c in t)
+    t = "".join((" " if unicodedata.category(c).startswith("C") or unicodedata.category(c) in ("Zl", "Zp") else c) for c in t)
     return f"{_ABRE} {' '.join(t.split())} {_CIERRA}" if t.strip() else f"{_ABRE}  {_CIERRA}"
 
 
@@ -36,17 +37,46 @@ _RE_MARCADOR_MAYUS = re.compile(r"\[[A-Z][A-Z_ ]{2,30}\]|<[A-Z][A-Z_ ]{2,30}>|(?
 _RE_RELLENO = re.compile(r"(?i)(?<![\w-])X{3,}(?![\w-])|lorem ipsum")
 _RE_HTML = re.compile(r"<\s*/?\s*[A-Za-z!?]")
 _RE_ENLACE = re.compile(r"(?:\b(?:https?|ftp)://|\bwww\.)", re.IGNORECASE)
-_RE_DOMINIO_SUELTO = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}|\b[A-Za-z0-9\-]+\.(?:com|net|org|io|co|mx|es|ar|cl|pe|info|biz|app|dev)\b",
-                                re.IGNORECASE)
+_RE_DOMINIO_SUELTO = re.compile(
+    r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}|\b[A-Za-z0-9\-]+\.(?:com|net|org|io|co|mx|es|ar|cl|pe|info|biz|app|dev)\b",
+    re.IGNORECASE,
+)
 # re.ASCII: `\d` aceptaría dígitos de otros alfabetos. 18 enteros: validar_catalogo admite precios hasta 1e12 y el cotizador 10.000 unidades × 50 líneas.
 _RE_DINERO = re.compile(r"\d{1,18}\.\d{2}", re.ASCII)
 _RE_PCT = re.compile(r"\d{1,3}(?:\.\d{1,60})?", re.ASCII)  # el cotizador lo imprime tal cual lo recibe (0.1+0.2 = 0.30000000000000004; 1.5e-30 = 31 decimales)
 # Frases YA normalizadas (sin acentos, minúsculas, solo [a-z0-9]). AVISOS, no bloqueos: una persona puede querer incluir datos de pago.
 _FRASES_AVISO = (
-    "transferencia", "transfiera", "transferir", "iban", "swift", "cuenta bancaria", "numero de cuenta", "deposite", "gift card",
-    "tarjeta de regalo", "wire transfer", "western union", "bitcoin", "criptomoneda", "usdt", "ultimo aviso", "demanda", "embargo",
-    "policia", "acciones legales", "consecuencias legales", "denuncia", "abogado", "tribunal", "cobro juridico", "urgente",
-    "contrasena", "password", "tarjeta de credito", "cvv", "clave de acceso",
+    "transferencia",
+    "transfiera",
+    "transferir",
+    "iban",
+    "swift",
+    "cuenta bancaria",
+    "numero de cuenta",
+    "deposite",
+    "gift card",
+    "tarjeta de regalo",
+    "wire transfer",
+    "western union",
+    "bitcoin",
+    "criptomoneda",
+    "usdt",
+    "ultimo aviso",
+    "demanda",
+    "embargo",
+    "policia",
+    "acciones legales",
+    "consecuencias legales",
+    "denuncia",
+    "abogado",
+    "tribunal",
+    "cobro juridico",
+    "urgente",
+    "contrasena",
+    "password",
+    "tarjeta de credito",
+    "cvv",
+    "clave de acceso",
 )
 _FRASES_COMPACTAS = tuple(f.replace(" ", "") for f in _FRASES_AVISO if len(f.replace(" ", "")) >= 9)
 
@@ -74,7 +104,8 @@ def _texto_libre(nombre, valor, bloqueos, avisos, maximo=None, estricto=True, so
     """Reglas objetivas sobre un texto que va a leer un tercero o la persona. HTML y llaves sin resolver bloquean; los marcadores
     ([NOMBRE], TODO, XXX) y los enlaces bloquean si `estricto` (mensajes a terceros) y son solo avisos si no (texto corto de una cotización).
     `solo_avisos`: texto que escribe la persona en el catálogo (moneda, SKU, nombre): todo hallazgo es un aviso, porque `validar_catalogo`
-    lo admite y un catálogo así no debe producir borradores imposibles de aprobar. Lo vacío o que no es texto bloquea siempre."""
+    lo admite y un catálogo así no debe producir borradores imposibles de aprobar. Lo vacío o que no es texto bloquea siempre.
+    """
     if not isinstance(valor, str) or not valor.strip():
         bloqueos.append(f"{nombre}: falta o no es texto")
         return
@@ -95,7 +126,7 @@ def _texto_libre(nombre, valor, bloqueos, avisos, maximo=None, estricto=True, so
     elif _RE_DOMINIO_SUELTO.search(valor):
         avisos.append(f"{nombre}: parece contener un correo o un dominio")
     for f in _frases_en(valor):
-        avisos.append(f"{nombre}: frase de pago o presión (\"{f}\")")
+        avisos.append(f'{nombre}: frase de pago o presión ("{f}")')
 
 
 def _dinero(v):
@@ -124,7 +155,15 @@ def _revisar_cotizacion(q, bloqueos, avisos):
             if type(cant) is not int or not 1 <= cant <= 10000:
                 raise ValueError("cantidad inválida")
             for campo in ("sku", "nombre"):
-                _texto_libre(f"línea {campo}", l.get(campo), bloqueos, avisos, 120, estricto=False, solo_avisos=True)
+                _texto_libre(
+                    f"línea {campo}",
+                    l.get(campo),
+                    bloqueos,
+                    avisos,
+                    120,
+                    estricto=False,
+                    solo_avisos=True,
+                )
             precio, total_l = _dinero(l.get("precio_unitario")), _dinero(l.get("total"))
             # el cotizador multiplica el precio SIN redondear y el borrador muestra el precio ya redondeado a 2 decimales: la diferencia
             # legítima puede llegar a medio céntimo por unidad (más medio céntimo del redondeo del total)
@@ -138,7 +177,11 @@ def _revisar_cotizacion(q, bloqueos, avisos):
         descuento = _dinero(q.get("descuento"))
         if descuento != _q(subtotal * Decimal(q["descuento_pct"]) / 100):
             raise ValueError("el descuento no cuadra")
-        base, impuesto, total = subtotal - descuento, _dinero(q.get("impuesto")), _dinero(q.get("total"))
+        base, impuesto, total = (
+            subtotal - descuento,
+            _dinero(q.get("impuesto")),
+            _dinero(q.get("total")),
+        )
         if impuesto > base or total != base + impuesto:
             raise ValueError("impuesto o total no cuadran")
     except (ValueError, ArithmeticError) as e:

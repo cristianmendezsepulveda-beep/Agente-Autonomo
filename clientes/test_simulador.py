@@ -8,7 +8,15 @@ import unittest
 AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(AQUI, "..", "sandbox"))
 from generar_clientes import build
-from simulador import clientes_pendientes, simular, parsear, prompt_lote, cobertura, correr_hermes, PRECIO_TOPE
+from simulador import (
+    clientes_pendientes,
+    simular,
+    parsear,
+    prompt_lote,
+    cobertura,
+    correr_hermes,
+    PRECIO_TOPE,
+)
 from ranking import ranking, spearman, estabilidad, estabilidad_bootstrap
 from budget_guard import BudgetGuard
 
@@ -17,11 +25,24 @@ with open(os.path.join(AQUI, "..", "productos", "variantes.json"), encoding="utf
 
 
 def fila(c, v, l=4, p=50, extra=""):
-    return '{"cliente":"%s","variante":"%s","likert":%s,"precio_max_usd":%s%s}' % (c, v, l, p, extra)
+    return '{"cliente":"%s","variante":"%s","likert":%s,"precio_max_usd":%s%s}' % (
+        c,
+        v,
+        l,
+        p,
+        extra,
+    )
 
 
 def resp(cid, vid, l, p):
-    return {"cliente": cid, "variante": vid, "likert": l, "precio_max_usd": p, "objecion": "", "backend": "x"}
+    return {
+        "cliente": cid,
+        "variante": vid,
+        "likert": l,
+        "precio_max_usd": p,
+        "objecion": "",
+        "backend": "x",
+    }
 
 
 class T(unittest.TestCase):
@@ -43,10 +64,21 @@ class T(unittest.TestCase):
 
     # --- parser: la salida del modelo es dato no confiable ---
     def test_descarta_filas_ajenas_invalidas_y_no_objetos(self):
-        t = "basura [" + ",".join([
-            fila("C001", "V1"), fila("HACK", "V1", 5), fila("C001", "V2", 9), fila("C001", "V3", '"abc"'),
-            '{"cliente":["C001"],"variante":"V1","likert":3}', "7", '{"cliente":"C001","variante":"V4","likert":3.9}',
-        ]) + "] fin"
+        t = (
+            "basura ["
+            + ",".join(
+                [
+                    fila("C001", "V1"),
+                    fila("HACK", "V1", 5),
+                    fila("C001", "V2", 9),
+                    fila("C001", "V3", '"abc"'),
+                    '{"cliente":["C001"],"variante":"V1","likert":3}',
+                    "7",
+                    '{"cliente":"C001","variante":"V4","likert":3.9}',
+                ]
+            )
+            + "] fin"
+        )
         out = parsear(t, {"C001"}, {"V1", "V2", "V3", "V4"})
         self.assertEqual([(o["cliente"], o["variante"]) for o in out], [("C001", "V1")])
 
@@ -94,6 +126,7 @@ class T(unittest.TestCase):
             if isinstance(s, Exception):
                 raise s
             return types.SimpleNamespace(returncode=0, stdout=s, stderr="")
+
         return llamar
 
     def _lote_ok(self, clientes):
@@ -105,12 +138,23 @@ class T(unittest.TestCase):
 
     def test_lote_fallido_no_descarta_los_pagados_y_se_guarda_cada_lote(self):
         import subprocess
+
         with tempfile.TemporaryDirectory() as d:
             g = BudgetGuard(os.path.join(d, "b.json"), 10**9, 1000)
-            ok = lambda i: self._lote_ok(self.c[i * 10:(i + 1) * 10])
+            ok = lambda i: self._lote_ok(self.c[i * 10 : (i + 1) * 10])
             # lotes: 0 ok, 1 timeout, 2 sin json (2 fallos seguidos), 3 ok, 4 archivo ausente (suelto), 5-9 ok
-            salidas = [ok(0), subprocess.TimeoutExpired("hermes", 1), "sin json", ok(3),
-                       FileNotFoundError("hermes"), ok(5), ok(6), ok(7), ok(8), ok(9)]
+            salidas = [
+                ok(0),
+                subprocess.TimeoutExpired("hermes", 1),
+                "sin json",
+                ok(3),
+                FileNotFoundError("hermes"),
+                ok(5),
+                ok(6),
+                ok(7),
+                ok(8),
+                ok(9),
+            ]
             guardados = []
             res, corte = correr_hermes(self.c, V, g, guardados.append, self._falso(salidas))
             self.assertIsNone(corte)  # nunca 3 fallos seguidos
@@ -126,6 +170,7 @@ class T(unittest.TestCase):
             def llamar(p):
                 llamadas.append(1)
                 return types.SimpleNamespace(returncode=0, stdout=self._lote_ok(self.c[0:10]), stderr="")
+
             res, corte = correr_hermes(self.c, V, g, None, llamar)
             self.assertEqual(len(llamadas), 2)
             self.assertIn("acciones", corte)
@@ -139,6 +184,7 @@ class T(unittest.TestCase):
             def llamar(p):
                 llamadas.append(1)
                 return types.SimpleNamespace(returncode=2, stdout="", stderr="flag desconocido")
+
             res, corte = correr_hermes(self.c, V, g, None, llamar)
             self.assertEqual((len(llamadas), res), (3, []))
             self.assertIn("seguidos", corte)
@@ -146,11 +192,13 @@ class T(unittest.TestCase):
 
     def test_la_llamada_real_restringe_herramientas(self):
         import simulador
+
         capturado = {}
 
         def falso(args, **kw):
             capturado["args"] = args
             return types.SimpleNamespace(returncode=0, stdout="[]", stderr="")
+
         original = simulador.subprocess.run
         simulador.subprocess.run = falso
         try:

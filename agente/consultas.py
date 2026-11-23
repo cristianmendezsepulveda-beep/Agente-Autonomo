@@ -14,19 +14,48 @@ límite de palabra al inicio (no coincide dentro de otra palabra: "reciban" no a
 hasta 4 letras, también al final (admite plural). Se prueba además con sustituciones tipo "1gnora"/"rec1amo".
 Límites conocidos: no cubre símbolos arbitrarios ("ign#ra"); "varias intenciones" = 2 o más FAQ con coincidencias.
 """
+
 import functools
 import re
 import unicodedata
 
 MAX_TEXTO = 2000
 # Sustituciones frecuentes. "1" y "|" pueden ser i o l: se prueban las dos variantes.
-LEET_A = str.maketrans({"0": "o", "1": "i", "3": "e", "4": "a", "5": "s", "7": "t", "8": "b", "9": "g",
-                        "@": "a", "$": "s", "!": "i", "|": "i"})
-LEET_B = str.maketrans({"0": "o", "1": "l", "3": "e", "4": "a", "5": "s", "7": "t", "8": "b", "9": "g",
-                        "@": "a", "$": "s", "!": "i", "|": "l"})
+LEET_A = str.maketrans(
+    {
+        "0": "o",
+        "1": "i",
+        "3": "e",
+        "4": "a",
+        "5": "s",
+        "7": "t",
+        "8": "b",
+        "9": "g",
+        "@": "a",
+        "$": "s",
+        "!": "i",
+        "|": "i",
+    }
+)
+LEET_B = str.maketrans(
+    {
+        "0": "o",
+        "1": "l",
+        "3": "e",
+        "4": "a",
+        "5": "s",
+        "7": "t",
+        "8": "b",
+        "9": "g",
+        "@": "a",
+        "$": "s",
+        "!": "i",
+        "|": "l",
+    }
+)
 # LISTA BLANCA de caracteres: ASCII imprimible, espacios, letras y signos del español y tipografía común.
 # Todo lo demás (homoglifos, ø ı đ, ancho cero, bidi, emojis) escala en vez de intentar normalizarlo.
-PERMITIDOS = (set("áéíóúüñÁÉÍÓÚÜÑ¿¡") | set("…—–“”‘’«»€°ºª·") | {chr(10), chr(9), chr(13)})
+PERMITIDOS = set("áéíóúüñÁÉÍÓÚÜÑ¿¡") | set("…—–“”‘’«»€°ºª·") | {chr(10), chr(9), chr(13)}
 NUMEROS = re.compile(r"(?:\d\D{0,3}){9,}")
 CORREO = re.compile(r"[^\s@]+@[^\s@]+\.[^\s@]+")
 
@@ -70,11 +99,18 @@ def responder(cat, texto):
         return {"tipo": "escalar", "motivo": "datos personales (números largos o correo)"}
     b = _base(texto)
     t1 = normalizar(b)
-    variantes = (t1, normalizar(b.translate(LEET_A)), normalizar(b.translate(LEET_B)))  # "1gnora", "rec1amo"
+    variantes = (
+        t1,
+        normalizar(b.translate(LEET_A)),
+        normalizar(b.translate(LEET_B)),
+    )  # "1gnora", "rec1amo"
     if any(_contiene(variantes, p) for p in cat["patrones_manipulacion"]):
         return {"tipo": "escalar", "motivo": "posible intento de manipulación"}
     if any(_contiene(variantes, p) for p in cat["palabras_sensibles"]):
-        return {"tipo": "escalar", "motivo": "tema sensible (pagos, reclamos, datos personales o urgencia)"}
+        return {
+            "tipo": "escalar",
+            "motivo": "tema sensible (pagos, reclamos, datos personales o urgencia)",
+        }
     puntos = [sum(_contiene(t1, w) for w in f["palabras"]) for f in cat["faq"]]
     con_coincidencia = [i for i, p in enumerate(puntos) if p > 0]
     if not con_coincidencia:

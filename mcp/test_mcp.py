@@ -30,8 +30,11 @@ class Logica(unittest.TestCase):
         self.t = tempfile.TemporaryDirectory()
         self.raiz = os.path.join(self.t.name, "proy")
         os.makedirs(os.path.join(self.raiz, "workspace"))
-        self.s = servidor.Servicio(self.raiz, os.path.join(self.t.name, "estado"),
-                                   os.path.join(RAIZ, "agente", "catalogo.json"))
+        self.s = servidor.Servicio(
+            self.raiz,
+            os.path.join(self.t.name, "estado"),
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+        )
 
     def tearDown(self):
         self.t.cleanup()
@@ -44,10 +47,25 @@ class Logica(unittest.TestCase):
         self.assertIn("tools", r["result"]["capabilities"])
         self.assertIsNone(servidor.manejar(self.s, {"jsonrpc": "2.0", "method": "notifications/initialized"}))
         nombres = [t["name"] for t in servidor.manejar(self.s, rpc(2, "tools/list"))["result"]["tools"]]
-        self.assertEqual(nombres, ["consultar_catalogo", "cotizar", "escalar_a_humano", "listar_catalogo",
-                                   "crm_buscar_contacto", "crm_registrar_lead", "crm_registrar_nota", "crm_crear_tarea",
-                                   "correo_nuevos", "correo_captar", "correo_descartar",
-                                   "seguimiento_pendientes", "cobranza_evaluar", "cobranza_preparar"])
+        self.assertEqual(
+            nombres,
+            [
+                "consultar_catalogo",
+                "cotizar",
+                "escalar_a_humano",
+                "listar_catalogo",
+                "crm_buscar_contacto",
+                "crm_registrar_lead",
+                "crm_registrar_nota",
+                "crm_crear_tarea",
+                "correo_nuevos",
+                "correo_captar",
+                "correo_descartar",
+                "seguimiento_pendientes",
+                "cobranza_evaluar",
+                "cobranza_preparar",
+            ],
+        )
 
     def test_catalogo_malformado_falla_al_construir_con_valueerror(self):
         # un catálogo real con un precio no numérico debe rechazarse al arrancar (ValueError), no soltar un
@@ -77,13 +95,19 @@ class Logica(unittest.TestCase):
     def test_los_borradores_salen_sellados_y_la_bandeja_los_aprueba_de_extremo_a_extremo(self):
         sys.path.insert(0, os.path.join(RAIZ, "agente"))
         import bandeja
+
         bid = texto(self.llamar("cotizar", {"lineas": [{"sku": "SRV-ESTANDAR", "cantidad": 1}]}))["borrador"]
         arch = os.path.join(self.raiz, "workspace", "borradores", bid + ".json")
         d = json.load(open(arch, encoding="utf-8"))
         self.assertEqual(bandeja.estado_sello(d), "intacto")
         self.assertEqual([i["id"] for i in bandeja.pendientes(self.raiz)], [bid])
         visto = bandeja.hash_contenido(bandeja.ver(bid, self.raiz)[0])  # lo que la persona vería
-        reg = json.load(open(bandeja.decidir(bid, "aprobado", self.raiz, quien="prueba", hash_esperado=visto), encoding="utf-8"))
+        reg = json.load(
+            open(
+                bandeja.decidir(bid, "aprobado", self.raiz, quien="prueba", hash_esperado=visto),
+                encoding="utf-8",
+            )
+        )
         self.assertEqual((reg["sello"], reg["categoria"]), ("intacto", "cotizacion"))
         self.assertFalse(os.path.exists(arch))
 
@@ -97,9 +121,16 @@ class Logica(unittest.TestCase):
         self.assertNotIn("\x1b", open(arch, encoding="utf-8").read())
 
     def test_validacion_devuelve_error_sin_traza(self):
-        casos = [("cotizar", {"lineas": [{"sku": "X", "cantidad": 1}]}), ("cotizar", {}), ("cotizar", {"lineas": [], "otro": 1}),
-                 ("consultar_catalogo", {"texto": 5}), ("consultar_catalogo", {"texto": "a", "extra": 1}),
-                 ("escalar_a_humano", {"motivo": 7}), ("inexistente", {}), ("cotizar", [1])]
+        casos = [
+            ("cotizar", {"lineas": [{"sku": "X", "cantidad": 1}]}),
+            ("cotizar", {}),
+            ("cotizar", {"lineas": [], "otro": 1}),
+            ("consultar_catalogo", {"texto": 5}),
+            ("consultar_catalogo", {"texto": "a", "extra": 1}),
+            ("escalar_a_humano", {"motivo": 7}),
+            ("inexistente", {}),
+            ("cotizar", [1]),
+        ]
         for nombre, args in casos:
             r = self.llamar(nombre, args)
             self.assertTrue(r["result"]["isError"], (nombre, args))
@@ -126,22 +157,39 @@ class Proceso(unittest.TestCase):
         self.t = tempfile.TemporaryDirectory()
         self.copia = os.path.join(self.t.name, "p")
         for d in ("mcp", "sandbox", "agente"):
-            shutil.copytree(os.path.join(RAIZ, d), os.path.join(self.copia, d),
-                            ignore=shutil.ignore_patterns("__pycache__", "test_*"))
+            shutil.copytree(
+                os.path.join(RAIZ, d),
+                os.path.join(self.copia, d),
+                ignore=shutil.ignore_patterns("__pycache__", "test_*"),
+            )
         os.makedirs(os.path.join(self.copia, "workspace"))
 
     def tearDown(self):
         self.t.cleanup()
 
     def correr(self, entradas):
-        p = subprocess.run([sys.executable, "-I", os.path.join(self.copia, "mcp", "servidor.py")],
-                           input="".join(json.dumps(e) + "\n" for e in entradas) if isinstance(entradas, list) else entradas,
-                           capture_output=True, text=True, timeout=60)
+        p = subprocess.run(
+            [sys.executable, "-I", os.path.join(self.copia, "mcp", "servidor.py")],
+            input=("".join(json.dumps(e) + "\n" for e in entradas) if isinstance(entradas, list) else entradas),
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
         return p
 
     def test_sesion_completa_por_stdio(self):
-        p = self.correr([rpc(1, "initialize", {}), {"jsonrpc": "2.0", "method": "notifications/initialized"},
-                         rpc(2, "tools/list"), rpc(3, "tools/call", {"name": "consultar_catalogo", "arguments": {"texto": "horario"}})])
+        p = self.correr(
+            [
+                rpc(1, "initialize", {}),
+                {"jsonrpc": "2.0", "method": "notifications/initialized"},
+                rpc(2, "tools/list"),
+                rpc(
+                    3,
+                    "tools/call",
+                    {"name": "consultar_catalogo", "arguments": {"texto": "horario"}},
+                ),
+            ]
+        )
         self.assertEqual(p.returncode, 0, p.stderr)
         salidas = [json.loads(l) for l in p.stdout.splitlines()]
         self.assertEqual([s["id"] for s in salidas], [1, 2, 3])  # la notificación no genera respuesta
@@ -175,7 +223,13 @@ class Proceso(unittest.TestCase):
         cat["items"][0]["precio_unitario"] = "N/A"
         open(cat_ruta, "w", encoding="utf-8").write(json.dumps(cat))
         srv = os.path.join(self.copia, "mcp", "servidor.py")
-        f = subprocess.run([sys.executable, "-I", srv, "--fijar"], input="FIJAR\n", capture_output=True, text=True, timeout=60)
+        f = subprocess.run(
+            [sys.executable, "-I", srv, "--fijar"],
+            input="FIJAR\n",
+            capture_output=True,
+            text=True,
+            timeout=60,
+        )
         self.assertEqual(f.returncode, 0, f.stderr)  # pin re-fijado sobre el catálogo malo
         p = self.correr([rpc(1, "ping")])
         self.assertEqual(p.returncode, 4, p.stderr)
@@ -188,8 +242,11 @@ class Endurecimiento(unittest.TestCase):
         self.t = tempfile.TemporaryDirectory()
         self.copia = os.path.join(self.t.name, "p")
         for d in ("mcp", "sandbox", "agente"):
-            shutil.copytree(os.path.join(RAIZ, d), os.path.join(self.copia, d),
-                            ignore=shutil.ignore_patterns("__pycache__", "test_*"))
+            shutil.copytree(
+                os.path.join(RAIZ, d),
+                os.path.join(self.copia, d),
+                ignore=shutil.ignore_patterns("__pycache__", "test_*"),
+            )
         os.makedirs(os.path.join(self.copia, "workspace"))
         self.servidor = os.path.join(self.copia, "mcp", "servidor.py")
 
@@ -198,13 +255,26 @@ class Endurecimiento(unittest.TestCase):
 
     def correr_bytes(self, datos):
         env = {k: v for k, v in os.environ.items() if k not in ("PYTHONIOENCODING", "PYTHONUTF8")}  # sin ayudas de codificación
-        return subprocess.run([sys.executable, "-I", self.servidor], input=datos, capture_output=True, timeout=120, env=env)
+        return subprocess.run(
+            [sys.executable, "-I", self.servidor],
+            input=datos,
+            capture_output=True,
+            timeout=120,
+            env=env,
+        )
 
     def salidas(self, p):
         return [json.loads(l) for l in p.stdout.decode("ascii").splitlines()]
 
     def test_utf8_crudo_en_stdin_no_mata_ni_degrada_la_deteccion(self):
-        msg = rpc(1, "tools/call", {"name": "consultar_catalogo", "arguments": {"texto": "Quiero la devolución, horario ÁÍ"}})
+        msg = rpc(
+            1,
+            "tools/call",
+            {
+                "name": "consultar_catalogo",
+                "arguments": {"texto": "Quiero la devolución, horario ÁÍ"},
+            },
+        )
         p = self.correr_bytes((json.dumps(msg, ensure_ascii=False) + "\n" + json.dumps(rpc(2, "ping")) + "\n").encode("utf-8"))
         self.assertEqual(p.returncode, 0, p.stderr)
         s = self.salidas(p)
@@ -233,8 +303,14 @@ class Endurecimiento(unittest.TestCase):
         self.assertEqual(s[1]["result"], {})
 
     def test_el_pin_cubre_codigo_y_datos_no_solo_las_descripciones(self):
-        for rel in ("agente/catalogo.json", "agente/consultas.py", "agente/cotizador.py", "sandbox/policy.py",
-                    "sandbox/policy.json", "mcp/policy.json"):
+        for rel in (
+            "agente/catalogo.json",
+            "agente/consultas.py",
+            "agente/cotizador.py",
+            "sandbox/policy.py",
+            "sandbox/policy.json",
+            "mcp/policy.json",
+        ):
             ruta = os.path.join(self.copia, rel)
             with open(ruta, "rb") as f:
                 original = f.read()
@@ -276,7 +352,11 @@ class Endurecimiento2(Endurecimiento):
     """Hallazgos de la 2ª ronda de la Fase B."""
 
     def test_un_archivo_py_nuevo_en_el_codigo_impide_arrancar(self):
-        for d, nombre in (("agente", "decimal.py"), ("sandbox", "unicodedata.py"), ("mcp", "extra.py")):
+        for d, nombre in (
+            ("agente", "decimal.py"),
+            ("sandbox", "unicodedata.py"),
+            ("mcp", "extra.py"),
+        ):
             ruta = os.path.join(self.copia, d, nombre)
             with open(ruta, "w") as f:
                 f.write("raise SystemExit(99)\n")  # si llegara a importarse, mataría el servidor
@@ -289,8 +369,13 @@ class Endurecimiento2(Endurecimiento):
         with open(os.path.join(self.copia, "mcp", "uuid.py"), "w") as f:
             f.write("raise SystemExit(99)\n")
         env = {k: v for k, v in os.environ.items() if k not in ("PYTHONPATH", "PYTHONSAFEPATH")}
-        p = subprocess.run([sys.executable, self.servidor], input=json.dumps(rpc(1, "ping")).encode() + b"\n",
-                           capture_output=True, timeout=60, env=env)
+        p = subprocess.run(
+            [sys.executable, self.servidor],
+            input=json.dumps(rpc(1, "ping")).encode() + b"\n",
+            capture_output=True,
+            timeout=60,
+            env=env,
+        )
         self.assertEqual((p.returncode, p.stdout), (3, b""))  # 3 = pin lo rechazó; 99 = se ejecutó el uuid.py plantado
 
     def test_carpetas_y_pyc_inesperados_impiden_arrancar(self):
@@ -333,7 +418,10 @@ class Endurecimiento2(Endurecimiento):
 class LogicaExtra(Logica):
     def test_escalar_guarda_la_referencia_para_la_persona(self):
         out = texto(self.llamar("escalar_a_humano", {"motivo": "reclamo", "referencia": "Ana, cotización b-123"}))
-        with open(os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"), encoding="utf-8") as f:
+        with open(
+            os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"),
+            encoding="utf-8",
+        ) as f:
             self.assertEqual(json.load(f)["referencia"], "Ana, cotización b-123")
         self.assertTrue(self.llamar("escalar_a_humano", {"motivo": "x", "referencia": 5})["result"]["isError"])
         self.assertTrue(self.llamar("escalar_a_humano", {"motivo": "x", "otro": 1})["result"]["isError"])
@@ -358,12 +446,21 @@ class LogicaExtra(Logica):
 
     def test_escalar_guarda_fecha_y_origen_y_rechaza_motivo_vacio(self):
         out = texto(self.llamar("escalar_a_humano", {"motivo": "reclamo", "referencia": "caso-7"}))
-        with open(os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"), encoding="utf-8") as f:
+        with open(
+            os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"),
+            encoding="utf-8",
+        ) as f:
             caso = json.load(f)
-        self.assertEqual((caso["estado"], caso["origen"], caso["referencia"]), ("pendiente", "mcp:escalar_a_humano", "caso-7"))
+        self.assertEqual(
+            (caso["estado"], caso["origen"], caso["referencia"]),
+            ("pendiente", "mcp:escalar_a_humano", "caso-7"),
+        )
         self.assertRegex(caso["creado"], r"^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\+00:00$")
         for vacio in ("", "   ", "\x1b\u200b"):
-            self.assertTrue(self.llamar("escalar_a_humano", {"motivo": vacio, "referencia": "caso-7"})["result"]["isError"], repr(vacio))
+            self.assertTrue(
+                self.llamar("escalar_a_humano", {"motivo": vacio, "referencia": "caso-7"})["result"]["isError"],
+                repr(vacio),
+            )
 
     def test_escalar_sigue_funcionando_con_el_presupuesto_general_agotado(self):
         self.s.c.presupuesto.acciones_max = 1
@@ -418,14 +515,25 @@ class LogicaExtra(Logica):
     def test_cotizar_no_devuelve_cifras_de_la_politica_aunque_el_si_no_sigue_siendo_deducible(self):
         # OJO: solo comprueba que no haya cifras literales. requiere_aprobacion_humana sigue siendo un oráculo
         # booleano (bisección ≈7 llamadas): ver docs/GUARDRAILS.md. No prueba que el máximo sea indeducible.
-        for pct in (1, 5, 11, 50):  # sondeo: con textos distintos se deduciría el máximo por producto
-            r = self.llamar("cotizar", {"lineas": [{"sku": "SRV-ESTANDAR", "cantidad": 1}], "descuento_pct": pct})
+        for pct in (
+            1,
+            5,
+            11,
+            50,
+        ):  # sondeo: con textos distintos se deduciría el máximo por producto
+            r = self.llamar(
+                "cotizar",
+                {"lineas": [{"sku": "SRV-ESTANDAR", "cantidad": 1}], "descuento_pct": pct},
+            )
             salida = r["result"]["content"][0]["text"]
             self.assertNotIn("máximo", salida)
             self.assertNotRegex(salida, r"\\b10\\s*%")
         out = texto(self.llamar("cotizar", {"lineas": [{"sku": "SRV-ESTANDAR", "cantidad": 1}], "descuento_pct": 50}))
         self.assertEqual(out["motivos"], ["el descuento solicitado requiere aprobación humana"])
-        with open(os.path.join(self.raiz, "workspace", "borradores", out["borrador"] + ".json"), encoding="utf-8") as f:
+        with open(
+            os.path.join(self.raiz, "workspace", "borradores", out["borrador"] + ".json"),
+            encoding="utf-8",
+        ) as f:
             borrador = json.load(f)
         self.assertIn("máximo permitido 10", borrador["detalle_operador"][0])  # la persona sí ve el dato
 
@@ -433,7 +541,17 @@ class LogicaExtra(Logica):
         items = texto(self.llamar("listar_catalogo", {}))["items"]
         est = next(i for i in items if i["nombre"] == "Servicio estándar")
         vis = next(i for i in items if i["nombre"] == "Visita técnica")
-        out = texto(self.llamar("cotizar", {"lineas": [{"sku": est["sku"], "cantidad": 2}, {"sku": vis["sku"], "cantidad": 1}]}))
+        out = texto(
+            self.llamar(
+                "cotizar",
+                {
+                    "lineas": [
+                        {"sku": est["sku"], "cantidad": 2},
+                        {"sku": vis["sku"], "cantidad": 1},
+                    ]
+                },
+            )
+        )
         self.assertEqual(out["total"], "210.00")  # 2 x 90 + 30
         self.assertFalse(out["requiere_aprobacion_humana"])
 
@@ -464,12 +582,18 @@ class LogicaExtra(Logica):
 
     def test_longitudes_se_aplican_de_verdad_y_sin_bloqueo(self):
         import time
+
         inicio = time.time()
-        for campo, args in (("motivo", {"motivo": "a" * 200000, "referencia": "c1"}),
-                            ("referencia", {"motivo": "x", "referencia": "a" * 200000}),
-                            ("cliente_ref", None)):
+        for campo, args in (
+            ("motivo", {"motivo": "a" * 200000, "referencia": "c1"}),
+            ("referencia", {"motivo": "x", "referencia": "a" * 200000}),
+            ("cliente_ref", None),
+        ):
             if args is None:
-                r = self.llamar("cotizar", {"lineas": [{"sku": "VISITA", "cantidad": 1}], "cliente_ref": "a" * 200000})
+                r = self.llamar(
+                    "cotizar",
+                    {"lineas": [{"sku": "VISITA", "cantidad": 1}], "cliente_ref": "a" * 200000},
+                )
             else:
                 r = self.llamar("escalar_a_humano", args)
             self.assertTrue(r["result"]["isError"], campo)
@@ -484,10 +608,23 @@ class LogicaExtra(Logica):
                 f.write("basura")
             s = servidor.Servicio(self.raiz, estado, os.path.join(RAIZ, "agente", "catalogo.json"))
             self.assertIsNone(s.c)
-            r = servidor.manejar(s, rpc(1, "tools/call", {"name": "consultar_catalogo", "arguments": {"texto": "horario"}}))
+            r = servidor.manejar(
+                s,
+                rpc(
+                    1,
+                    "tools/call",
+                    {"name": "consultar_catalogo", "arguments": {"texto": "horario"}},
+                ),
+            )
             self.assertTrue(r["result"]["isError"])
-            r = servidor.manejar(s, rpc(2, "tools/call", {"name": "escalar_a_humano",
-                                                           "arguments": {"motivo": "x", "referencia": "c1"}}))
+            r = servidor.manejar(
+                s,
+                rpc(
+                    2,
+                    "tools/call",
+                    {"name": "escalar_a_humano", "arguments": {"motivo": "x", "referencia": "c1"}},
+                ),
+            )
             self.assertFalse(r["result"]["isError"])
         finally:
             t.cleanup()
@@ -496,6 +633,7 @@ class LogicaExtra(Logica):
         esquema = next(t for t in servidor.HERRAMIENTAS if t["name"] == "escalar_a_humano")["inputSchema"]
         self.assertIn("referencia", esquema["properties"])
         self.assertEqual(sorted(esquema["required"]), ["motivo", "referencia"])
+
     def test_limite_de_tasa(self):
         servidor.MAX_LLAMADAS = 3
         try:
@@ -515,11 +653,30 @@ class LogicaExtra(Logica):
         self.assertNotIn("SECRETO_DEL_CLIENTE", log)
 
     def test_cliente_ref_y_motivo_se_limpian(self):
-        out = texto(self.llamar("cotizar", {"lineas": [{"sku": "VISITA", "cantidad": 1}], "cliente_ref": "Ana 4111 1111 1111 1111"}))
-        with open(os.path.join(self.raiz, "workspace", "borradores", out["borrador"] + ".json"), encoding="utf-8") as f:
+        out = texto(
+            self.llamar(
+                "cotizar",
+                {
+                    "lineas": [{"sku": "VISITA", "cantidad": 1}],
+                    "cliente_ref": "Ana 4111 1111 1111 1111",
+                },
+            )
+        )
+        with open(
+            os.path.join(self.raiz, "workspace", "borradores", out["borrador"] + ".json"),
+            encoding="utf-8",
+        ) as f:
             self.assertNotIn("4111", f.read())
-        out = texto(self.llamar("escalar_a_humano", {"motivo": "mi tarjeta es 4111-1111-1111-1111", "referencia": "c1"}))
-        with open(os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"), encoding="utf-8") as f:
+        out = texto(
+            self.llamar(
+                "escalar_a_humano",
+                {"motivo": "mi tarjeta es 4111-1111-1111-1111", "referencia": "c1"},
+            )
+        )
+        with open(
+            os.path.join(self.raiz, "workspace", "escalados", out["escalado"] + ".json"),
+            encoding="utf-8",
+        ) as f:
             self.assertNotIn("4111", f.read())
         r = self.llamar("cotizar", {"lineas": [{"sku": "VISITA", "cantidad": 1}], "cliente_ref": {"a": 1}})
         self.assertTrue(r["result"]["isError"])

@@ -1,4 +1,5 @@
 """Pruebas del motor de seguimiento y cobranza y de sus herramientas en el MCP. Todo con fechas y reloj fijos; no se envía nada."""
+
 import datetime
 import json
 import os
@@ -19,8 +20,17 @@ HOY = datetime.date(2027, 3, 1)
 ENC = ",".join(cb.COLUMNAS)
 
 
-def fila(fid="F-001", ref="cli-A1", email="ana@taller.com", monto="100.00", moneda="USD", vence="2027-02-20", estado="pendiente",
-         n="0", ultimo=""):
+def fila(
+    fid="F-001",
+    ref="cli-A1",
+    email="ana@taller.com",
+    monto="100.00",
+    moneda="USD",
+    vence="2027-02-20",
+    estado="pendiente",
+    n="0",
+    ultimo="",
+):
     return ",".join([fid, ref, email, monto, moneda, vence, estado, n, ultimo])
 
 
@@ -29,8 +39,17 @@ def csv_de(*filas):
 
 
 def factura(**kw):
-    base = {"factura_id": "F-001", "cliente_ref": "cli-A1", "email": "ana@taller.com", "monto": Decimal("100.00"), "moneda": "USD",
-            "vence": HOY - datetime.timedelta(days=10), "estado": "pendiente", "recordatorios": 0, "ultimo": None}
+    base = {
+        "factura_id": "F-001",
+        "cliente_ref": "cli-A1",
+        "email": "ana@taller.com",
+        "monto": Decimal("100.00"),
+        "moneda": "USD",
+        "vence": HOY - datetime.timedelta(days=10),
+        "estado": "pendiente",
+        "recordatorios": 0,
+        "ultimo": None,
+    }
     base.update(kw)
     return base
 
@@ -40,7 +59,15 @@ class Motor(unittest.TestCase):
         return cb.evaluar(factura(vence=HOY - datetime.timedelta(days=dias), **kw), HOY)
 
     def test_bordes_de_dias(self):
-        esperado = {-5: "al_dia", 0: "al_dia", 1: "amable", 7: "amable", 8: "firme", 30: "firme", 31: "escalar"}
+        esperado = {
+            -5: "al_dia",
+            0: "al_dia",
+            1: "amable",
+            7: "amable",
+            8: "firme",
+            30: "firme",
+            31: "escalar",
+        }
         for dias, etapa in esperado.items():
             self.assertEqual(self.etapa(dias)[0], etapa, dias)
 
@@ -69,7 +96,17 @@ class Motor(unittest.TestCase):
             self.assertIn("USD 1234.50", b["mensaje"])
             self.assertIn("2027-02-19", b["mensaje"])
             self.assertIn("no recibir más recordatorios", b["mensaje"])
-            for prohibida in ("demanda", "legal", "embargo", "policía", "reportar", "buró", "consecuencias", "descuento", "plazo adicional"):
+            for prohibida in (
+                "demanda",
+                "legal",
+                "embargo",
+                "policía",
+                "reportar",
+                "buró",
+                "consecuencias",
+                "descuento",
+                "plazo adicional",
+            ):
                 self.assertNotIn(prohibida, b["mensaje"].lower())
             self.assertEqual(b["estado"], "borrador_pendiente_aprobacion")
             self.assertIn("NO enviado", b["nota"])
@@ -97,10 +134,28 @@ class Lector(unittest.TestCase):
         self.assertEqual(filas["F-002"]["monto"], Decimal("50.50"))
 
     def test_filas_invalidas_se_rechazan_una_a_una(self):
-        malas = [fila(monto="-5.00"), fila(monto="abc"), fila(monto="10.123"), fila(monto="NaN"), fila(monto="1e3"), fila(monto="0.00"), fila(monto="1,000.00"), fila(monto="Infinity"),
-                 fila(moneda="usd"), fila(vence="01/03/2027"), fila(vence="2027-13-45"), fila(estado="cobrada"), fila(email="x"),
-                 fila(fid="../x"), fila(fid="=CMD"), fila(ref="=SUM(A1)"), fila(ref="cli-123456789"), fila(n="x"), fila(n="100"),
-                 fila(ultimo="mañana")]
+        malas = [
+            fila(monto="-5.00"),
+            fila(monto="abc"),
+            fila(monto="10.123"),
+            fila(monto="NaN"),
+            fila(monto="1e3"),
+            fila(monto="0.00"),
+            fila(monto="1,000.00"),
+            fila(monto="Infinity"),
+            fila(moneda="usd"),
+            fila(vence="01/03/2027"),
+            fila(vence="2027-13-45"),
+            fila(estado="cobrada"),
+            fila(email="x"),
+            fila(fid="../x"),
+            fila(fid="=CMD"),
+            fila(ref="=SUM(A1)"),
+            fila(ref="cli-123456789"),
+            fila(n="x"),
+            fila(n="100"),
+            fila(ultimo="mañana"),
+        ]
         for m in malas:
             self.escribir(csv_de(m, fila("OK-1")))
             filas, rech = cb.leer_cartera(self.ruta)
@@ -114,10 +169,12 @@ class Lector(unittest.TestCase):
 
     def test_id_repetido_con_una_fila_invalida_o_distinto_caso_tampoco_sobrevive(self):
         # hallazgo ALTO de Hermes: la fila "pagada" malformada no debe dejar viva a la fila "pendiente" del mismo id
-        casos = [(fila("F-1"), fila("F-1", monto="abc", estado="pagada")),
-                 (fila("F-1"), "F-1,solo,tres"),
-                 (fila("F-1"), fila("f-1", estado="pagada")),
-                 (fila("F-1"), fila("F-1", monto="10.00", vence="mal"))]
+        casos = [
+            (fila("F-1"), fila("F-1", monto="abc", estado="pagada")),
+            (fila("F-1"), "F-1,solo,tres"),
+            (fila("F-1"), fila("f-1", estado="pagada")),
+            (fila("F-1"), fila("F-1", monto="10.00", vence="mal")),
+        ]
         for a, b in casos:
             self.escribir(csv_de(a, b, fila("F-2")))
             filas, rech = cb.leer_cartera(self.ruta)
@@ -127,7 +184,11 @@ class Lector(unittest.TestCase):
     def test_digitos_no_ascii_se_rechazan(self):
         for mala in (fila(n="٣"), fila(monto="١٠٠.00"), fila(vence="٢٠٢٧-02-20")):
             self.escribir(csv_de(mala, fila("OK-1")))
-            self.assertEqual((list(cb.leer_cartera(self.ruta)[0]), cb.leer_cartera(self.ruta)[1]), (["OK-1"], 1), mala)
+            self.assertEqual(
+                (list(cb.leer_cartera(self.ruta)[0]), cb.leer_cartera(self.ruta)[1]),
+                (["OK-1"], 1),
+                mala,
+            )
 
     def test_factura_id_con_numero_largo_se_rechaza(self):
         self.escribir(csv_de(fila("2026110012345"), fila("F-2")))
@@ -208,25 +269,58 @@ class MCP(unittest.TestCase):
         self.lista_nc = os.path.join(self.t.name, "no_contactar.txt")  # lista de no contacto vacía (es obligatoria: falla cerrado)
         with open(self.lista_nc, "w", encoding="utf-8") as f:
             f.write("# vacía\n")
-        self.s = servidor.Servicio(self.raiz, os.path.join(self.t.name, "estado"), os.path.join(RAIZ, "agente", "catalogo.json"),
-                                   reloj=lambda: self.reloj, no_contactar_persona=self.lista_nc)
-        self.cartera(csv_de(fila("F-001", vence="2027-02-20"), fila("F-002", vence="2027-02-28"), fila("F-003", estado="disputa"),
-                            fila("F-004", monto="5000.00"), fila("F-005", estado="pagada"), fila("F-006", vence="2027-04-01")))
+        self.s = servidor.Servicio(
+            self.raiz,
+            os.path.join(self.t.name, "estado"),
+            os.path.join(RAIZ, "agente", "catalogo.json"),
+            reloj=lambda: self.reloj,
+            no_contactar_persona=self.lista_nc,
+        )
+        self.cartera(
+            csv_de(
+                fila("F-001", vence="2027-02-20"),
+                fila("F-002", vence="2027-02-28"),
+                fila("F-003", estado="disputa"),
+                fila("F-004", monto="5000.00"),
+                fila("F-005", estado="pagada"),
+                fila("F-006", vence="2027-04-01"),
+            )
+        )
 
     def tearDown(self):
         self.t.cleanup()
 
     def cartera(self, texto):
-        with open(os.path.join(self.raiz, "workspace", "cartera", "cartera.csv"), "w", encoding="utf-8", newline="") as f:
+        with open(
+            os.path.join(self.raiz, "workspace", "cartera", "cartera.csv"),
+            "w",
+            encoding="utf-8",
+            newline="",
+        ) as f:
             f.write(texto)
 
     def llamar(self, nombre, args):
-        r = servidor.manejar(self.s, {"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": nombre, "arguments": args}})
+        r = servidor.manejar(
+            self.s,
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "tools/call",
+                "params": {"name": nombre, "arguments": args},
+            },
+        )
         txt = r["result"]["content"][0]["text"]
         return r["result"]["isError"], (json.loads(txt) if not r["result"]["isError"] else txt)
 
     def test_evaluar_cada_caso(self):
-        esperado = {"F-001": "firme", "F-002": "amable", "F-003": "escalar", "F-004": "escalar", "F-005": "sin_accion", "F-006": "al_dia"}
+        esperado = {
+            "F-001": "firme",
+            "F-002": "amable",
+            "F-003": "escalar",
+            "F-004": "escalar",
+            "F-005": "sin_accion",
+            "F-006": "al_dia",
+        }
         for fid, etapa in esperado.items():
             err, r = self.llamar("cobranza_evaluar", {"factura_id": fid})
             self.assertFalse(err, r)
@@ -276,7 +370,13 @@ class MCP(unittest.TestCase):
         self.assertIn("1 fila", txt)
 
     def test_argumentos_y_ids_invalidos(self):
-        for args in ({}, {"factura_id": "F-001", "x": 1}, {"factura_id": "../F"}, {"factura_id": 5}, {"factura_id": "NO-EXISTE"}):
+        for args in (
+            {},
+            {"factura_id": "F-001", "x": 1},
+            {"factura_id": "../F"},
+            {"factura_id": 5},
+            {"factura_id": "NO-EXISTE"},
+        ):
             self.assertTrue(self.llamar("cobranza_evaluar", args)[0], args)
         self.assertTrue(self.llamar("seguimiento_pendientes", {"x": 1})[0])
 

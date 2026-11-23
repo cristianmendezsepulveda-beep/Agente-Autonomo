@@ -1,4 +1,5 @@
 """Pruebas de la lista de no contacto (agente/nocontacto.py). Todo en directorios temporales."""
+
 import json
 import os
 import sys
@@ -66,11 +67,31 @@ class ArchivoDeLaPersona(Base):
     def test_un_destinatario_con_formato_invalido_se_considera_bloqueado(self):
         self.escribir("# nada\n")
         L = self.lista()
-        for malo in ("", "sin-arroba", "a@b", "a b@c.com", None, 5, "a@@b.com", "a@b.com\n.evil", "x" * 400 + "@a.com"):
+        for malo in (
+            "",
+            "sin-arroba",
+            "a@b",
+            "a b@c.com",
+            None,
+            5,
+            "a@@b.com",
+            "a@b.com\n.evil",
+            "x" * 400 + "@a.com",
+        ):
             self.assertTrue(L.bloquea(malo), repr(malo))
 
     def test_linea_invalida_rechaza_todo_e_indica_la_linea(self):
-        for malo in ("ana@", "@", "@dominio", "a b@c.com", "ana@empresa.com extra", "*@empresa.com", "ana@@x.com", "@.com", "é@x.com"):
+        for malo in (
+            "ana@",
+            "@",
+            "@dominio",
+            "a b@c.com",
+            "ana@empresa.com extra",
+            "*@empresa.com",
+            "ana@@x.com",
+            "@.com",
+            "é@x.com",
+        ):
             self.escribir(f"# c\nbueno@x.com\n{malo}\n")
             with self.assertRaises(N.NoContactoInvalido, msg=malo) as cm:
                 self.lista()
@@ -135,7 +156,12 @@ class FormasDelMismoBuzon(Base):
     def test_gmail_ignora_puntos_y_googlemail_es_gmail(self):
         self.escribir("ana.lopez@gmail.com\n")
         L = self.lista()
-        for igual in ("analopez@gmail.com", "a.n.a.l.o.p.e.z@gmail.com", "ana.lopez+x@googlemail.com", "ANALOPEZ@GoogleMail.com"):
+        for igual in (
+            "analopez@gmail.com",
+            "a.n.a.l.o.p.e.z@gmail.com",
+            "ana.lopez+x@googlemail.com",
+            "ANALOPEZ@GoogleMail.com",
+        ):
             self.assertTrue(L.bloquea(igual), igual)
         self.assertFalse(L.bloquea("ana.lopez@empresa.com"))
         self.assertFalse(L.bloquea("otra@gmail.com"))
@@ -187,8 +213,14 @@ class ArchivoAutomatico(Base):
 
     def test_estructura_inesperada_falla_cerrado(self):
         os.makedirs(os.path.dirname(self.auto))
-        for malo in ('[]', '{"entradas": []}', '{"entradas": {"no-es-correo": {}}}', '{"version": 2, "entradas": {}}',
-                     '{"entradas": {"a@x.com": 5}}', '5'):
+        for malo in (
+            "[]",
+            '{"entradas": []}',
+            '{"entradas": {"no-es-correo": {}}}',
+            '{"version": 2, "entradas": {}}',
+            '{"entradas": {"a@x.com": 5}}',
+            "5",
+        ):
             self.escribir(malo, self.auto)
             with self.assertRaises(N.NoContactoInvalido, msg=malo):
                 self.lista()
@@ -209,8 +241,13 @@ class ArchivoAutomatico(Base):
 
     def test_una_lista_automatica_llena_sigue_siendo_legible(self):
         """Con 20.000 entradas el archivo supera 1 MB: no debe volverse ilegible (eso denegaría TODO el sistema)."""
-        entradas = {f"usuario{i:05d}.con.un.nombre.bastante.largo@dominio-de-ejemplo-{i % 50}.com": {"motivo": "baja por correo", "fecha": 1_800_000_000.5}
-                    for i in range(N.MAX_ENTRADAS)}
+        entradas = {
+            f"usuario{i:05d}.con.un.nombre.bastante.largo@dominio-de-ejemplo-{i % 50}.com": {
+                "motivo": "baja por correo",
+                "fecha": 1_800_000_000.5,
+            }
+            for i in range(N.MAX_ENTRADAS)
+        }
         os.makedirs(os.path.dirname(self.auto))
         with open(self.auto, "w", encoding="utf-8") as f:
             json.dump({"version": 1, "entradas": entradas}, f, indent=1)  # formato antiguo, con sangría
@@ -232,6 +269,7 @@ class ArchivoAutomatico(Base):
 
     def test_dos_hilos_agregando_no_pierden_entradas(self):
         import threading
+
         correos = [f"u{i}@x.com" for i in range(12)]
         hilos = [threading.Thread(target=N.agregar_auto, args=(self.auto, c, "baja", 1)) for c in correos]
         for h in hilos:
@@ -243,6 +281,7 @@ class ArchivoAutomatico(Base):
 
 def unittest_mock_patch(obj, nombre, valor):
     from unittest import mock
+
     return mock.patch.object(obj, nombre, valor)
 
 

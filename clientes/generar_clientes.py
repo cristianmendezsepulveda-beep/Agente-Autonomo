@@ -3,6 +3,7 @@
 Uso: python generar_clientes.py [--seed 42] [--out clientes.json]
 Solo biblioteca estándar. Mismo seed => mismo resultado.
 """
+
 import argparse
 import json
 import math
@@ -12,20 +13,35 @@ N = 100
 SKEPTIC_MIN = 25  # mínimo de clientes difíciles: escépticos, obsesionados con el costo o baja tolerancia
 
 SECTORES = {  # sector: (peso, facilidad_automatizar 0-1, riesgo_regulatorio 0-1)
-    "comercio minorista": (18, 0.8, 0.2), "servicios profesionales": (14, 0.7, 0.4),
-    "gastronomía": (10, 0.6, 0.3), "construcción": (9, 0.4, 0.4),
-    "salud privada": (8, 0.5, 0.9), "educación": (8, 0.7, 0.4),
-    "logística": (8, 0.6, 0.3), "inmobiliaria": (7, 0.7, 0.5),
-    "manufactura liviana": (7, 0.5, 0.3), "turismo": (6, 0.7, 0.3),
+    "comercio minorista": (18, 0.8, 0.2),
+    "servicios profesionales": (14, 0.7, 0.4),
+    "gastronomía": (10, 0.6, 0.3),
+    "construcción": (9, 0.4, 0.4),
+    "salud privada": (8, 0.5, 0.9),
+    "educación": (8, 0.7, 0.4),
+    "logística": (8, 0.6, 0.3),
+    "inmobiliaria": (7, 0.7, 0.5),
+    "manufactura liviana": (7, 0.5, 0.3),
+    "turismo": (6, 0.7, 0.3),
     "agro": (5, 0.4, 0.3),
 }
 CARACTERES = [  # (nombre, peso, sesgo de apertura -1..1)
-    ("pragmático", 25, 0.2), ("escéptico", 22, -0.7), ("entusiasta tecnológico", 12, 0.8),
-    ("conservador", 15, -0.4), ("obsesionado con el costo", 14, -0.3),
+    ("pragmático", 25, 0.2),
+    ("escéptico", 22, -0.7),
+    ("entusiasta tecnológico", 12, 0.8),
+    ("conservador", 15, -0.4),
+    ("obsesionado con el costo", 14, -0.3),
     ("miedo a perder control", 12, -0.5),
 ]
-CRITERIOS = ["precio", "confianza", "facilidad de uso", "integración con lo que ya uso",
-             "privacidad de datos", "soporte humano", "ahorro de tiempo demostrable"]
+CRITERIOS = [
+    "precio",
+    "confianza",
+    "facilidad de uso",
+    "integración con lo que ya uso",
+    "privacidad de datos",
+    "soporte humano",
+    "ahorro de tiempo demostrable",
+]
 OBJECIONES = {
     "precio": "Es caro para lo que factura mi negocio.",
     "confianza": "No confío en que un agente actúe sin que yo lo revise.",
@@ -56,20 +72,27 @@ def build(seed):
         presupuesto_mensual = round(ingresos * pct / 12, 0)
         tolerancia = round(min(1, max(0, 0.5 + car[2] * 0.4 + rng.gauss(0, 0.15))), 2)
         criterios = rng.sample(CRITERIOS, 3)
-        clientes.append({
-            "id": f"C{i + 1:03d}", "sector": sector,
-            "ingresos_anuales_usd": ingresos, "empleados": empleados,
-            "caracter": car[0], "tolerancia_riesgo": tolerancia,
-            "presupuesto_mensual_usd": presupuesto_mensual,
-            "criterios_decision": criterios,
-            "objecion_principal": OBJECIONES[criterios[0]],
-            "facilidad_automatizar_sector": SECTORES[sector][1],
-            "riesgo_regulatorio_sector": SECTORES[sector][2],
-            "nota": "SINTÉTICO: señal blanda, no demanda real",
-        })
+        clientes.append(
+            {
+                "id": f"C{i + 1:03d}",
+                "sector": sector,
+                "ingresos_anuales_usd": ingresos,
+                "empleados": empleados,
+                "caracter": car[0],
+                "tolerancia_riesgo": tolerancia,
+                "presupuesto_mensual_usd": presupuesto_mensual,
+                "criterios_decision": criterios,
+                "objecion_principal": OBJECIONES[criterios[0]],
+                "facilidad_automatizar_sector": SECTORES[sector][1],
+                "riesgo_regulatorio_sector": SECTORES[sector][2],
+                "nota": "SINTÉTICO: señal blanda, no demanda real",
+            }
+        )
+
     # garantizar mínimo de escépticos / presupuesto bajo
     def dificil(c):
         return c["caracter"] in ("escéptico", "obsesionado con el costo") or c["tolerancia_riesgo"] < 0.35
+
     faltan = SKEPTIC_MIN - sum(dificil(c) for c in clientes)
     if faltan > 0:  # se eligen al azar (con el mismo seed), no por orden de ID
         candidatos = [c for c in clientes if not dificil(c)]
