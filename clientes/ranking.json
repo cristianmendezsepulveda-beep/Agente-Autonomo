@@ -1,0 +1,618 @@
+[
+ {
+  "sector": "construcción",
+  "variante": "V2",
+  "n": 8,
+  "intencion": 0.375,
+  "disposicion_pago": 0.375,
+  "viabilidad": 0.375,
+  "ic95_viabilidad": [
+   0.137,
+   0.694
+  ],
+  "prior_sector": 0.1,
+  "confianza": "baja"
+ },
+ {
+  "sector": "gastronomía",
+  "variante": "V4",
+  "n": 4,
+  "intencion": 0.5,
+  "disposicion_pago": 0.25,
+  "viabilidad": 0.4,
+  "ic95_viabilidad": [
+   0.103,
+   0.795
+  ],
+  "prior_sector": 0.165,
+  "confianza": "baja"
+ },
+ {
+  "sector": "servicios profesionales",
+  "variante": "V2",
+  "n": 16,
+  "intencion": 0.25,
+  "disposicion_pago": 0.25,
+  "viabilidad": 0.25,
+  "ic95_viabilidad": [
+   0.102,
+   0.495
+  ],
+  "prior_sector": 0.25,
+  "confianza": "media"
+ },
+ {
+  "sector": "construcción",
+  "variante": "V1",
+  "n": 8,
+  "intencion": 0.25,
+  "disposicion_pago": 0.375,
+  "viabilidad": 0.3,
+  "ic95_viabilidad": [
+   0.096,
+   0.634
+  ],
+  "prior_sector": 0.14,
+  "confianza": "baja"
+ },
+ {
+  "sector": "servicios profesionales",
+  "variante": "V1",
+  "n": 16,
+  "intencion": 0.125,
+  "disposicion_pago": 0.375,
+  "viabilidad": 0.225,
+  "ic95_viabilidad": [
+   0.087,
+   0.47
+  ],
+  "prior_sector": 0.29,
+  "confianza": "media"
+ },
+ {
+  "sector": "turismo",
+  "variante": "V1",
+  "n": 5,
+  "intencion": 0.2,
+  "disposicion_pago": 0.4,
+  "viabilidad": 0.28,
+  "ic95_viabilidad": [
+   0.065,
+   0.687
+  ],
+  "prior_sector": 0.305,
+  "confianza": "baja"
+ },
+ {
+  "sector": "comercio minorista",
+  "variante": "V1",
+  "n": 18,
+  "intencion": 0.111,
+  "disposicion_pago": 0.278,
+  "viabilidad": 0.178,
+  "ic95_viabilidad": [
+   0.064,
+   0.405
+  ],
+  "prior_sector": 0.37,
+  "confianza": "media"
+ },
+ {
+  "sector": "logística",
+  "variante": "V1",
+  "n": 12,
+  "intencion": 0.083,
+  "disposicion_pago": 0.333,
+  "viabilidad": 0.183,
+  "ic95_viabilidad": [
+   0.055,
+   0.466
+  ],
+  "prior_sector": 0.255,
+  "confianza": "media"
+ },
+ {
+  "sector": "inmobiliaria",
+  "variante": "V2",
+  "n": 9,
+  "intencion": 0.222,
+  "disposicion_pago": 0.111,
+  "viabilidad": 0.178,
+  "ic95_viabilidad": [
+   0.044,
+   0.504
+  ],
+  "prior_sector": 0.225,
+  "confianza": "baja"
+ },
+ {
+  "sector": "comercio minorista",
+  "variante": "V2",
+  "n": 18,
+  "intencion": 0.111,
+  "disposicion_pago": 0.167,
+  "viabilidad": 0.133,
+  "ic95_viabilidad": [
+   0.041,
+   0.354
+  ],
+  "prior_sector": 0.35,
+  "confianza": "media"
+ },
+ {
+  "sector": "gastronomía",
+  "variante": "V1",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.5,
+  "viabilidad": 0.2,
+  "ic95_viabilidad": [
+   0.031,
+   0.663
+  ],
+  "prior_sector": 0.255,
+  "confianza": "baja"
+ },
+ {
+  "sector": "gastronomía",
+  "variante": "V2",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.5,
+  "viabilidad": 0.2,
+  "ic95_viabilidad": [
+   0.031,
+   0.663
+  ],
+  "prior_sector": 0.225,
+  "confianza": "baja"
+ },
+ {
+  "sector": "educación",
+  "variante": "V1",
+  "n": 9,
+  "intencion": 0.111,
+  "disposicion_pago": 0.111,
+  "viabilidad": 0.111,
+  "ic95_viabilidad": [
+   0.02,
+   0.435
+  ],
+  "prior_sector": 0.29,
+  "confianza": "baja"
+ },
+ {
+  "sector": "educación",
+  "variante": "V3",
+  "n": 9,
+  "intencion": 0.111,
+  "disposicion_pago": 0.111,
+  "viabilidad": 0.111,
+  "ic95_viabilidad": [
+   0.02,
+   0.435
+  ],
+  "prior_sector": 0.23,
+  "confianza": "baja"
+ },
+ {
+  "sector": "logística",
+  "variante": "V2",
+  "n": 12,
+  "intencion": 0.0,
+  "disposicion_pago": 0.25,
+  "viabilidad": 0.1,
+  "ic95_viabilidad": [
+   0.02,
+   0.374
+  ],
+  "prior_sector": 0.225,
+  "confianza": "media"
+ },
+ {
+  "sector": "servicios profesionales",
+  "variante": "V3",
+  "n": 16,
+  "intencion": 0.062,
+  "disposicion_pago": 0.125,
+  "viabilidad": 0.087,
+  "ic95_viabilidad": [
+   0.02,
+   0.315
+  ],
+  "prior_sector": 0.23,
+  "confianza": "media"
+ },
+ {
+  "sector": "comercio minorista",
+  "variante": "V3",
+  "n": 18,
+  "intencion": 0.056,
+  "disposicion_pago": 0.056,
+  "viabilidad": 0.056,
+  "ic95_viabilidad": [
+   0.01,
+   0.258
+  ],
+  "prior_sector": 0.34,
+  "confianza": "media"
+ },
+ {
+  "sector": "salud privada",
+  "variante": "V1",
+  "n": 9,
+  "intencion": 0.111,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.067,
+  "ic95_viabilidad": [
+   0.008,
+   0.384
+  ],
+  "prior_sector": 0.115,
+  "confianza": "baja"
+ },
+ {
+  "sector": "inmobiliaria",
+  "variante": "V3",
+  "n": 9,
+  "intencion": 0.111,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.067,
+  "ic95_viabilidad": [
+   0.008,
+   0.384
+  ],
+  "prior_sector": 0.2,
+  "confianza": "baja"
+ },
+ {
+  "sector": "agro",
+  "variante": "V1",
+  "n": 6,
+  "intencion": 0.0,
+  "disposicion_pago": 0.167,
+  "viabilidad": 0.067,
+  "ic95_viabilidad": [
+   0.006,
+   0.466
+  ],
+  "prior_sector": 0.155,
+  "confianza": "baja"
+ },
+ {
+  "sector": "construcción",
+  "variante": "V3",
+  "n": 8,
+  "intencion": 0.0,
+  "disposicion_pago": 0.125,
+  "viabilidad": 0.05,
+  "ic95_viabilidad": [
+   0.004,
+   0.388
+  ],
+  "prior_sector": 0.08,
+  "confianza": "baja"
+ },
+ {
+  "sector": "educación",
+  "variante": "V2",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.111,
+  "viabilidad": 0.044,
+  "ic95_viabilidad": [
+   0.004,
+   0.358
+  ],
+  "prior_sector": 0.25,
+  "confianza": "baja"
+ },
+ {
+  "sector": "inmobiliaria",
+  "variante": "V1",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.111,
+  "viabilidad": 0.044,
+  "ic95_viabilidad": [
+   0.004,
+   0.358
+  ],
+  "prior_sector": 0.275,
+  "confianza": "baja"
+ },
+ {
+  "sector": "comercio minorista",
+  "variante": "V4",
+  "n": 18,
+  "intencion": 0.056,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.033,
+  "ic95_viabilidad": [
+   0.004,
+   0.227
+  ],
+  "prior_sector": 0.31,
+  "confianza": "media"
+ },
+ {
+  "sector": "logística",
+  "variante": "V3",
+  "n": 12,
+  "intencion": 0.0,
+  "disposicion_pago": 0.083,
+  "viabilidad": 0.033,
+  "ic95_viabilidad": [
+   0.003,
+   0.29
+  ],
+  "prior_sector": 0.21,
+  "confianza": "media"
+ },
+ {
+  "sector": "educación",
+  "variante": "V4",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.299
+  ],
+  "prior_sector": 0.17,
+  "confianza": "baja"
+ },
+ {
+  "sector": "construcción",
+  "variante": "V4",
+  "n": 8,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.324
+  ],
+  "prior_sector": 0.02,
+  "confianza": "baja"
+ },
+ {
+  "sector": "gastronomía",
+  "variante": "V3",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.49
+  ],
+  "prior_sector": 0.21,
+  "confianza": "baja"
+ },
+ {
+  "sector": "logística",
+  "variante": "V4",
+  "n": 12,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.243
+  ],
+  "prior_sector": 0.165,
+  "confianza": "media"
+ },
+ {
+  "sector": "servicios profesionales",
+  "variante": "V4",
+  "n": 16,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.194
+  ],
+  "prior_sector": 0.17,
+  "confianza": "media"
+ },
+ {
+  "sector": "agro",
+  "variante": "V2",
+  "n": 6,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.39
+  ],
+  "prior_sector": 0.125,
+  "confianza": "baja"
+ },
+ {
+  "sector": "agro",
+  "variante": "V3",
+  "n": 6,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.39
+  ],
+  "prior_sector": 0.11,
+  "confianza": "baja"
+ },
+ {
+  "sector": "agro",
+  "variante": "V4",
+  "n": 6,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.39
+  ],
+  "prior_sector": 0.065,
+  "confianza": "baja"
+ },
+ {
+  "sector": "salud privada",
+  "variante": "V2",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.299
+  ],
+  "prior_sector": 0.025,
+  "confianza": "baja"
+ },
+ {
+  "sector": "salud privada",
+  "variante": "V3",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.299
+  ],
+  "prior_sector": -0.02,
+  "confianza": "baja"
+ },
+ {
+  "sector": "salud privada",
+  "variante": "V4",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.299
+  ],
+  "prior_sector": -0.155,
+  "confianza": "baja"
+ },
+ {
+  "sector": "inmobiliaria",
+  "variante": "V4",
+  "n": 9,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.299
+  ],
+  "prior_sector": 0.125,
+  "confianza": "baja"
+ },
+ {
+  "sector": "turismo",
+  "variante": "V2",
+  "n": 5,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.434
+  ],
+  "prior_sector": 0.275,
+  "confianza": "baja"
+ },
+ {
+  "sector": "turismo",
+  "variante": "V3",
+  "n": 5,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.434
+  ],
+  "prior_sector": 0.26,
+  "confianza": "baja"
+ },
+ {
+  "sector": "turismo",
+  "variante": "V4",
+  "n": 5,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.434
+  ],
+  "prior_sector": 0.215,
+  "confianza": "baja"
+ },
+ {
+  "sector": "manufactura liviana",
+  "variante": "V1",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.49
+  ],
+  "prior_sector": 0.205,
+  "confianza": "baja"
+ },
+ {
+  "sector": "manufactura liviana",
+  "variante": "V2",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.49
+  ],
+  "prior_sector": 0.175,
+  "confianza": "baja"
+ },
+ {
+  "sector": "manufactura liviana",
+  "variante": "V3",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.49
+  ],
+  "prior_sector": 0.16,
+  "confianza": "baja"
+ },
+ {
+  "sector": "manufactura liviana",
+  "variante": "V4",
+  "n": 4,
+  "intencion": 0.0,
+  "disposicion_pago": 0.0,
+  "viabilidad": 0.0,
+  "ic95_viabilidad": [
+   0.0,
+   0.49
+  ],
+  "prior_sector": 0.115,
+  "confianza": "baja"
+ }
+]

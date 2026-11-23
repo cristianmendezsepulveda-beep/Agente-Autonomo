@@ -1,0 +1,1802 @@
+[
+  {
+    "id": "C001",
+    "sector": "educación",
+    "ingresos_anuales_usd": 132500.0,
+    "empleados": 3,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.36,
+    "presupuesto_mensual_usd": 164.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "precio",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C002",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 119600.0,
+    "empleados": 2,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.6,
+    "presupuesto_mensual_usd": 72.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C003",
+    "sector": "gastronomía",
+    "ingresos_anuales_usd": 27900.0,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.42,
+    "presupuesto_mensual_usd": 9.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "facilidad de uso",
+      "soporte humano"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C004",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 143700.0,
+    "empleados": 4,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.54,
+    "presupuesto_mensual_usd": 210.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "facilidad de uso",
+      "precio"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C005",
+    "sector": "logística",
+    "ingresos_anuales_usd": 8000,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.73,
+    "presupuesto_mensual_usd": 12.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "facilidad de uso",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C006",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 227600.0,
+    "empleados": 3,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.39,
+    "presupuesto_mensual_usd": 335.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "precio",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C007",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 32100.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.47,
+    "presupuesto_mensual_usd": 22.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "precio"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C008",
+    "sector": "educación",
+    "ingresos_anuales_usd": 129400.0,
+    "empleados": 3,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.43,
+    "presupuesto_mensual_usd": 214.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C009",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 27800.0,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.61,
+    "presupuesto_mensual_usd": 9.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "facilidad de uso",
+      "precio"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C010",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 407000.0,
+    "empleados": 10,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.23,
+    "presupuesto_mensual_usd": 350.0,
+    "criterios_decision": [
+      "soporte humano",
+      "integración con lo que ya uso",
+      "confianza"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C011",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 61700.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 1,
+    "presupuesto_mensual_usd": 94.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "facilidad de uso",
+      "confianza"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C012",
+    "sector": "agro",
+    "ingresos_anuales_usd": 127400.0,
+    "empleados": 2,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.51,
+    "presupuesto_mensual_usd": 42.0,
+    "criterios_decision": [
+      "confianza",
+      "soporte humano",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C013",
+    "sector": "educación",
+    "ingresos_anuales_usd": 21900.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.35,
+    "presupuesto_mensual_usd": 23.0,
+    "criterios_decision": [
+      "precio",
+      "soporte humano",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C014",
+    "sector": "logística",
+    "ingresos_anuales_usd": 27900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.55,
+    "presupuesto_mensual_usd": 25.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "precio",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C015",
+    "sector": "agro",
+    "ingresos_anuales_usd": 65600.0,
+    "empleados": 2,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.16,
+    "presupuesto_mensual_usd": 95.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "ahorro de tiempo demostrable",
+      "confianza"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C016",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 66200.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.63,
+    "presupuesto_mensual_usd": 22.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "integración con lo que ya uso",
+      "precio"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C017",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 9000.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.91,
+    "presupuesto_mensual_usd": 6.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "precio",
+      "soporte humano"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C018",
+    "sector": "logística",
+    "ingresos_anuales_usd": 182700.0,
+    "empleados": 3,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.2,
+    "presupuesto_mensual_usd": 222.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "confianza",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C019",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 8000,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.14,
+    "presupuesto_mensual_usd": 3.0,
+    "criterios_decision": [
+      "soporte humano",
+      "facilidad de uso",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C020",
+    "sector": "agro",
+    "ingresos_anuales_usd": 31900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.45,
+    "presupuesto_mensual_usd": 20.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "precio",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C021",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 54200.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.57,
+    "presupuesto_mensual_usd": 23.0,
+    "criterios_decision": [
+      "precio",
+      "facilidad de uso",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C022",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 48900.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.51,
+    "presupuesto_mensual_usd": 74.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "integración con lo que ya uso",
+      "confianza"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C023",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 75500.0,
+    "empleados": 2,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.13,
+    "presupuesto_mensual_usd": 68.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "precio"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C024",
+    "sector": "logística",
+    "ingresos_anuales_usd": 94400.0,
+    "empleados": 2,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.21,
+    "presupuesto_mensual_usd": 140.0,
+    "criterios_decision": [
+      "confianza",
+      "ahorro de tiempo demostrable",
+      "soporte humano"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C025",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 90000.0,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.45,
+    "presupuesto_mensual_usd": 30.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "privacidad de datos",
+      "precio"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C026",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 401800.0,
+    "empleados": 5,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.3,
+    "presupuesto_mensual_usd": 589.0,
+    "criterios_decision": [
+      "confianza",
+      "integración con lo que ya uso",
+      "soporte humano"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C027",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 249000.0,
+    "empleados": 7,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.34,
+    "presupuesto_mensual_usd": 213.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "integración con lo que ya uso",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C028",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 1421200.0,
+    "empleados": 28,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.21,
+    "presupuesto_mensual_usd": 767.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "confianza",
+      "precio"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C029",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 12100.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.75,
+    "presupuesto_mensual_usd": 12.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "privacidad de datos",
+      "confianza"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C030",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 8500.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.57,
+    "presupuesto_mensual_usd": 13.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "precio",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C031",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 19000.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.7,
+    "presupuesto_mensual_usd": 20.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "confianza",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C032",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 18400.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.36,
+    "presupuesto_mensual_usd": 25.0,
+    "criterios_decision": [
+      "precio",
+      "ahorro de tiempo demostrable",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C033",
+    "sector": "educación",
+    "ingresos_anuales_usd": 39300.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.79,
+    "presupuesto_mensual_usd": 20.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "precio",
+      "confianza"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C034",
+    "sector": "gastronomía",
+    "ingresos_anuales_usd": 169300.0,
+    "empleados": 2,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.58,
+    "presupuesto_mensual_usd": 279.0,
+    "criterios_decision": [
+      "soporte humano",
+      "privacidad de datos",
+      "precio"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C035",
+    "sector": "educación",
+    "ingresos_anuales_usd": 8000,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.26,
+    "presupuesto_mensual_usd": 3.0,
+    "criterios_decision": [
+      "precio",
+      "soporte humano",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C036",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 52400.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.44,
+    "presupuesto_mensual_usd": 77.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "integración con lo que ya uso",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C037",
+    "sector": "turismo",
+    "ingresos_anuales_usd": 77000.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.17,
+    "presupuesto_mensual_usd": 26.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "confianza",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C038",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 13900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.66,
+    "presupuesto_mensual_usd": 22.0,
+    "criterios_decision": [
+      "soporte humano",
+      "confianza",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C039",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 25300.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.72,
+    "presupuesto_mensual_usd": 21.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "precio",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C040",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 60100.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.37,
+    "presupuesto_mensual_usd": 53.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "soporte humano",
+      "confianza"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C041",
+    "sector": "turismo",
+    "ingresos_anuales_usd": 63000.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.67,
+    "presupuesto_mensual_usd": 56.0,
+    "criterios_decision": [
+      "confianza",
+      "soporte humano",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C042",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 16900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.7,
+    "presupuesto_mensual_usd": 9.0,
+    "criterios_decision": [
+      "soporte humano",
+      "precio",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C043",
+    "sector": "manufactura liviana",
+    "ingresos_anuales_usd": 93800.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.14,
+    "presupuesto_mensual_usd": 69.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "confianza",
+      "soporte humano"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C044",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 82000.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.43,
+    "presupuesto_mensual_usd": 58.0,
+    "criterios_decision": [
+      "soporte humano",
+      "privacidad de datos",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C045",
+    "sector": "logística",
+    "ingresos_anuales_usd": 98700.0,
+    "empleados": 3,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.27,
+    "presupuesto_mensual_usd": 33.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "facilidad de uso",
+      "precio"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C046",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 13700.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.44,
+    "presupuesto_mensual_usd": 14.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "privacidad de datos",
+      "confianza"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C047",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 59100.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.81,
+    "presupuesto_mensual_usd": 76.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "confianza"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C048",
+    "sector": "gastronomía",
+    "ingresos_anuales_usd": 228400.0,
+    "empleados": 5,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.31,
+    "presupuesto_mensual_usd": 334.0,
+    "criterios_decision": [
+      "soporte humano",
+      "facilidad de uso",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C049",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 25600.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.66,
+    "presupuesto_mensual_usd": 23.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "confianza"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C050",
+    "sector": "educación",
+    "ingresos_anuales_usd": 40400.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.4,
+    "presupuesto_mensual_usd": 37.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "ahorro de tiempo demostrable",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C051",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 31400.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.34,
+    "presupuesto_mensual_usd": 44.0,
+    "criterios_decision": [
+      "confianza",
+      "soporte humano",
+      "precio"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C052",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 29300.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.12,
+    "presupuesto_mensual_usd": 19.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "confianza",
+      "soporte humano"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C053",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 942400.0,
+    "empleados": 17,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.5,
+    "presupuesto_mensual_usd": 314.0,
+    "criterios_decision": [
+      "soporte humano",
+      "privacidad de datos",
+      "confianza"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C054",
+    "sector": "logística",
+    "ingresos_anuales_usd": 28200.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.44,
+    "presupuesto_mensual_usd": 43.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "precio",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C055",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 100400.0,
+    "empleados": 2,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.6,
+    "presupuesto_mensual_usd": 156.0,
+    "criterios_decision": [
+      "precio",
+      "integración con lo que ya uso",
+      "confianza"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C056",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 13800.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0,
+    "presupuesto_mensual_usd": 21.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "soporte humano",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C057",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 148400.0,
+    "empleados": 4,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.29,
+    "presupuesto_mensual_usd": 49.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "confianza",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C058",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 14900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.55,
+    "presupuesto_mensual_usd": 11.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "ahorro de tiempo demostrable",
+      "soporte humano"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C059",
+    "sector": "turismo",
+    "ingresos_anuales_usd": 98900.0,
+    "empleados": 2,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.62,
+    "presupuesto_mensual_usd": 61.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "ahorro de tiempo demostrable",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C060",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 33300.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.35,
+    "presupuesto_mensual_usd": 37.0,
+    "criterios_decision": [
+      "soporte humano",
+      "precio",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C061",
+    "sector": "gastronomía",
+    "ingresos_anuales_usd": 152100.0,
+    "empleados": 2,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.39,
+    "presupuesto_mensual_usd": 51.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "privacidad de datos",
+      "soporte humano"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C062",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 151600.0,
+    "empleados": 4,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.72,
+    "presupuesto_mensual_usd": 129.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C063",
+    "sector": "logística",
+    "ingresos_anuales_usd": 201000.0,
+    "empleados": 2,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.54,
+    "presupuesto_mensual_usd": 310.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "ahorro de tiempo demostrable",
+      "precio"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C064",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 9800.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.35,
+    "presupuesto_mensual_usd": 8.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "facilidad de uso",
+      "soporte humano"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C065",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 17900.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.39,
+    "presupuesto_mensual_usd": 8.0,
+    "criterios_decision": [
+      "precio",
+      "soporte humano",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C066",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 118500.0,
+    "empleados": 4,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.27,
+    "presupuesto_mensual_usd": 46.0,
+    "criterios_decision": [
+      "precio",
+      "confianza",
+      "soporte humano"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C067",
+    "sector": "manufactura liviana",
+    "ingresos_anuales_usd": 35200.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.5,
+    "presupuesto_mensual_usd": 56.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C068",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 117900.0,
+    "empleados": 2,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.76,
+    "presupuesto_mensual_usd": 168.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "precio",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C069",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 33900.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.43,
+    "presupuesto_mensual_usd": 44.0,
+    "criterios_decision": [
+      "precio",
+      "privacidad de datos",
+      "confianza"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C070",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 78900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.29,
+    "presupuesto_mensual_usd": 130.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "precio",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C071",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 49100.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.53,
+    "presupuesto_mensual_usd": 44.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "precio",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C072",
+    "sector": "agro",
+    "ingresos_anuales_usd": 17400.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.01,
+    "presupuesto_mensual_usd": 23.0,
+    "criterios_decision": [
+      "soporte humano",
+      "facilidad de uso",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C073",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 19600.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.3,
+    "presupuesto_mensual_usd": 14.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "confianza",
+      "precio"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C074",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 12300.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.42,
+    "presupuesto_mensual_usd": 10.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "facilidad de uso",
+      "confianza"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C075",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 37400.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.43,
+    "presupuesto_mensual_usd": 56.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "precio",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C076",
+    "sector": "turismo",
+    "ingresos_anuales_usd": 236200.0,
+    "empleados": 5,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.5,
+    "presupuesto_mensual_usd": 79.0,
+    "criterios_decision": [
+      "soporte humano",
+      "ahorro de tiempo demostrable",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C077",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 137600.0,
+    "empleados": 3,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.59,
+    "presupuesto_mensual_usd": 168.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "integración con lo que ya uso",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C078",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 13700.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.45,
+    "presupuesto_mensual_usd": 10.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "confianza",
+      "precio"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C079",
+    "sector": "logística",
+    "ingresos_anuales_usd": 31000.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.57,
+    "presupuesto_mensual_usd": 18.0,
+    "criterios_decision": [
+      "soporte humano",
+      "integración con lo que ya uso",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C080",
+    "sector": "logística",
+    "ingresos_anuales_usd": 200500.0,
+    "empleados": 5,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.55,
+    "presupuesto_mensual_usd": 119.0,
+    "criterios_decision": [
+      "confianza",
+      "facilidad de uso",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C081",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 52400.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.5,
+    "presupuesto_mensual_usd": 38.0,
+    "criterios_decision": [
+      "confianza",
+      "soporte humano",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C082",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 135600.0,
+    "empleados": 2,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.23,
+    "presupuesto_mensual_usd": 220.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "integración con lo que ya uso",
+      "precio"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C083",
+    "sector": "manufactura liviana",
+    "ingresos_anuales_usd": 43600.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.61,
+    "presupuesto_mensual_usd": 23.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "facilidad de uso",
+      "precio"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C084",
+    "sector": "agro",
+    "ingresos_anuales_usd": 209600.0,
+    "empleados": 4,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.55,
+    "presupuesto_mensual_usd": 70.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "integración con lo que ya uso",
+      "soporte humano"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C085",
+    "sector": "turismo",
+    "ingresos_anuales_usd": 40600.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 1,
+    "presupuesto_mensual_usd": 17.0,
+    "criterios_decision": [
+      "soporte humano",
+      "precio",
+      "confianza"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C086",
+    "sector": "educación",
+    "ingresos_anuales_usd": 57800.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.88,
+    "presupuesto_mensual_usd": 31.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "ahorro de tiempo demostrable",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C087",
+    "sector": "construcción",
+    "ingresos_anuales_usd": 134500.0,
+    "empleados": 3,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.41,
+    "presupuesto_mensual_usd": 45.0,
+    "criterios_decision": [
+      "confianza",
+      "facilidad de uso",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C088",
+    "sector": "educación",
+    "ingresos_anuales_usd": 157000.0,
+    "empleados": 3,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.28,
+    "presupuesto_mensual_usd": 242.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "confianza",
+      "precio"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C089",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 85600.0,
+    "empleados": 1,
+    "caracter": "miedo a perder control",
+    "tolerancia_riesgo": 0.11,
+    "presupuesto_mensual_usd": 79.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C090",
+    "sector": "logística",
+    "ingresos_anuales_usd": 180700.0,
+    "empleados": 3,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.52,
+    "presupuesto_mensual_usd": 70.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C091",
+    "sector": "educación",
+    "ingresos_anuales_usd": 122200.0,
+    "empleados": 2,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.4,
+    "presupuesto_mensual_usd": 41.0,
+    "criterios_decision": [
+      "precio",
+      "soporte humano",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Es caro para lo que factura mi negocio.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C092",
+    "sector": "salud privada",
+    "ingresos_anuales_usd": 63100.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.13,
+    "presupuesto_mensual_usd": 44.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "integración con lo que ya uso",
+      "soporte humano"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.9,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C093",
+    "sector": "agro",
+    "ingresos_anuales_usd": 21900.0,
+    "empleados": 1,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.61,
+    "presupuesto_mensual_usd": 12.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.4,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C094",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 336800.0,
+    "empleados": 6,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.13,
+    "presupuesto_mensual_usd": 254.0,
+    "criterios_decision": [
+      "facilidad de uso",
+      "precio",
+      "integración con lo que ya uso"
+    ],
+    "objecion_principal": "No tengo tiempo de aprender otra herramienta.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C095",
+    "sector": "manufactura liviana",
+    "ingresos_anuales_usd": 61300.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.21,
+    "presupuesto_mensual_usd": 25.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "facilidad de uso",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.5,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C096",
+    "sector": "inmobiliaria",
+    "ingresos_anuales_usd": 18200.0,
+    "empleados": 1,
+    "caracter": "entusiasta tecnológico",
+    "tolerancia_riesgo": 0.64,
+    "presupuesto_mensual_usd": 29.0,
+    "criterios_decision": [
+      "integración con lo que ya uso",
+      "soporte humano",
+      "ahorro de tiempo demostrable"
+    ],
+    "objecion_principal": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.5,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C097",
+    "sector": "comercio minorista",
+    "ingresos_anuales_usd": 231600.0,
+    "empleados": 6,
+    "caracter": "pragmático",
+    "tolerancia_riesgo": 0.55,
+    "presupuesto_mensual_usd": 247.0,
+    "criterios_decision": [
+      "privacidad de datos",
+      "integración con lo que ya uso",
+      "precio"
+    ],
+    "objecion_principal": "No quiero que datos de mis clientes salgan de mi control.",
+    "facilidad_automatizar_sector": 0.8,
+    "riesgo_regulatorio_sector": 0.2,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C098",
+    "sector": "servicios profesionales",
+    "ingresos_anuales_usd": 78300.0,
+    "empleados": 1,
+    "caracter": "conservador",
+    "tolerancia_riesgo": 0.28,
+    "presupuesto_mensual_usd": 42.0,
+    "criterios_decision": [
+      "soporte humano",
+      "facilidad de uso",
+      "privacidad de datos"
+    ],
+    "objecion_principal": "Si falla, quiero hablar con una persona.",
+    "facilidad_automatizar_sector": 0.7,
+    "riesgo_regulatorio_sector": 0.4,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C099",
+    "sector": "logística",
+    "ingresos_anuales_usd": 22300.0,
+    "empleados": 1,
+    "caracter": "escéptico",
+    "tolerancia_riesgo": 0.31,
+    "presupuesto_mensual_usd": 12.0,
+    "criterios_decision": [
+      "confianza",
+      "privacidad de datos",
+      "soporte humano"
+    ],
+    "objecion_principal": "No confío en que un agente actúe sin que yo lo revise.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  },
+  {
+    "id": "C100",
+    "sector": "logística",
+    "ingresos_anuales_usd": 77000.0,
+    "empleados": 1,
+    "caracter": "obsesionado con el costo",
+    "tolerancia_riesgo": 0.42,
+    "presupuesto_mensual_usd": 26.0,
+    "criterios_decision": [
+      "ahorro de tiempo demostrable",
+      "privacidad de datos",
+      "facilidad de uso"
+    ],
+    "objecion_principal": "Muéstrame horas ahorradas, no promesas.",
+    "facilidad_automatizar_sector": 0.6,
+    "riesgo_regulatorio_sector": 0.3,
+    "nota": "SINTÉTICO: señal blanda, no demanda real"
+  }
+]

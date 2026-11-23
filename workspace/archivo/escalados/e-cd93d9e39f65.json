@@ -1,0 +1,9 @@
+{
+ "id": "e-cd93d9e39f65",
+ "creado": "2026-11-22T21:52:14+00:00",
+ "origen": "mcp:escalar_a_humano",
+ "motivo": "Pedido de cotización (3 premium, 4 básicos); falta listar_catalogo para confirmar SKU, no se cotiza sin SKU",
+ "referencia": "chat-D4",
+ "estado": "cerrado",
+ "cerrado": "2026-11-22T23:00:31+00:00"
+}

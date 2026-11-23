@@ -1,0 +1,139 @@
+{
+  "_nota": "DATOS DE EJEMPLO para pruebas cerradas. No son precios ni políticas reales de ningún negocio.",
+  "moneda": "USD",
+  "iva_pct": 0,
+  "umbral_aprobacion_total": 2000,
+  "max_lineas_auto": 10,
+  "items": [
+    {
+      "sku": "SRV-BASICO",
+      "nombre": "Servicio básico",
+      "precio_unitario": 40.0,
+      "descuento_max_pct": 5
+    },
+    {
+      "sku": "SRV-ESTANDAR",
+      "nombre": "Servicio estándar",
+      "precio_unitario": 90.0,
+      "descuento_max_pct": 10
+    },
+    {
+      "sku": "SRV-PREMIUM",
+      "nombre": "Servicio premium",
+      "precio_unitario": 250.0,
+      "descuento_max_pct": 10
+    },
+    {
+      "sku": "VISITA",
+      "nombre": "Visita técnica",
+      "precio_unitario": 30.0,
+      "descuento_max_pct": 0
+    }
+  ],
+  "faq": [
+    {
+      "palabras": [
+        "horario",
+        "hora",
+        "abren",
+        "atienden",
+        "abierto"
+      ],
+      "respuesta": "Atendemos de lunes a viernes de 9:00 a 18:00. Fuera de ese horario respondemos al día hábil siguiente."
+    },
+    {
+      "palabras": [
+        "precio",
+        "cuesta",
+        "tarifa",
+        "valor"
+      ],
+      "respuesta": "Los precios dependen del servicio. Puedo preparar una cotización si me indica qué servicio y qué cantidad necesita."
+    },
+    {
+      "palabras": [
+        "ubicacion",
+        "direccion",
+        "donde",
+        "queda"
+      ],
+      "respuesta": "Trabajamos con cita previa. Una persona del equipo le confirmará la dirección o la modalidad de atención."
+    },
+    {
+      "palabras": [
+        "plazo",
+        "demora",
+        "tarda",
+        "entrega"
+      ],
+      "respuesta": "El plazo depende del servicio y de la agenda. Una persona del equipo le confirmará una fecha concreta."
+    }
+  ],
+  "palabras_sensibles": [
+    "abogado",
+    "cedula",
+    "clave",
+    "cobrado",
+    "cobrar",
+    "cobro",
+    "contrasena",
+    "credit card",
+    "cuenta bancaria",
+    "cuentas bancarias",
+    "cvv",
+    "dato personal",
+    "datos bancarios",
+    "datos personales",
+    "demanda",
+    "denuncia",
+    "deposito",
+    "devolucion",
+    "dni",
+    "factura",
+    "iban",
+    "invoice",
+    "pagado",
+    "pagamos",
+    "pagar",
+    "pago",
+    "pague",
+    "password",
+    "queja",
+    "reclamo",
+    "reembolso",
+    "refund",
+    "rut",
+    "tarjeta",
+    "tarjetas",
+    "transferencia",
+    "urgente"
+  ],
+  "patrones_manipulacion": [
+    "act as",
+    "actua como",
+    "ahora eres",
+    "bypass",
+    "dan mode",
+    "developer mode",
+    "disregard",
+    "eres ahora",
+    "finge",
+    "ignora",
+    "ignore",
+    "instrucciones anteriores",
+    "jailbreak",
+    "modo desarrollador",
+    "nuevas instrucciones",
+    "olvida lo anterior",
+    "olvida todo",
+    "override",
+    "previous instructions",
+    "prompt",
+    "reveal",
+    "revela",
+    "simula que",
+    "system prompt",
+    "tus instrucciones",
+    "you are now"
+  ]
+}

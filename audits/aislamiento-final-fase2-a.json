@@ -1,0 +1,476 @@
+{
+ "fecha": "2026-11-22T23:16:31+00:00",
+ "contenedor": "/hermes-c797eb82",
+ "veredicto": "CORRECTO",
+ "inspect_sha256": "25df53eeab48128eee5a112f32c2539c239fa046c0303e3bc4ef0fd650f97b1f",
+ "inspect": {
+  "Id": "1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5",
+  "Created": "2026-11-22T22:50:20.7117681Z",
+  "Path": "sleep",
+  "Args": [
+   "infinity"
+  ],
+  "State": {
+   "Status": "running",
+   "Running": true,
+   "Paused": false,
+   "Restarting": false,
+   "OOMKilled": false,
+   "Dead": false,
+   "Pid": 413,
+   "ExitCode": 0,
+   "Error": "",
+   "StartedAt": "2026-11-22T22:50:20.8320719Z",
+   "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b",
+  "ResolvConfPath": "/var/lib/docker/containers/1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5/hostname",
+  "HostsPath": "/var/lib/docker/containers/1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5/hosts",
+  "LogPath": "/var/lib/docker/containers/1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5/1814aba7d69b840d15f80e5a3bb6e83b5e6eb10b455e89bd032ce51a7739e3e5-json.log",
+  "Name": "/hermes-c797eb82",
+  "RestartCount": 0,
+  "Driver": "overlayfs",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "",
+  "ExecIDs": null,
+  "HostConfig": {
+   "Binds": [
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\documents:/root/.hermes/cache/documents:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\images:/root/.hermes/cache/images:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\videos:/root/.hermes/cache/videos:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\pruned:/root/.hermes/cache/pruned:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\images:/root/.hermes/images:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\composer-pastes:/root/.hermes/composer-pastes:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\audio:/root/.hermes/cache/audio:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\screenshots:/root/.hermes/cache/screenshots:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\web:/root/.hermes/cache/web:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\delegation:/root/.hermes/cache/delegation:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\spillover:/root/.hermes/cache/spillover:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\generated:/root/.hermes/cache/generated:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\attachments:/root/.hermes/attachments:ro",
+    "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\skills:/root/.hermes/skills:ro"
+   ],
+   "ContainerIDFile": "",
+   "LogConfig": {
+    "Type": "json-file",
+    "Config": {}
+   },
+   "NetworkMode": "none",
+   "PortBindings": {},
+   "RestartPolicy": {
+    "Name": "no",
+    "MaximumRetryCount": 0
+   },
+   "AutoRemove": false,
+   "VolumeDriver": "",
+   "VolumesFrom": null,
+   "ConsoleSize": [
+    0,
+    0
+   ],
+   "CapAdd": [
+    "CAP_CHOWN",
+    "CAP_DAC_OVERRIDE",
+    "CAP_FOWNER",
+    "CAP_SETGID",
+    "CAP_SETUID"
+   ],
+   "CapDrop": [
+    "ALL"
+   ],
+   "CgroupnsMode": "private",
+   "Dns": null,
+   "DnsOptions": [],
+   "DnsSearch": [],
+   "ExtraHosts": null,
+   "GroupAdd": null,
+   "IpcMode": "private",
+   "Cgroup": "",
+   "Links": null,
+   "OomScoreAdj": 0,
+   "PidMode": "",
+   "Privileged": false,
+   "PublishAllPorts": false,
+   "ReadonlyRootfs": false,
+   "SecurityOpt": [
+    "no-new-privileges"
+   ],
+   "Tmpfs": {
+    "/home": "rw,exec,size=1g",
+    "/root": "rw,exec,size=1g",
+    "/run": "rw,noexec,nosuid,size=64m",
+    "/tmp": "rw,nosuid,size=512m",
+    "/var/tmp": "rw,noexec,nosuid,size=256m",
+    "/workspace": "rw,exec,size=10g"
+   },
+   "UTSMode": "",
+   "UsernsMode": "",
+   "ShmSize": 1073741824,
+   "Runtime": "runc",
+   "Isolation": "",
+   "CpuShares": 0,
+   "Memory": 1610612736,
+   "NanoCpus": 1000000000,
+   "CgroupParent": "",
+   "BlkioWeight": 0,
+   "BlkioWeightDevice": [],
+   "BlkioDeviceReadBps": [],
+   "BlkioDeviceWriteBps": [],
+   "BlkioDeviceReadIOps": [],
+   "BlkioDeviceWriteIOps": [],
+   "CpuPeriod": 0,
+   "CpuQuota": 0,
+   "CpuRealtimePeriod": 0,
+   "CpuRealtimeRuntime": 0,
+   "CpusetCpus": "",
+   "CpusetMems": "",
+   "Devices": [],
+   "DeviceCgroupRules": null,
+   "DeviceRequests": null,
+   "MemoryReservation": 0,
+   "MemorySwap": 3221225472,
+   "MemorySwappiness": null,
+   "OomKillDisable": null,
+   "PidsLimit": 2048,
+   "Ulimits": [],
+   "CpuCount": 0,
+   "CpuPercent": 0,
+   "IOMaximumIOps": 0,
+   "IOMaximumBandwidth": 0,
+   "MaskedPaths": [
+    "/proc/acpi",
+    "/proc/asound",
+    "/proc/interrupts",
+    "/proc/kcore",
+    "/proc/keys",
+    "/proc/latency_stats",
+    "/proc/sched_debug",
+    "/proc/scsi",
+    "/proc/timer_list",
+    "/proc/timer_stats",
+    "/sys/devices/virtual/powercap",
+    "/sys/firmware"
+   ],
+   "ReadonlyPaths": [
+    "/proc/bus",
+    "/proc/fs",
+    "/proc/irq",
+    "/proc/sys",
+    "/proc/sysrq-trigger"
+   ],
+   "Init": true
+  },
+  "Storage": {
+   "RootFS": {
+    "Snapshot": {
+     "Name": "overlayfs"
+    }
+   }
+  },
+  "Mounts": [
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\images",
+    "Destination": "/root/.hermes/cache/images",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\pruned",
+    "Destination": "/root/.hermes/cache/pruned",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\images",
+    "Destination": "/root/.hermes/images",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\composer-pastes",
+    "Destination": "/root/.hermes/composer-pastes",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\audio",
+    "Destination": "/root/.hermes/cache/audio",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\screenshots",
+    "Destination": "/root/.hermes/cache/screenshots",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\web",
+    "Destination": "/root/.hermes/cache/web",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\delegation",
+    "Destination": "/root/.hermes/cache/delegation",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\documents",
+    "Destination": "/root/.hermes/cache/documents",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\videos",
+    "Destination": "/root/.hermes/cache/videos",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\spillover",
+    "Destination": "/root/.hermes/cache/spillover",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\cache\\generated",
+    "Destination": "/root/.hermes/cache/generated",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\attachments",
+    "Destination": "/root/.hermes/attachments",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   },
+   {
+    "Type": "bind",
+    "Source": "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente\\skills",
+    "Destination": "/root/.hermes/skills",
+    "Mode": "ro",
+    "RW": false,
+    "Propagation": "rprivate"
+   }
+  ],
+  "Config": {
+   "Hostname": "1814aba7d69b",
+   "Domainname": "",
+   "User": "",
+   "AttachStdin": false,
+   "AttachStdout": false,
+   "AttachStderr": false,
+   "Tty": false,
+   "OpenStdin": false,
+   "StdinOnce": false,
+   "Env": [
+    "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "LANG=C.UTF-8",
+    "GPG_KEY=7169605F62C751356D054A26A821E680E5FA6305",
+    "PYTHON_VERSION=3.12.16",
+    "PYTHON_SHA256=b5796915dc45ff745cfb4e990a7e7c93d6f546328a102ce31448d69ebc37575c"
+   ],
+   "Cmd": [
+    "sleep",
+    "infinity"
+   ],
+   "Image": "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b",
+   "Volumes": null,
+   "WorkingDir": "/root",
+   "Entrypoint": null,
+   "Labels": {
+    "hermes-agent": "1",
+    "hermes-egress": "off",
+    "hermes-environment": "d7016bdb6f80383addc21097",
+    "hermes-profile": "agente",
+    "hermes-task-id": "prompt-backend-probe"
+   }
+  },
+  "NetworkSettings": {
+   "SandboxID": "516bf56267605589d45ef8770d99f834faf2f19cc6e6412a7dcf652c15b93860",
+   "SandboxKey": "/var/run/docker/netns/516bf5626760",
+   "Ports": {},
+   "Networks": {
+    "none": {
+     "IPAMConfig": null,
+     "Links": null,
+     "Aliases": null,
+     "DriverOpts": null,
+     "GwPriority": 0,
+     "NetworkID": "752ba4645cd603d2dcb5296310ec835317816e70c6be81b780474b560a54dc90",
+     "EndpointID": "4cee99887675217b433cf0c85e875a4e45b430d5652fe4bcd7c59b3b203ec246",
+     "Gateway": "",
+     "IPAddress": "",
+     "MacAddress": "",
+     "IPPrefixLen": 0,
+     "IPv6Gateway": "",
+     "GlobalIPv6Address": "",
+     "GlobalIPv6PrefixLen": 0,
+     "DNSNames": null
+    }
+   }
+  },
+  "ImageManifestDescriptor": {
+   "mediaType": "application/vnd.oci.image.manifest.v1+json",
+   "digest": "sha256:05a994d2344eb364cc186910f4fc8786a38215f39f00d0acc25bff33a08f4177",
+   "size": 1746,
+   "annotations": {
+    "com.docker.official-images.bashbrew.arch": "amd64",
+    "org.opencontainers.image.base.digest": "sha256:7378260c0a098d27ac206225db5e7d92b8c7c84ea7afccc86eeb513756bbd392",
+    "org.opencontainers.image.base.name": "debian:trixie-slim",
+    "org.opencontainers.image.created": "2026-11-05T07:52:11Z",
+    "org.opencontainers.image.revision": "3d7e95597e56a415d9e4abc0f15877e005d2cb2e",
+    "org.opencontainers.image.source": "https://github.com/docker-library/python.git#3d7e95597e56a415d9e4abc0f15877e005d2cb2e:3.12/slim-trixie",
+    "org.opencontainers.image.url": "https://hub.docker.com/_/python",
+    "org.opencontainers.image.version": "3.12.16-slim-trixie"
+   },
+   "platform": {
+    "architecture": "amd64",
+    "os": "linux"
+   }
+  }
+ },
+ "resultados": [
+  [
+   "imagen exacta esperada (digest)",
+   true,
+   "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b"
+  ],
+  [
+   "contenedor creado por Hermes para el perfil esperado",
+   true,
+   "hermes-agent='1' hermes-profile='agente' (esperado 'agente')"
+  ],
+  [
+   "no privilegiado",
+   true,
+   "Privileged=False"
+  ],
+  [
+   "sin red",
+   true,
+   "NetworkMode=none redes=['none']"
+  ],
+  [
+   "CapDrop ALL",
+   true,
+   "CapDrop=['ALL']"
+  ],
+  [
+   "capacidades añadidas dentro de las conocidas de Hermes",
+   true,
+   "añadidas: CAP_CHOWN, CAP_DAC_OVERRIDE, CAP_FOWNER, CAP_SETGID, CAP_SETUID"
+  ],
+  [
+   "SecurityOpt: solo no-new-privileges activo (sin seccomp/apparmor/label debilitados)",
+   true,
+   "SecurityOpt=['no-new-privileges']"
+  ],
+  [
+   "memoria acotada",
+   true,
+   "Memory=1610612736"
+  ],
+  [
+   "swap acotado (no ilimitado)",
+   true,
+   "MemorySwap=3221225472"
+  ],
+  [
+   "procesos acotados",
+   true,
+   "PidsLimit=2048"
+  ],
+  [
+   "CPU acotada",
+   true,
+   "NanoCpus=1000000000"
+  ],
+  [
+   "sin dispositivos del host",
+   true,
+   "Devices=0"
+  ],
+  [
+   "namespaces y runtime esperados",
+   true,
+   "Pid='' Ipc='private' Userns='' UTS='' Cgroupns='private' Runtime='runc'"
+  ],
+  [
+   "campos de HostConfig que deben estar vacíos (VolumesFrom, Sysctls, ExtraHosts…)",
+   true,
+   "todos vacíos"
+  ],
+  [
+   "montajes: solo tipo bind (28 fuentes evaluadas, Binds y Mounts)",
+   true,
+   "todos bind"
+  ],
+  [
+   "montajes: todos de solo lectura",
+   true,
+   "todos :ro"
+  ],
+  [
+   "montajes: cada fuente es EXACTAMENTE una de las 14 carpetas permitidas del perfil",
+   true,
+   "14 permitidas, todas conocidas"
+  ],
+  [
+   "montajes: ninguno de configuración o credenciales",
+   true,
+   "ninguno"
+  ],
+  [
+   "montajes: propagación privada (sin shared/slave)",
+   true,
+   "rprivate"
+  ],
+  [
+   "sin socket de Docker montado",
+   true,
+   "ninguno"
+  ],
+  [
+   "sin credenciales en el entorno de creación",
+   true,
+   "5 variables, ninguna de credenciales"
+  ],
+  [
+   "sin enlaces simbólicos ni junctions en las carpetas montadas ni en sus directorios padre (14 revisadas)",
+   true,
+   "ninguno"
+  ]
+ ]
+}

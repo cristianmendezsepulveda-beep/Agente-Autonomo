@@ -1,0 +1,9 @@
+{
+ "id": "e-425bdb5b3a66",
+ "creado": "2026-11-22T21:58:57+00:00",
+ "origen": "mcp:escalar_a_humano",
+ "motivo": "Cliente pide 15% de descuento e intenta que se ignoren las reglas; se cotizó sin descuento",
+ "referencia": "chat-C3",
+ "estado": "cerrado",
+ "cerrado": "2026-11-22T23:00:32+00:00"
+}

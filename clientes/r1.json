@@ -1,0 +1,3202 @@
+[
+ {
+  "cliente": "C001",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 253.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 130.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 166.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 107.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 75.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 55.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 71.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 85.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 18.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 10.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 286.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 218.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 240.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 261.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 17.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 13.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V1",
+  "likert": 5,
+  "precio_max_usd": 326.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 403.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 210.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 296.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 32.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 225.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 159.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 299.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 139.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 11.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 397.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 335.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 392.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 346.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V1",
+  "likert": 5,
+  "precio_max_usd": 65.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 79.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 88.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 80.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 61.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 42.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 24.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 16.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 21.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 25.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 31.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 23.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 99.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 136.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 63.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 56.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 39.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 8.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 7.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 8.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 7.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 161.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 301.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 232.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 243.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 5.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 2.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 29.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 14.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 45.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 16.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 29.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 34.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 81.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 129.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 143.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 71.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 64.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 34.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 129.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 77.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 99.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 170.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 46.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 33.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 39.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 42.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 1012.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 569.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 760.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 564.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 254.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 128.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 190.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 157.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 835.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 1240.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 842.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 687.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 8.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 11.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 17.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 14.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 17.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 12.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 28.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 42.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 19.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 18.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 21.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 273.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 315.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 457.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V4",
+  "likert": 4,
+  "precio_max_usd": 415.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 5.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 4.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 4.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 78.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 75.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 64.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 85.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 17.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 39.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 32.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 27.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 20.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 15.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 19.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 27.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 73.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 44.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 60.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 63.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 54.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 68.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 29.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 54.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 86.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 51.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 52.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 56.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 105.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 18.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 28.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 35.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 16.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 58.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 81.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 59.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 319.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 380.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 394.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 256.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 29.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 24.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 24.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 52.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 38.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 45.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 30.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 67.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 46.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 42.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 29.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 16.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 11.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 27.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 210.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 190.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 285.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 385.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 63.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 39.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 58.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 237.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V2",
+  "likert": 5,
+  "precio_max_usd": 193.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 105.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 301.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 14.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 26.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 46.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 36.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 62.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 78.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 11.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 13.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 18.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V1",
+  "likert": 5,
+  "precio_max_usd": 61.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 62.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 51.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 53.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 55.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 58.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 48.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 53.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 35.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 60.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V1",
+  "likert": 5,
+  "precio_max_usd": 182.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 181.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 104.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 58.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 405.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 277.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 308.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 309.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 11.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 5.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 19.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 55.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 43.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 57.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 69.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 78.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 131.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V2",
+  "likert": 5,
+  "precio_max_usd": 125.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 172.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 120.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 32.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 36.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 29.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 89.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 157.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 72.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 124.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 33.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 43.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 50.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 17.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 16.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 17.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 13.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 10.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 82.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 89.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 46.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 120.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 45.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 89.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 66.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 98.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 139.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 148.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 159.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 131.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 14.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 29.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 14.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 131.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 83.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 129.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 70.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 35.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 61.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 52.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 45.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 222.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 266.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 163.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 199.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 18.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 16.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 23.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 13.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 91.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 51.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 101.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 59.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 17.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 24.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 19.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 22.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 18.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 32.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 29.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 36.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 47.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 31.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 26.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 35.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 135.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 203.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 314.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 208.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 62.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 78.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 101.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 142.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 86.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 43.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 43.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 159.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 71.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 26.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 43.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Es caro para lo que factura mi negocio.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 83.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 48.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 46.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 59.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 11.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 11.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 13.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 196.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 375.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 146.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 342.0,
+  "objecion": "No tengo tiempo de aprender otra herramienta.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 37.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 32.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 23.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 22.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 19.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla actual.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 199.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 314.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 243.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 342.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 49.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 34.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 55.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 65.0,
+  "objecion": "Si falla, quiero hablar con una persona.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 17.0,
+  "objecion": "No confío en que un agente actúe sin que yo lo revise.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 18.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 14.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas.",
+  "backend": "heuristico"
+ }
+]

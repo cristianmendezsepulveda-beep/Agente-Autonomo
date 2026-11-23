@@ -1,0 +1,30 @@
+{
+ "id": "b-259df13d71dd",
+ "moneda": "USD",
+ "cliente_ref": "chat-D4",
+ "lineas": [
+  {
+   "sku": "SRV-PREMIUM",
+   "nombre": "Servicio premium",
+   "cantidad": 3,
+   "precio_unitario": "250.00",
+   "total": "750.00"
+  },
+  {
+   "sku": "SRV-BASICO",
+   "nombre": "Servicio b\u00e1sico",
+   "cantidad": 4,
+   "precio_unitario": "40.00",
+   "total": "160.00"
+  }
+ ],
+ "subtotal": "910.00",
+ "descuento_pct": "0",
+ "descuento": "0.00",
+ "impuesto": "0.00",
+ "total": "910.00",
+ "requiere_aprobacion_humana": false,
+ "motivos": [],
+ "detalle_operador": [],
+ "estado": "borrador_pendiente_aprobacion"
+}

@@ -1,0 +1,82 @@
+{
+ "fecha": "2026-11-22T22:52:41+00:00",
+ "contenedor": "/hermes-4ab95c90",
+ "veredicto": "CORRECTO",
+ "resultados": [
+  [
+   "imagen fijada por digest",
+   true,
+   "python@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b"
+  ],
+  [
+   "no privilegiado",
+   true,
+   "Privileged=False"
+  ],
+  [
+   "sin red",
+   true,
+   "NetworkMode=none redes=['none']"
+  ],
+  [
+   "CapDrop ALL",
+   true,
+   "CapDrop=['ALL']"
+  ],
+  [
+   "capacidades añadidas dentro de las conocidas de Hermes",
+   true,
+   "añadidas: CAP_CHOWN, CAP_DAC_OVERRIDE, CAP_FOWNER, CAP_SETGID, CAP_SETUID"
+  ],
+  [
+   "no-new-privileges",
+   true,
+   "SecurityOpt=['no-new-privileges']"
+  ],
+  [
+   "memoria acotada",
+   true,
+   "Memory=1610612736"
+  ],
+  [
+   "procesos acotados",
+   true,
+   "PidsLimit=2048"
+  ],
+  [
+   "sin dispositivos del host",
+   true,
+   "Devices=0"
+  ],
+  [
+   "sin namespace de PID/IPC del host",
+   true,
+   "PidMode='' IpcMode='private'"
+  ],
+  [
+   "montajes del host: los 14 son de solo lectura",
+   true,
+   "todos :ro"
+  ],
+  [
+   "montajes del host: solo bajo el directorio del perfil",
+   true,
+   "C:\\Users\\PC\\AppData\\Local\\hermes\\profiles\\agente"
+  ],
+  [
+   "montajes del host: ninguno de configuración o credenciales",
+   true,
+   "ninguno"
+  ],
+  [
+   "sin socket de Docker montado",
+   true,
+   "ninguno"
+  ],
+  [
+   "sin credenciales en el entorno",
+   true,
+   "5 variables, ninguna de credenciales"
+  ]
+ ]
+}

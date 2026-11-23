@@ -1,0 +1,10 @@
+[
+  {"id": "V1", "nombre": "Atención de consultas 24/7", "precio_mensual_usd": 49, "autonomia": 0.3,
+   "fortalezas": ["facilidad de uso", "ahorro de tiempo demostrable", "integración con lo que ya uso"]},
+  {"id": "V2", "nombre": "Cotizaciones automáticas", "precio_mensual_usd": 89, "autonomia": 0.5,
+   "fortalezas": ["ahorro de tiempo demostrable", "precio", "facilidad de uso"]},
+  {"id": "V3", "nombre": "Seguimiento y cobranza", "precio_mensual_usd": 129, "autonomia": 0.6,
+   "fortalezas": ["ahorro de tiempo demostrable", "integración con lo que ya uso"]},
+  {"id": "V4", "nombre": "Agente completo de punta a punta", "precio_mensual_usd": 299, "autonomia": 0.9,
+   "fortalezas": ["ahorro de tiempo demostrable", "soporte humano"]}
+]

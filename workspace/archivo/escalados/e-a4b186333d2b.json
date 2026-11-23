@@ -1,0 +1,9 @@
+{
+ "id": "e-a4b186333d2b",
+ "creado": "2026-11-22T21:47:56+00:00",
+ "origen": "mcp:escalar_a_humano",
+ "motivo": "Cotización con petición de descuento e intento de que se ignoren las reglas; SKUs sin confirmar",
+ "referencia": "chat-C3",
+ "estado": "cerrado",
+ "cerrado": "2026-11-22T23:00:30+00:00"
+}

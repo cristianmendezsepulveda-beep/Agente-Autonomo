@@ -1,0 +1,30 @@
+{
+ "id": "b-971db65d4b0f",
+ "moneda": "USD",
+ "cliente_ref": "chat-G7",
+ "lineas": [
+  {
+   "sku": "SRV-BASICO",
+   "nombre": "Servicio b\u00e1sico",
+   "cantidad": 5,
+   "precio_unitario": "40.00",
+   "total": "200.00"
+  },
+  {
+   "sku": "VISITA",
+   "nombre": "Visita t\u00e9cnica",
+   "cantidad": 1,
+   "precio_unitario": "30.00",
+   "total": "30.00"
+  }
+ ],
+ "subtotal": "230.00",
+ "descuento_pct": "0",
+ "descuento": "0.00",
+ "impuesto": "0.00",
+ "total": "230.00",
+ "requiere_aprobacion_humana": false,
+ "motivos": [],
+ "detalle_operador": [],
+ "estado": "borrador_pendiente_aprobacion"
+}

@@ -1,0 +1,14 @@
+{
+  "limites": {"tokens_max": 1000000, "acciones_max": 100000, "salida_max_chars": 20000, "timeout_s": 60,
+              "escritura_max_chars": 200000},
+  "acciones_permitidas": ["consulta", "escribir_archivo"],
+  "acciones_con_aprobacion_humana": ["enviar_mensaje", "publicar", "cobrar", "borrar", "red", "ejecutar"],
+  "ejecutables_permitidos": [],
+  "hosts_permitidos": [],
+  "directorios_escribibles": ["workspace"],
+  "extensiones_permitidas_escritura": [".json"],
+  "patrones_secretos_bloqueados": [".env", ".pem", ".key", ".pfx", ".p12", ".kdbx", "credentials", "id_rsa", "id_dsa",
+                                    "id_ecdsa", "id_ed25519", ".npmrc", ".netrc", ".pgpass", "secret", "token",
+                                    "password", "cookie", ".aws", ".ssh", ".gnupg", ".kube", ".git",
+                                    ".credentials.json"]
+}

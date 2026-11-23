@@ -1,0 +1,161 @@
+{
+ "perfil": "agente",
+ "veredicto": "CORRECTO",
+ "resultados": [
+  [
+   "a2a",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "api_server",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "bluebubbles",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "buzz",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "cli",
+   true,
+   "solo agente-local, clarify, file, terminal, todo"
+  ],
+  [
+   "cron",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "dingtalk",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "discord",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "email",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "feishu",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "google_chat",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "irc",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "line",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "matrix",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "mattermost",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "ntfy",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "photon",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "qqbot",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "raft",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "signal",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "simplex",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "slack",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "sms",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "teams",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "telegram",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "webhook",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "wecom",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "wecom_callback",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "weixin",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "whatsapp",
+   true,
+   "solo agente-local, clarify"
+  ],
+  [
+   "whatsapp_cloud",
+   true,
+   "solo agente-local, clarify"
+  ]
+ ]
+}

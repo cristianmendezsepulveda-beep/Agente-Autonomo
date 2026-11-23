@@ -1,0 +1,3202 @@
+[
+ {
+  "cliente": "C001",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 40.0,
+  "objecion": "No tengo claro dónde se almacenan los datos de alumnos y familias; sin garantías de privacidad no avanzo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 60.0,
+  "objecion": "Precio razonable, pero las cotizaciones manejan datos de clientes y no hay garantía de que queden bajo mi control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 70.0,
+  "objecion": "La cobranza expone datos financieros sensibles; el precio es alto sin garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C001",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 90.0,
+  "objecion": "Autonomía del 90% con acceso a todos mis datos y 299 USD superan mi presupuesto y mi tolerancia al riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Sirve para consultas, pero si falla a las 11 pm necesito una persona, y V1 no ofrece soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 70.0,
+  "objecion": "Útil para presupuestos de obra, pero las cotizaciones errores me cuestan dinero y quiero soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "129 USD excede mi presupuesto de 72 y no incluye soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C002",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "Tiene soporte humano, pero 299 USD está muy fuera de presupuesto para mi tamaño.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "49 USD es mucho para mi negocio; solo lo consideraría si funciona con mi WhatsApp actual.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "89 USD es inviable con mi presupuesto de 9 USD.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "129 USD es inviable y no me interesa la cobranza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C003",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "299 USD equivale a más de lo que gasto en todo mi software; imposible.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Me gusta que sea fácil, pero no sé dónde van los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 85.0,
+  "objecion": "Buen precio y facilidad, pero necesito garantía de que los datos de clientes no salen de mi control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Manejar cobranza implica datos sensibles y 129 USD requiere ROI claro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C004",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 140.0,
+  "objecion": "299 USD supera mi presupuesto de 210 por poco margen de retorno y mucho acceso a datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 10.0,
+  "objecion": "Mis ingresos son muy bajos; 49 USD es inviable aunque la tecnología me guste.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "89 USD es varias veces mi presupuesto de 12 USD.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "129 USD es inviable para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C005",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "299 USD es absurdo para mi escala; además no quiero que los datos salgan de mi control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "Es demasiado básico para mi volumen; no veo horas ahorradas cuantificadas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 110.0,
+  "objecion": "Me interesa si me muestran horas ahorradas reales y se integra con mis herramientas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 150.0,
+  "objecion": "Quiero ver una prueba medible de horas ahorradas y control sobre lo que se envía a mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C006",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 200.0,
+  "objecion": "90% de autonomía me da miedo a perder control; 299 USD sin evidencia de horas ahorradas no lo justifico.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "49 USD supera mi presupuesto de 22 y no hay soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "89 USD es cuatro veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "129 USD es inviable para mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C007",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "Tiene soporte humano, pero 299 USD es imposible para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "No confío en que un bot atienda a mis familias sin soporte humano si falla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 75.0,
+  "objecion": "Soy escéptico del ahorro real y no hay soporte humano si hay un error.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Cobranza automatizada puede dañar la relación con familias y no tiene soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C008",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 170.0,
+  "objecion": "Incluye soporte humano, pero 299 USD excede mi presupuesto y el 90% de autonomía me parece arriesgado.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "49 USD es cinco veces mi presupuesto; necesito que funcione con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "89 USD es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "129 USD es inviable para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C009",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "299 USD es completamente fuera de alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Demasiado limitado y sin soporte humano; no confío en un bot atendiendo a mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "Sin soporte humano ni confianza demostrada, un error en una cotización me cuesta reputación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 130.0,
+  "objecion": "Se integra con lo que uso, pero no tiene soporte humano y la cobranza es delicada.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C010",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 250.0,
+  "objecion": "Tiene soporte humano, pero 90% de autonomía me incomoda y necesito confianza antes de pagar 299 USD.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 55.0,
+  "objecion": "Debe integrarse con mi WhatsApp actual; si no, no sirve.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 70.0,
+  "objecion": "Necesito que lea mi planilla de precios y no cotice mal.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Cobrar a mis clientes en mi nombre me da riesgo reputacional; la integración con mi planilla es incierta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C011",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "$299 está muy por encima de mi presupuesto de $94 y 0.9 de autonomía es demasiado para mi baja tolerancia al riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 30.0,
+  "objecion": "Cuesta más que mi tope de $42 y no confío en que responda sin revisión.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Una cotización errónea me cuesta dinero; quiero aprobar cada una.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Muy caro y no dejo que un agente cobre a mis clientes sin revisión.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C012",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "Autonomía 0.9 y $299 son lo opuesto a lo que busco.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$49 es caro para lo que factura mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es inviable con ingresos de $21.900 al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es excesivo y no tengo volumen de cobranza que lo justifique.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C013",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 equivale a más del 16% de mis ingresos mensuales.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 25.0,
+  "objecion": "Me gusta la integración, pero $49 duplica mi presupuesto de $25.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$89 es demasiado para mi escala.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$129 es cinco veces mi presupuesto, aunque la integración me sirve.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C014",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "$299 está totalmente fuera de mi alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "No sé dónde se almacenan ni procesan los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 70.0,
+  "objecion": "Tendría que subir mis tarifas y datos de clientes a un tercero.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 80.0,
+  "objecion": "Exponer datos de deudas y contacto de clientes me preocupa mucho; $129 supera mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C015",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 85.0,
+  "objecion": "Máxima autonomía y acceso total a datos con tolerancia al riesgo mínima; además $299 es excesivo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 25.0,
+  "objecion": "$49 supera mi presupuesto de $22 y no tengo tiempo de configurarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "$89 es demasiado y requiere cargar mi catálogo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "Caro y es otra herramienta que aprender.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C016",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "$299 es 13 veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "$49 es inviable con ingresos de $9.000 al año; además me preocupan los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "$89 está fuera de toda posibilidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "$129 es inaceptable para mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C017",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 6.0,
+  "objecion": "$299 supera lo que gano en un mes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 60.0,
+  "objecion": "Necesito garantías sobre dónde residen los datos; la autonomía baja me tranquiliza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Debo saber cómo se protegen los datos de precios y clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 140.0,
+  "objecion": "Acceso a datos de cobranza exige certificaciones de privacidad que no se mencionan.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C018",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 180.0,
+  "objecion": "Autonomía 0.9 con acceso a todos mis datos es demasiado riesgo, y $299 supera mi presupuesto de $222.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$49 es inalcanzable; si falla necesito una persona.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$89 es absurdo para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$129 es imposible de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C019",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "Aunque tiene soporte humano, $299 es cientos de veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$49 duplica mi presupuesto; además tengo dudas sobre la privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es caro y tendría que aprender a configurarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es excesivo y no tengo tiempo de aprenderlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C020",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 es imposible para mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$49 supera mi presupuesto de $23 para lo que facturo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "$89 es inviable con mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "$129 al mes es excesivo y no tengo mucha cobranza compleja.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C021",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "$299 equivale a una parte enorme de mi margen.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Debo saber dónde se almacenan los datos de pacientes y quién accede.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Cotizar implica manejar datos sensibles, y el precio supera lo que tengo previsto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 55.0,
+  "objecion": "Manejar datos de cobranza fuera de mi control me preocupa y cuesta casi el doble de mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C022",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 50.0,
+  "objecion": "Autonomía alta con datos de pacientes: riesgo de privacidad inaceptable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Debe integrarse con mi WhatsApp actual; no confío en promesas sin prueba.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Debe leer mi planilla de precios y no tengo evidencia de que lo haga bien.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "$129 excede mi presupuesto y no sé si se integra con mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C023",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 60.0,
+  "objecion": "Soy escéptico, $299 y 90% de autonomía son demasiado riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Con baja autonomía lo puedo supervisar, pero no me aporta un ahorro grande.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Las cotizaciones deben pasar por mi revisión antes de salir.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 100.0,
+  "objecion": "Un agente que contacta clientes por cobranza sin que yo revise puede dañar relaciones.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C024",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 120.0,
+  "objecion": "No confío en un agente que actúe de punta a punta sin revisión.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "$49 supera mi tope y no veo horas ahorradas medidas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "Necesito números concretos de horas ahorradas antes de pagar $89.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "$129 es 4 veces mi presupuesto y hay temas de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C025",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 sin evidencia de ROI es inaceptable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 60.0,
+  "objecion": "Debo revisar las respuestas; no quiero que hable por mi negocio sin control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Quiero aprobar cada cotización antes del envío.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 130.0,
+  "objecion": "Cobrar a clientes sin mi revisión es un riesgo para la relación comercial.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C026",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 200.0,
+  "objecion": "Autonomía de 0.9 me quita el control; el soporte humano ayuda, pero no basta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Útil, pero no veo cuántas horas ahorra realmente en construcción.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 110.0,
+  "objecion": "Me sirve si se integra con mis planillas de costos y demuestra horas ahorradas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "Necesito pruebas del ahorro y que se integre con mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C027",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 170.0,
+  "objecion": "$299 sin evidencia de horas ahorradas y con mucha autonomía es difícil de justificar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 60.0,
+  "objecion": "Si es simple me sirve, pero no tengo tiempo para configurarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 110.0,
+  "objecion": "Otra herramienta que aprender; las cotizaciones de obra son complejas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 130.0,
+  "objecion": "Requiere configuración y tiempo que no tengo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C028",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 250.0,
+  "objecion": "Si de verdad lo hace todo con soporte humano me sirve, pero temo la implementación y la confianza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 10.0,
+  "objecion": "$49 es 4 veces mi presupuesto, aunque me atrae la tecnología.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "$89 es inviable con $12k de ingresos anuales.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "$129 es imposible de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C029",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 5.0,
+  "objecion": "$299 supera mi presupuesto anual por mucho.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "$49 es muy caro para mis ingresos; debe funcionar con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "$89 es inviable para mi tamaño.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "$129 es inviable y no tengo claro que use mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C030",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "$299 es totalmente fuera de mi alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 20.0,
+  "objecion": "Cuesta $49 y mi tope es $20. Además tengo que configurarlo y aprender otra herramienta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es mucho para mi facturación y las cotizaciones requieren configuración.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "$129 es inviable y no tengo tiempo de aprenderlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C031",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 es absurdo con mis ingresos de $19k al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "$49 es caro para lo que factura mi negocio, y no he visto ahorro real.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$89 supera mi presupuesto. Necesito pruebas de que ahorra tiempo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es demasiado caro para mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C032",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 es impagable con mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 22.0,
+  "objecion": "$49 supera mi presupuesto de $20. Me interesa si es fácil de usar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "$89 es mucho, y no tengo tiempo de aprender otra herramienta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 no cabe en mi presupuesto y no veo la necesidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C033",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 es desproporcionado para mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Es muy limitado. Si falla con un cliente, quiero hablar con una persona.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Es útil, pero necesito soporte humano y garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "Me preocupa que el agente maneje la cobranza sin supervisión y que falle sin nadie a quien llamar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C034",
+  "variante": "V4",
+  "likert": 4,
+  "precio_max_usd": 250.0,
+  "objecion": "El soporte humano me da confianza, pero 0.9 de autonomía me da miedo. Quiero controles y garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$49 es 16 veces mi presupuesto. No lo pago.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$89 es impagable con $8k al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$129 es imposible.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C035",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 3.0,
+  "objecion": "$299 es más de lo que puedo gastar en meses.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "La integración ayuda, pero no sé a dónde van los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "$89 supera mi presupuesto y no quiero que los datos de clientes salgan de mi control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "$129 es caro y la cobranza implica datos sensibles de clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C036",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 60.0,
+  "objecion": "$299 con 0.9 de autonomía y acceso total a datos de clientes es inaceptable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "Muéstrame horas ahorradas, no promesas. $49 es más que mi tope.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$89 sin datos de ahorro previos es una apuesta, y soy poco tolerante al riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$129 sin evidencia de horas ahorradas no lo justifico.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C037",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "$299 y 0.9 de autonomía sin pruebas son demasiado riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "$49 es el doble de mi presupuesto y no tiene soporte humano destacado.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es inviable para mis ingresos y no hay soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C038",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Tiene soporte humano, pero $299 es imposible con $13.9k al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 25.0,
+  "objecion": "$49 supera mi presupuesto. Necesito ver horas ahorradas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 30.0,
+  "objecion": "Puede servir, pero $89 es mucho sin prueba de ahorro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$129 es caro y no veo horas ahorradas comprobadas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C039",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "$299 es desproporcionado para mi tamaño.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control, y no veo garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "$89 supera mi presupuesto, y las cotizaciones manejan datos de clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "$129 es caro, y la cobranza automática pierde control sobre mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C040",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 80.0,
+  "objecion": "El soporte humano ayuda, pero $299 y 0.9 de autonomía sobre datos de clientes es perder control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Con autonomía baja me sirve, pero necesito poder revisar lo que responde antes de que llegue al cliente.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "$89 supera mi presupuesto y no confío en que cotice sin que yo lo revise.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "Que reclame cobros en mi nombre sin supervisión es un riesgo para la relación con el cliente, y el precio está fuera de mi alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C041",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "Autonomía del 90% es justo lo que no quiero, y $299 es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "$49 es cinco veces mi presupuesto, y si falla no veo a quién llamar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Muy caro para mis ingresos y sin garantía de soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "$129 al mes es inviable con mis ingresos anuales.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C042",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 10.0,
+  "objecion": "Tiene soporte humano, pero $299 es imposible de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Atender consultas no es mi cuello de botella. Quiero horas ahorradas medidas, no promesas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 55.0,
+  "objecion": "Puede ahorrar tiempo, pero necesito un piloto con horas medidas y $89 excede mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "No tengo garantía de resultados en cobranza y el precio duplica mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C043",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Tiene soporte humano, pero $299 sin prueba de retorno y con 90% de autonomía me parece una apuesta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Baja autonomía me da control, pero necesito saber cómo escalo a una persona si falla y cómo se integra con mi sistema.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "$89 supera mi presupuesto y no ofrece soporte humano claro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "Maneja datos de clientes y cobros, y pierdo control. Es caro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C044",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 55.0,
+  "objecion": "Tiene soporte humano, pero cede demasiado control y cuesta cinco veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "Los datos de mis clientes pasarían por un tercero, y $49 supera mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "Precio alto y no tengo claro dónde se almacenan los datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 28.0,
+  "objecion": "Exponer datos de cobranza y $129 al mes no me convence.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C045",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Entregar todo a un agente externo contradice mi necesidad de control, y $299 es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 14.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp, y $49 es demasiado para mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "$89 es inviable con ingresos de $13.7k al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "$129 es inviable. No sé si funciona con mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C046",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 14.0,
+  "objecion": "$299 es más que mi margen mensual.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Útil, pero limitado. No es lo que más tiempo me ahorra.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 80.0,
+  "objecion": "Me interesa, pero necesito soporte humano cuando falle y que las cotizaciones sean fiables.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 75.0,
+  "objecion": "$129 excede mi presupuesto y no veo soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C047",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Me atrae el soporte humano y la autonomía, pero $299 es mucho para mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Es barato, pero mi problema es más amplio, y no sé si hay soporte humano si falla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Útil para eventos y catering, pero no cubre mi operación diaria y dudo del soporte.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "Puede servir, pero me preocupa el trato con proveedores y clientes, y que no haya persona al otro lado.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C048",
+  "variante": "V4",
+  "likert": 4,
+  "precio_max_usd": 300.0,
+  "objecion": "Entra en mi presupuesto y tiene soporte humano, pero un 90% de autonomía en un restaurante me parece arriesgado. Pediría prueba piloto y garantía.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "$49 duplica mi presupuesto y debe integrarse con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es inviable con mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es excesivo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C049",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 22.0,
+  "objecion": "$299 es más de lo que puedo destinar y no sé si funciona con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Datos de alumnos y familias salen de mi control, y no veo pruebas de ahorro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "$89 es mucho y no tengo claro el manejo de datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "Datos de pagos de familias y $129 al mes. No me convence.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C050",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "Demasiada autonomía con datos sensibles, y $299 es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Aunque la autonomía es baja, quiero revisar lo que se le responde a mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "$89 supera mi presupuesto y no quiero que mande cotizaciones sin mi revisión.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Cobrar a mis clientes sin que yo lo supervise es muy riesgoso y el precio es excesivo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C051",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Un agente con 90% de autonomía es justo lo que no quiero, y $299 está fuera de alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 15.0,
+  "objecion": "$49 es mucho para mis ingresos y tendría que aprender otra herramienta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "$89 es inalcanzable y no tengo tiempo de configurarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "Precio muy alto y delegar la cobranza me da miedo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C052",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "Cuesta más de lo que puedo gastar y perdería el control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Sirve, pero necesito garantía de escalamiento a una persona y claridad sobre privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 80.0,
+  "objecion": "Útil, pero sin soporte humano claro no me convence.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 100.0,
+  "objecion": "Me interesa por la cobranza, pero me preocupan los datos y la falta de soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C053",
+  "variante": "V4",
+  "likert": 4,
+  "precio_max_usd": 220.0,
+  "objecion": "Incluye soporte humano, pero $299 requiere ROI comprobado y garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 38.0,
+  "objecion": "Muéstrame horas ahorradas reales, no promesas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "$89 excede mi presupuesto y no sé si cotizo con tanto volumen.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 42.0,
+  "objecion": "$129 es demasiado salvo que demuestre horas ahorradas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C054",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "$299 es desproporcionado para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Es bastante básico para lo que busco.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 100.0,
+  "objecion": "Me sirve, pero tiene que integrarse con mis herramientas y justificar el costo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 110.0,
+  "objecion": "$129 es caro para lo que factura mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C055",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 130.0,
+  "objecion": "$299 es injustificable con mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 18.0,
+  "objecion": "No quiero que datos de mis clientes salgan de mi control y $49 supera mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "Precio fuera de alcance y riesgo de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "Daría acceso a datos de clientes y cuesta seis veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C056",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "Máxima autonomía y acceso a datos, y el precio es imposible para mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Necesito ver horas ahorradas medidas antes de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 55.0,
+  "objecion": "Puede servir, pero $89 es caro sin evidencia de ahorro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "$129 sin prueba concreta de recuperar el costo no me convence.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C057",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 50.0,
+  "objecion": "$299 es absurdo para mi nivel de costo-beneficio y no confío en tanta autonomía.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 9.0,
+  "objecion": "$49 es cinco veces mi presupuesto y no tengo tiempo de aprenderlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 9.0,
+  "objecion": "Demasiado caro para mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Precio inviable y complejidad innecesaria.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C058",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Cuesta más que mis ingresos disponibles para herramientas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 50.0,
+  "objecion": "Debe funcionar con mi WhatsApp actual, sin migrar nada.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 60.0,
+  "objecion": "Me falta ver que se integre con mi planilla; $89 es alto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "Útil por la integración, pero $129 excede mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C059",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 70.0,
+  "objecion": "$299 no se justifica para mi tamaño y no aclara integración.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Si falla, necesito hablar con una persona, y no hay soporte humano claro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "$89 es mucho y no me da soporte humano ni garantías sobre datos de pacientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Precio alto, sin soporte humano y riesgo con datos sensibles.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C060",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 37.0,
+  "objecion": "Tiene soporte humano, pero $299 es inalcanzable y la autonomía me incomoda.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 40.0,
+  "objecion": "Debe integrarse con mi WhatsApp/planilla; no sé qué hace con los datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "89 USD supera mi presupuesto de 51 y no tengo claro que se conecte a mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Muy caro y no es mi prioridad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C061",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "299 USD es inviable para mi restaurante.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Útil, pero soporte humano no es una fortaleza declarada y mis leads pierden calidad si el bot falla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 85.0,
+  "objecion": "Me sirve, pero necesito que un humano revise las cotizaciones y que haya soporte.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 110.0,
+  "objecion": "Buena integración; quiero poder hablar con una persona si falla un cobro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C062",
+  "variante": "V4",
+  "likert": 3,
+  "precio_max_usd": 150.0,
+  "objecion": "Tiene soporte humano, pero 299 USD pasa mucho de mi presupuesto de 129 USD.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Los datos de mis clientes pasan por un tercero y no se habla de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 80.0,
+  "objecion": "Falta garantía de privacidad y control de datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 110.0,
+  "objecion": "Accede a datos de cobranza de mis clientes; necesito saber dónde se alojan.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C063",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 200.0,
+  "objecion": "Un agente con 90% de autonomía sobre datos de clientes es un riesgo de privacidad. El precio sí entra en mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 8.0,
+  "objecion": "Con 8 USD de presupuesto, 49 es inalcanzable, y dudo que funcione con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "89 USD es casi 10 veces lo que puedo gastar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Totalmente fuera de mi alcance.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C064",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "299 USD equivale a una parte enorme de mis ingresos mensuales.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V1",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "49 USD es caro para lo que factura mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "No puedo pagar 89 USD con mis ingresos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Fuera de presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C065",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "299 USD es un absurdo para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 40.0,
+  "objecion": "Cuesta casi todo mi presupuesto y no sé si puedo confiar en que responda bien por mí.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "89 USD es caro y temo que se envíen cotizaciones erróneas sin que yo las vea.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 35.0,
+  "objecion": "Que contacte a mis clientes por mí me da miedo, y es caro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C066",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Pierdo el control y el precio es excesivo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Tiene que funcionar con mi WhatsApp/planilla; no me convence sin una prueba.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 55.0,
+  "objecion": "89 USD supera mi presupuesto de 56; la integración con mi planilla no está clara.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "129 USD es demasiado para mi escala.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C067",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 50.0,
+  "objecion": "299 USD es excesivo para una manufactura chica.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Fácil, pero no es lo que más tiempo me consume.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 95.0,
+  "objecion": "Buen precio y facilidad, pero no quiero aprender otra herramienta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "Entra en presupuesto, pero la curva de aprendizaje me preocupa.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C068",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 170.0,
+  "objecion": "299 USD duplica mi presupuesto y la implantación sería compleja.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "49 USD es caro para mi facturación y no sé cómo trata los datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "89 USD es el doble de mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "129 USD es inviable para mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C069",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "299 USD es absurdo para lo que facturo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 50.0,
+  "objecion": "Muéstrame horas ahorradas reales, no promesas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 90.0,
+  "objecion": "Me interesa si demuestran las horas ahorradas en cotizar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 110.0,
+  "objecion": "Necesito cifras concretas de cobranza y horas ahorradas antes de pagar 129.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C070",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 150.0,
+  "objecion": "299 USD es más del doble de mi presupuesto y sin evidencia de retorno.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 44.0,
+  "objecion": "Debe integrarse con mi WhatsApp y mi planilla actual. Si no lo hace, no lo uso.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "89 USD supera mi presupuesto de 44. Además, ¿las cotizaciones salen de mi planilla?",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "129 USD es el triple de lo que presupuesto. La cobranza a pacientes es delicada.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C071",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "299 USD es inviable con mis ingresos, y 0.9 de autonomía con datos de pacientes es demasiado riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "Si falla, quiero hablar con una persona, y V1 no ofrece soporte humano. Además tengo dudas sobre la privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "89 USD es casi cuatro veces mi presupuesto y no veo garantía de soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "Muy caro para mi escala. No me fío de que se encargue de cobrar sin que yo lo supervise.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C072",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Tiene soporte humano, pero 299 USD son imposibles con mis ingresos, y 0.9 de autonomía me da desconfianza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 15.0,
+  "objecion": "Muéstrame horas ahorradas medidas, no promesas. 49 USD supera mi presupuesto de 14.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 14.0,
+  "objecion": "89 USD es demasiado para mis ingresos. No sé cuántas horas ahorraría en realidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "129 USD no se justifica sin una prueba clara de retorno.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C073",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "299 USD son una fracción enorme de mi facturación mensual. Nada que lo justifique.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 12.0,
+  "objecion": "Con 10 USD de presupuesto, 49 USD es mucho. Tiene que funcionar con mi WhatsApp y mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "89 USD es inalcanzable para mis ingresos, y no tengo claro cómo se conecta con lo que uso.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "129 USD es inviable y no confío en que cobre a mis clientes por mí.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C074",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "299 USD es más que mi margen mensual. No es una opción.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "¿Dónde se guardan los datos de mis clientes? No quiero perder el control sobre ellos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "89 USD supera mi presupuesto y las cotizaciones contienen datos sensibles de clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 50.0,
+  "objecion": "129 USD es caro, y el acceso a datos de cobranza es justo lo que no quiero ceder.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C075",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 40.0,
+  "objecion": "299 USD y acceso total a mis datos: ambas cosas son un no.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 49.0,
+  "objecion": "Me cuadra el precio, pero sin soporte humano garantizado me preocupa quedarme tirado si falla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 70.0,
+  "objecion": "89 USD está por encima de mi presupuesto de 79. Quiero ver cuántas horas ahorro para justificarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 75.0,
+  "objecion": "129 USD es demasiado y no hay soporte humano explícito.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C076",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "Tiene soporte humano, pero 299 USD es casi cuatro veces mi presupuesto. Me haría falta un ROI muy claro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 60.0,
+  "objecion": "Me sirve si no tengo que aprender nada nuevo. Quiero verlo funcionando con mi WhatsApp desde el primer día.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 100.0,
+  "objecion": "Está bien de precio, pero no puedo invertir tiempo en configurar plantillas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "129 USD cabe en mi presupuesto, pero me preocupa la curva de aprendizaje y la privacidad de los datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C077",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 150.0,
+  "objecion": "299 USD supera mi presupuesto de 168 y un agente tan autónomo implica mucha implementación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "49 USD es casi cinco veces mi presupuesto y no tengo tiempo de aprender otra herramienta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "89 USD es inviable. Tampoco tengo tiempo de configurarlo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "129 USD es imposible con mis ingresos y no confío en que cobre a mis pacientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C078",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 5.0,
+  "objecion": "299 USD es absurdo para mi escala.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 20.0,
+  "objecion": "49 USD supera mi presupuesto de 18 y no hay soporte humano si falla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "89 USD es demasiado, y sin una persona a quien llamar si falla no lo contrato.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "129 USD es muy caro y sin soporte humano no me atrevo a delegar la cobranza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C079",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "Tiene soporte humano, pero 299 USD es más de 15 veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 60.0,
+  "objecion": "Es útil, pero necesito revisar lo que el agente responde antes de que se envíe.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Solo lo usaría si puedo aprobar cada cotización antes de que salga.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 110.0,
+  "objecion": "129 USD está algo por encima de mi presupuesto de 119. No dejo que un agente reclame pagos sin mi revisión.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C080",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 120.0,
+  "objecion": "Con 0.9 de autonomía, un agente que actúa sin que yo lo revise es justo lo que no acepto. Además, 299 USD es demasiado.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Autonomía baja ayuda, pero quiero revisar lo que responde antes de que salga.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 38.0,
+  "objecion": "Un precio errado en una cotización me cuesta dinero. $89 supera mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "Que un agente cobre a mis clientes sin que yo revise daña la relación. Es caro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C081",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 38.0,
+  "objecion": "90% de autonomía es lo contrario de lo que pido, y $299 es ocho veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 55.0,
+  "objecion": "Si exige configuración larga no lo uso. Debe conectarse con lo que ya tengo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 80.0,
+  "objecion": "Útil, pero no sé si mi catálogo se adapta sin trabajo de configuración.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "$129 sin que me conste el retorno. Otra herramienta que aprender.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C082",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 150.0,
+  "objecion": "Dentro de presupuesto, pero la implementación completa me quita el tiempo que no tengo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "Los datos de mis clientes pasan por un tercero y $49 supera mi presupuesto de $23.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es casi cuatro veces mi presupuesto y no hay garantía de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Maneja datos de cobranza, que son sensibles, y cuesta $129.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C083",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 23.0,
+  "objecion": "Entrega todo mi flujo de clientes a un agente externo por $299.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 45.0,
+  "objecion": "Pagaría menos de $49. Necesito saber dónde se guardan los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 55.0,
+  "objecion": "$89 no entra en mi presupuesto y no veo el ROI.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 60.0,
+  "objecion": "Datos financieros de clientes en manos ajenas, y $129 es el doble de lo que gasto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C084",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 70.0,
+  "objecion": "$299 es inviable y expone todos mis datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 20.0,
+  "objecion": "Me atrae, pero necesito una persona si falla y $49 supera mis $17.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 17.0,
+  "objecion": "$89 es cinco veces mi presupuesto y no veo soporte humano.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 17.0,
+  "objecion": "Demasiado caro para mi tamaño y sin soporte humano claro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C085",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "Tiene soporte humano, pero $299 es imposible con ingresos de $40k al año.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 35.0,
+  "objecion": "Me sirve si responde por mi WhatsApp actual. $49 está algo sobre mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Debe leer mi planilla de precios. $89 es mucho.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 35.0,
+  "objecion": "Buena integración, pero $129 es cuatro veces mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C086",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 31.0,
+  "objecion": "$299 es inalcanzable y no menciona integración con mi WhatsApp.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 40.0,
+  "objecion": "Con baja autonomía puedo revisar. Prefiero pagar menos de $49.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "Cotizar mal en obra es riesgoso. Necesito aprobar cada cotización, y $89 es caro.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 45.0,
+  "objecion": "Cobranza automática sin mi revisión es riesgosa, y $129 es mucho.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C087",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 45.0,
+  "objecion": "Autonomía de 90% y $299 chocan con mi criterio de costo y control.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 80.0,
+  "objecion": "Muéstrame cuántas horas ahorra en consultas antes de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "El ahorro de tiempo suena demostrable, pero quiero un piloto con cifras.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V3",
+  "likert": 4,
+  "precio_max_usd": 150.0,
+  "objecion": "Si demuestra horas y cobros recuperados, lo justifico. Aún sin pruebas propias.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C088",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 200.0,
+  "objecion": "$299 con 90% de autonomía son promesas grandes sin datos y mi perfil es conservador.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 55.0,
+  "objecion": "Debe integrarse con mi WhatsApp y dejarme intervenir cuando quiera.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 70.0,
+  "objecion": "Me preocupa perder control sobre lo que se cotiza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 70.0,
+  "objecion": "Que cobre solo a mis clientes me da miedo, y $129 supera mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C089",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 79.0,
+  "objecion": "Pérdida de control casi total y $299 triplica mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 55.0,
+  "objecion": "Funciona si se integra con mi WhatsApp actual. $49 es aceptable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 65.0,
+  "objecion": "$89 supera mi presupuesto de $70 y debe leer mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 70.0,
+  "objecion": "Buena integración, pero $129 casi duplica lo que gasto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C090",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 90.0,
+  "objecion": "Tiene soporte humano, pero $299 es inviable y es demasiado cambio de una vez.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 30.0,
+  "objecion": "$49 supera mi presupuesto de $41. Para lo que facturo, necesito ver el ahorro antes de pagar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "$89 es más del doble de lo que puedo gastar.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$129 es inviable para mi facturación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C091",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "$299 al mes es absurdo para mi negocio.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 35.0,
+  "objecion": "No sé dónde se almacenan los datos de pacientes. Sin garantías claras de privacidad no lo uso.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "Cotizar con datos de pacientes en la nube me preocupa y el precio excede mi presupuesto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 25.0,
+  "objecion": "La cobranza maneja datos sensibles y el precio es alto. La autonomía me da desconfianza.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C092",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "Un agente casi autónomo con datos de salud es un riesgo legal. Además cuesta $299.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "Tengo $12 de presupuesto. No sé si funciona con mi WhatsApp y mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "$89 es imposible con mi facturación y no veo integración con mi planilla.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "$129 es demasiado, y no sé si se conecta con lo que uso.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C093",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "$299 equivale a más del 15% de mis ingresos mensuales.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V1",
+  "likert": 4,
+  "precio_max_usd": 60.0,
+  "objecion": "Es simple y barato, pero si requiere configuración o capacitación, no lo adopto.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V2",
+  "likert": 4,
+  "precio_max_usd": 100.0,
+  "objecion": "Me sirve y el precio está bien. Dudo de la precisión de las cotizaciones y del tiempo de puesta en marcha.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 110.0,
+  "objecion": "Útil, pero la cobranza automática puede dañar relaciones con clientes. No integra con todo mi flujo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C094",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 180.0,
+  "objecion": "Entra en presupuesto, pero la implementación de punta a punta suena a mucho aprendizaje y riesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$49 supera mi presupuesto y no me queda claro qué pasa con los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$89 es mucho y no hay garantías de privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 18.0,
+  "objecion": "Entregar datos de cobranza a un tercero y pagar $129 no me convence.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C095",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 12.0,
+  "objecion": "$299 y total autonomía con mis datos, de ninguna manera.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 29.0,
+  "objecion": "Me interesa y se integra, pero $49 supera mi presupuesto de $29. Además, no hay soporte humano entre sus fortalezas.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$89 es 3 veces mi presupuesto. Las cotizaciones serían útiles, pero mis ingresos no lo justifican.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 22.0,
+  "objecion": "$129 es inviable con mis ingresos, aunque la integración me atrae.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C096",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 15.0,
+  "objecion": "$299 es más que mi ingreso mensual disponible.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 55.0,
+  "objecion": "Precio razonable, pero me preocupa dónde se guardan los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V2",
+  "likert": 3,
+  "precio_max_usd": 90.0,
+  "objecion": "Útil para ventas, pero necesito saber cómo se tratan los datos y si se integra con mi sistema.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V3",
+  "likert": 3,
+  "precio_max_usd": 120.0,
+  "objecion": "Buena integración, pero la cobranza expone datos sensibles. Quiero control y auditoría.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C097",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 200.0,
+  "objecion": "$299 es alto y con tanta autonomía pierdo el control de los datos de mis clientes.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 42.0,
+  "objecion": "$49 excede mi presupuesto y no veo soporte humano entre sus fortalezas. Si falla, quiero a una persona.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 38.0,
+  "objecion": "$89 es el doble de lo que puedo pagar. Sin soporte humano claro no me arriesgo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 30.0,
+  "objecion": "$129 y cobranza automática sin soporte humano garantizado es mala combinación.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C098",
+  "variante": "V4",
+  "likert": 2,
+  "precio_max_usd": 40.0,
+  "objecion": "Tiene soporte humano, pero $299 está muy fuera de mi alcance y 0.9 de autonomía me asusta.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V1",
+  "likert": 2,
+  "precio_max_usd": 12.0,
+  "objecion": "$49 cuadruplica mi presupuesto y no confío en que responda sin que yo lo revise.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V2",
+  "likert": 1,
+  "precio_max_usd": 10.0,
+  "objecion": "Enviar cotizaciones sin revisión puede costarme clientes, y $89 es inviable.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V3",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Cobranza automática sin mi revisión es un riesgo. $129 es excesivo.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C099",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 8.0,
+  "objecion": "Autonomía de 0.9 y $299 con mis ingresos: no.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V1",
+  "likert": 3,
+  "precio_max_usd": 30.0,
+  "objecion": "$49 supera mi presupuesto de $26. Muéstrame horas ahorradas medidas y dónde van los datos.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V2",
+  "likert": 2,
+  "precio_max_usd": 28.0,
+  "objecion": "$89 es más de tres veces mi presupuesto y sin cifras de horas ahorradas no lo justifico.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V3",
+  "likert": 2,
+  "precio_max_usd": 25.0,
+  "objecion": "$129 es mucho. Necesito evidencia de ahorro en horas y claridad sobre privacidad.",
+  "backend": "hermes"
+ },
+ {
+  "cliente": "C100",
+  "variante": "V4",
+  "likert": 1,
+  "precio_max_usd": 20.0,
+  "objecion": "$299 sin prueba concreta de retorno es una promesa, no un número.",
+  "backend": "hermes"
+ }
+]

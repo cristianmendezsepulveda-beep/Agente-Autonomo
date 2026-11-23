@@ -1,0 +1,79 @@
+{
+ "fecha": "2026-11-22T23:08:58+00:00",
+ "imagen": "alpine:3.20",
+ "veredicto": "CORRECTO",
+ "comprobaciones": [
+  [
+   "sin red (solo loopback)",
+   true,
+   "interfaces: ['lo']"
+  ],
+  [
+   "sin carpetas del host montadas",
+   true,
+   "solo montajes del contenedor"
+  ],
+  [
+   "sin socket de Docker",
+   true,
+   "no hay socket de Docker"
+  ],
+  [
+   "solo capacidades mínimas y no-new-privileges",
+   true,
+   "CapEff=000000000000000b (permitidas 0xb) NoNewPrivs=1"
+  ],
+  [
+   "tope de memoria",
+   true,
+   "memory.max=1610612736 (esperado 1610612736)"
+  ],
+  [
+   "tope de procesos",
+   true,
+   "pids.max=2048 (esperado 2048)"
+  ],
+  [
+   "sin credenciales en el entorno",
+   true,
+   "5 variables, ninguna de credenciales"
+  ]
+ ],
+ "controles": [
+  [
+   "control de red (con red debe ver otra interfaz)",
+   true,
+   "interfaces: ['eth0', 'lo']"
+  ],
+  [
+   "control de montajes (con una carpeta del host montada debe detectarse)",
+   true,
+   "montajes del host: /sondeo (9p)"
+  ],
+  [
+   "control de socket (con un docker.sock presente debe detectarse)",
+   true,
+   "encontrado: /run/docker.sock\n/var/run/docker.sock"
+  ],
+  [
+   "control de privilegios (sin banderas debe tener capacidades de más)",
+   true,
+   "CapEff=00000000a80425fb (permitidas 0xb) NoNewPrivs=0"
+  ],
+  [
+   "control de memoria (sin --memory no debe dar el tope)",
+   true,
+   "memory.max=max (esperado 1610612736)"
+  ],
+  [
+   "control de procesos (sin tope no debe dar 2048)",
+   true,
+   "pids.max=max (esperado 2048)"
+  ],
+  [
+   "control de credenciales (con X_TOKEN en el entorno debe detectarse)",
+   true,
+   "variables sospechosas: X_TOKEN"
+  ]
+ ]
+}

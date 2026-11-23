@@ -1,0 +1,9 @@
+{
+ "id": "e-3c313eae4d24",
+ "creado": "2026-11-22T21:58:57+00:00",
+ "origen": "mcp:escalar_a_humano",
+ "motivo": "Pide cotizar 'un servicio' sin indicar nivel (básico/estándar/premium) ni cantidad",
+ "referencia": "chat-E5",
+ "estado": "cerrado",
+ "cerrado": "2026-11-22T23:00:31+00:00"
+}
