@@ -1,0 +1,1 @@
+factura_id,cliente_ref,email,monto,moneda,fecha_vencimiento,estado,recordatorios_enviados,ultimo_recordatorio
