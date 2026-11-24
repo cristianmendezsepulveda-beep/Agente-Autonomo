@@ -1,21 +1,21 @@
 {
  "archivos": {
-  "agente/bandeja.py": "e2141a9ec87edba665a01927fbd2b5bc19df78a62ea4eb461531f979f6056da1",
+  "agente/bandeja.py": "7bcceca529a2049a42f32d5c71f5d96b17d266d1982b2637cb4492dcd3ae67c5",
   "agente/catalogo.json": "9778aed96710282b091e19b8dafe63bf47fba405a3f5fa5c6f5d4f1b53a08548",
-  "agente/cobranza.py": "6005adee458c93e38d666ba5965833f57f7b5df22c4c0f850ba4450e573128e8",
-  "agente/consultas.py": "00e14cc7ee3430411210e24eaa4589396d74216a96832f132f0f67e10b74d278",
-  "agente/correo.py": "90df855e4bd4bbf1c0fd8383eab2563c2a30bc3f3fab351552c884ed5243aec0",
-  "agente/cotizador.py": "0247b5871c03139814043fd8d20f8ba21489820198272ab7f85d7530e7d8242d",
-  "agente/crm.py": "70e215a89769795a38e5ac6d5ef8ac001b8230bbd46df54b842fa47b90200f03",
-  "agente/nocontacto.py": "35b296ea51cbefd00a6038c42f181debfaa5adcecc40d1db46955b3a4c48a2a4",
-  "agente/revision.py": "99a349d793f030a2917a13ce69bb264db65d15ad6f3d9460047261de29f0895f",
+  "agente/cobranza.py": "c22ef971e9f02bdf2eab8ff6ba321acaa550214dbe0d83757cbfd3c2cb2c25b8",
+  "agente/consultas.py": "22f6687c07f36c37d8f0410d17e4c49e7d562c3033eeab9ecf5e4be2bafc50d1",
+  "agente/correo.py": "aa3c658055c142e3a4509fbb5e73f514fd3f478406b0f22d14402a843fe834cf",
+  "agente/cotizador.py": "75941970444f50d672433d893b10dc216607d6a4ad16ce80bb14b741b305a72c",
+  "agente/crm.py": "8b182fb89eaf0a4c9ae21c3ad6510880ab8c52c0e1a458083e395d8a491bc124",
+  "agente/nocontacto.py": "ae5ad13b522dd37b9ff9197f45f2e3fc2cc2057d28850692771ca35e0f611368",
+  "agente/revision.py": "762c9bb34df7ad353bfb32c70c3c59c409820ea4409894b95897bd4555eb8634",
   "mcp/policy.json": "e513ee021266de5412e334bec116b6fc82c44c915aafb83b16a8560c2f2a636b",
-  "mcp/servidor.py": "2e3738d9f610d2a4827bc1fc9ace97bc908fe61350531747473ace1bef3675fa",
-  "sandbox/_lock.py": "56afc74f1dd187429cd0911fae55871f0c1beaf96a7889d725af901cb50cfd50",
-  "sandbox/audit_log.py": "74e10c0d2947b77ec7fb034e823b14db2ff120bf1a6a7eebf0e0d27ea9b2a18c",
-  "sandbox/budget_guard.py": "9c12714d049b5f0f80e722f4a4d62000a9fc3b472442f8827452bdd46c02c490",
+  "mcp/servidor.py": "5e9e28abdb76461a9c4a0fa62ba4b3db3a1f2cbc69f8c7c9d003cc24d644e07c",
+  "sandbox/_lock.py": "65e2494172a4383fb2f4ed9e1237955be03133b5800f68b646f65bdb7acc31f4",
+  "sandbox/audit_log.py": "1b7a7615efa42557733c101fdc25f0b68c250db5346f64299392186dcc4e993c",
+  "sandbox/budget_guard.py": "1f20e67234ea8be9ea4350214cd9c6028f011a67b202ed2eed1906668d9fd0ac",
   "sandbox/policy.json": "cb78b7e5957d6b8dcce045928e49c75ac0dcef21a756fe873ca5abf35ddec362",
-  "sandbox/policy.py": "937369bdd56a77997f10c8de8a0b520a055f79e9064c79a1b46fc8821cd2c300"
+  "sandbox/policy.py": "dae26585ae612063abdca4d3e547928186e2e3acdf9729f5459b1919a90143e8"
  },
  "manifiesto": "ea73d9df5307dcbecbfa1c3934387a27fbe8d4723a3a0496dbbf13c171533796"
 }
